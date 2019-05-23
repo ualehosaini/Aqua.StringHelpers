@@ -23,5 +23,23 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.IsNullOrWhiteSpace());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(null, null)]
+        [InlineData("ABC123", "321CBA")]
+        [InlineData("12345+", "+54321")]
+        public void Reverse_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.Reverse());
+        }
+
+        [Theory]
+        [InlineData("ABC123", "ABC123")]
+        [InlineData("12345+", "11+54321")]
+        public void Reverse_InValid(string input, string expected)
+        {
+            Assert.NotEqual(expected, input.Reverse());
+        }
     }
 }

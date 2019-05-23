@@ -1,4 +1,6 @@
-﻿namespace Aqua.StringHelpers
+﻿using System;
+
+namespace Aqua.StringHelpers
 {
     public static class StringHelpers
     {
@@ -20,6 +22,23 @@
         public static bool IsNullOrWhiteSpace(this string s)
         {
             return string.IsNullOrWhiteSpace(s);
+        }
+
+        /// <summary>
+        /// Reverse the input string
+        /// </summary>
+        /// <param name="s">text</param>
+        /// <returns>reversed text</returns>
+        public static string Reverse(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            char[] chars = s.ToCharArray();
+            Array.Reverse(chars);
+            return new string(chars);
         }
 
     }
