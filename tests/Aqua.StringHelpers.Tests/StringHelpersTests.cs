@@ -51,5 +51,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.IsAlphaNumeric());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("lorem     ipsum dolor    ", "lorem ipsum dolor")]
+        [InlineData("  lorem     ipsum   dolor", "lorem ipsum dolor")]
+        public void RemoveExtraSpaces_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.RemoveExtraSpaces());
+        }
     }
 }
