@@ -26,6 +26,21 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
+        /// Is the string alphanumeric?
+        /// </summary>
+        /// <param name="s">text</param>
+        /// <returns>true/false</returns>
+        public static bool IsAlphaNumeric(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            Regex reg_exp = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
+
+            return !reg_exp.IsMatch(s); ;
+        }
+
+        /// <summary>
         /// Reverse the input string
         /// </summary>
         /// <param name="s">text</param>
@@ -40,21 +55,6 @@ namespace Aqua.StringHelpers
             char[] chars = s.ToCharArray();
             Array.Reverse(chars);
             return new string(chars);
-        }
-
-        /// <summary>
-        /// Is the string alphanumeric?
-        /// </summary>
-        /// <param name="s">text</param>
-        /// <returns>true/false</returns>
-        public static bool IsAlphaNumeric(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return false;
-
-            Regex reg_exp = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
-
-            return !reg_exp.IsMatch(s); ;
         }
 
         /// <summary>

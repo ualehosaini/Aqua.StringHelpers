@@ -25,6 +25,16 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData("ABC123", true)]
+        [InlineData("abcDEF1234", true)]
+        [InlineData("jdshj+03-98>22", false)]
+        [InlineData("43434bdcd333 ", false)]
+        public void IsAlphaNumeric_Valid(string input, bool expected)
+        {
+            Assert.Equal(expected, input.IsAlphaNumeric());
+        }
+
+        [Theory]
         [InlineData("", "")]
         [InlineData(null, null)]
         [InlineData("ABC123", "321CBA")]
@@ -40,16 +50,6 @@ namespace Aqua.StringHelpers.Tests
         public void Reverse_InValid(string input, string expected)
         {
             Assert.NotEqual(expected, input.Reverse());
-        }
-
-        [Theory]
-        [InlineData("ABC123", true)]
-        [InlineData("abcDEF1234", true)]
-        [InlineData("jdshj+03-98>22", false)]
-        [InlineData("43434bdcd333 ", false)]
-        public void IsAlphaNumeric_Valid(string input, bool expected)
-        {
-            Assert.Equal(expected, input.IsAlphaNumeric());
         }
 
         [Theory]
