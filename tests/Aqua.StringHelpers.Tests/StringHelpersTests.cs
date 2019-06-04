@@ -62,5 +62,24 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.RemoveExtraSpaces());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("lorem      ipsum dolor ", "lorem ipsum dolor")]
+        [InlineData("       lorem       ipsum       dolor", "lorem ipsum dolor")]
+        public void ReplaceTabsWithSpaces_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.RemoveExtraSpaces());
+        }
+
+        [Theory]
+        [InlineData("lorem      ipsum   dolor", "lorem      ipsum   dolor")]
+        [InlineData("   lorem      ipsum   dolor", "abcd lorem      ipsum   dolor")]
+        public void ReplaceTabsWithSpaces_InValid(string input, string expected)
+        {
+            Assert.NotEqual(expected, input.RemoveExtraSpaces());
+        }
     }
 }

@@ -77,5 +77,20 @@ namespace Aqua.StringHelpers
             return rx.Replace(s, replacement).Trim();
         }
 
+        /// <summary>
+        /// Replace the Tabs with Spaces and remove the extra spaces
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ReplaceTabsWithSpaces(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            return s.Replace("\t", " ").RemoveExtraSpaces();
+        }
+
     }
 }
