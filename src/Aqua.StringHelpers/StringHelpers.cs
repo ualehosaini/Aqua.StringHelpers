@@ -92,5 +92,20 @@ namespace Aqua.StringHelpers
             return s.Replace("\t", " ").RemoveExtraSpaces();
         }
 
+        /// <summary>
+        /// Replace the New Line Chars with Spaces and remove the extra spaces
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ReplaceNewLinesWithSpaces(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            return s.Replace("\n", " ").RemoveExtraSpaces();
+        }
+
     }
 }
