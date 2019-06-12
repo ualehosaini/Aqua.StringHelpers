@@ -99,5 +99,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.NotEqual(expected, input.RemoveExtraSpaces());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("   lorem\nipsum  dolor\n  ", "lorem ipsum dolor")]
+        [InlineData("\tlorem\nipsum    dolor\n     ", "lorem ipsum dolor")]
+        public void ToCleanString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.RemoveExtraSpaces());
+        }
     }
 }

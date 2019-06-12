@@ -107,5 +107,20 @@ namespace Aqua.StringHelpers
             return s.Replace("\n", " ").RemoveExtraSpaces();
         }
 
+        /// <summary>
+        /// Clean the text from the tabs, New Line Chars, and Extra Spaces
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToCleanString(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            return s.Replace("\n", " ").Replace("\t", " ").RemoveExtraSpaces();
+        }
+
     }
 }
