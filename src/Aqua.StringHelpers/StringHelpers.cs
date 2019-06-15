@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Aqua.StringHelpers
 {
@@ -120,6 +121,23 @@ namespace Aqua.StringHelpers
             }
 
             return s.Replace("\n", " ").Replace("\t", " ").RemoveExtraSpaces();
+        }
+
+        /// <summary>
+        /// Capitalise Each Word
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string CapitaliseEachWord(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            var x = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
+
+            return x;
         }
 
     }

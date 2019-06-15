@@ -110,5 +110,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.RemoveExtraSpaces());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum dolor", "Lorem Ipsum Dolor")]
+        [InlineData("\tlorem\nipsum    dolor\n     ", "\tLorem\nIpsum    Dolor\n     ")]
+        public void CapitaliseEachWord_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.CapitaliseEachWord());
+        }
     }
 }
