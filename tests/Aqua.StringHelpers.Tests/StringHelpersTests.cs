@@ -121,5 +121,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.CapitaliseEachWord());
         }
+
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData(" ", 1)]
+        [InlineData(null, 0)]
+        [InlineData("lorem ipsum. dolor", 18)]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", 28)]
+        public void GetTotalNumberOfCharachters_Valid(string input, int expected)
+        {
+            Assert.Equal(expected, input.GetTotalNumberOfCharachters());
+        }
     }
 }

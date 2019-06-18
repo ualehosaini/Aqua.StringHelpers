@@ -140,5 +140,18 @@ namespace Aqua.StringHelpers
             return x;
         }
 
+        /// <summary>
+        /// Finds the number of charachters in a string - include/exclude extra spaces, tabs and new line characters
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int GetTotalNumberOfCharachters(this string s, bool clean = false)
+        {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            return clean != true ? s.Length : s.ToCleanString().Length;
+        }
+
     }
 }
