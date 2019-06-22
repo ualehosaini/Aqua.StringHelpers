@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
@@ -151,6 +153,52 @@ namespace Aqua.StringHelpers
                 return 0;
 
             return clean != true ? s.Length : s.ToCleanString().Length;
+        }
+
+        /// <summary>
+        /// Returns Sentence Case of a text
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="seperator"></param>
+        /// <returns></returns>
+        public static string ToSentenceCase(this string s, char seperator)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            s = s.Trim().ToCleanString();
+            if (s.IsNullOrEmpty())
+                return s;
+
+            // Only 1 seperator
+            if (s.IndexOf(seperator) < 0)
+            {
+                s = s.ToLower();
+                s = s[0].ToString().ToUpper() + s.Substring(1);
+                return s;
+            }
+
+            if (s.Trim().Last() == seperator)
+            {
+                s.Trim().Remove(s.Length - 1, 1);
+            }
+
+            // More than 1 seperator.
+            string[] sentences = s.Split(seperator);
+            StringBuilder buffer = new StringBuilder();
+
+            foreach (string sentence in sentences)
+            {
+                string currentSentence = sentence.ToLower().Trim();
+                if (!string.IsNullOrWhiteSpace(currentSentence))
+                {
+                    currentSentence = currentSentence[0].ToString().ToUpper() + currentSentence.Substring(1);
+                    buffer.Append(currentSentence + seperator + ' ');
+                }
+            }
+
+            s = buffer.ToString();
+            return s.Trim();
         }
 
     }
