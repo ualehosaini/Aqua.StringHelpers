@@ -201,5 +201,30 @@ namespace Aqua.StringHelpers
             return s.Trim();
         }
 
+        /// <summary>
+        /// Finds the number of words in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int GetTotalNumberOfWords(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return 0;
+
+            int result = 1;
+
+            s = s.ToCleanString();
+
+            for (int i = 0; i <= s.Length - 1; i++)
+            {
+                if (s[i] == ' ')
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+
     }
 }

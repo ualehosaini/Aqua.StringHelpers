@@ -143,5 +143,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToSentenceCase('.'));
         }
+
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData(" ", 0)]
+        [InlineData(null, 0)]
+        [InlineData("lorem ipsum. dolor", 3)]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", 3)]
+        public void GetTotalNumberOfWords_Valid(string input, int expected)
+        {
+            Assert.Equal(expected, input.GetTotalNumberOfWords());
+        }
     }
 }
