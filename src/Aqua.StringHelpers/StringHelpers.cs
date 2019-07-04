@@ -226,5 +226,29 @@ namespace Aqua.StringHelpers
             return result;
         }
 
+        /// <summary>
+        /// To Abbreviation
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToAbbreviation(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+            {
+                return s;
+            }
+
+            string result = string.Empty;
+
+            string[] words = s.ToCleanString().Split(' ');
+
+            foreach (string word in words)
+            {
+                result += char.ToUpper(word[0]);
+            }
+
+            return result;
+        }
+
     }
 }

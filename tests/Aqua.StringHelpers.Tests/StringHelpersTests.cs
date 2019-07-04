@@ -154,5 +154,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.GetTotalNumberOfWords());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor lorem", "LIDL")]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
+        public void ToAbbreviation_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToAbbreviation());
+        }
     }
 }
