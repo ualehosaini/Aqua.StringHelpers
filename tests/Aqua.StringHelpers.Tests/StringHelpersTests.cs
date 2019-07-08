@@ -165,5 +165,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToAbbreviation());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor lorem", "ipsum.")]
+        [InlineData("\tlorem\nipsum    dolor\n     ", "lorem")]
+        public void GetFirstLongestWord_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.GetFirstLongestWord());
+        }
     }
 }

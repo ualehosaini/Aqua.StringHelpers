@@ -250,5 +250,21 @@ namespace Aqua.StringHelpers
             return result;
         }
 
+        /// <summary>
+        /// Get The Longest Word in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetFirstLongestWord(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return s;
+
+            return s.ToCleanString()
+                    .Split(' ')
+                    .OrderByDescending(word => word.Length)
+                    .First();
+        }
+
     }
 }
