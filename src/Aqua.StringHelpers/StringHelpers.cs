@@ -266,5 +266,23 @@ namespace Aqua.StringHelpers
                     .First();
         }
 
+        /// <summary>
+        /// Convert string to Hyperlink
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHyperlink(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.IsNullOrWhiteSpace())
+                return string.Empty;
+
+            Regex r = new Regex("(https?://[^ ]+)");
+
+            return r.Replace(s, "<a href=\"$1\" target=\"_blank\">$1</a>");
+        }
+
     }
 }
