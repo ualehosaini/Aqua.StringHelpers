@@ -187,5 +187,21 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToHyperlink());
         }
+
+        [Theory]
+        [MemberData(nameof(ToDistinctListOfWordsData))]
+        public void ToDistinctListOfWords_Valid(string input, List<string> expected)
+        {
+            Assert.Equal(expected, input.ToDistinctListOfWords());
+        }
+
+        public static IEnumerable<object[]> ToDistinctListOfWordsData =>
+            new List<object[]>
+                {
+                    new object[]{"", new List<string>()},
+                    new object[]{" ", new List<string>()},
+                    new object[]{null, new List<string>()},
+                    new object[]{ "lorem ipsum dolor lorem", new List<string> { "dolor", "ipsum", "lorem" } }
+                };
     }
 }

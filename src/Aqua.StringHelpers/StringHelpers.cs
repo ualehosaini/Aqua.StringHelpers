@@ -284,5 +284,34 @@ namespace Aqua.StringHelpers
             return r.Replace(s, "<a href=\"$1\" target=\"_blank\">$1</a>");
         }
 
+        /// <summary>
+        /// Return List of distinct words of a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static List<string> ToDistinctListOfWords(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return new List<string>();
+
+            // Use regular expressions to replace characters
+            // that are not letters or numbers with spaces.
+            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
+            s = reg_exp.Replace(s, " ");
+
+            // Split the text into words.
+            string[] words = s.Split(
+                new char[] { ' ' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            var word_query =
+                (from string word in words
+                 orderby word
+                 select word).Distinct();
+
+            return word_query.ToList();
+
+        }
+
     }
 }
