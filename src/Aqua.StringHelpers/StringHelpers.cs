@@ -313,5 +313,28 @@ namespace Aqua.StringHelpers
 
         }
 
+        /// <summary>
+        /// Finds the number of lines in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int GetTotalNumberOfLines(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return 0;
+
+            int result = 1;
+
+            for (int i = 0; i <= s.Length - 1; i++)
+            {
+                if (s[i] == '\n')
+                {
+                    result++;
+                }
+            }
+
+            return result;
+        }
+
     }
 }

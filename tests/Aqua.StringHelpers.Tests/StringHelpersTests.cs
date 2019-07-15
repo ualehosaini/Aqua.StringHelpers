@@ -203,5 +203,16 @@ namespace Aqua.StringHelpers.Tests
                     new object[]{null, new List<string>()},
                     new object[]{ "lorem ipsum dolor lorem", new List<string> { "dolor", "ipsum", "lorem" } }
                 };
+
+        [Theory]
+        [InlineData("", 0)]
+        [InlineData(" ", 0)]
+        [InlineData(null, 0)]
+        [InlineData("lorem ipsum. dolor", 1)]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", 3)]
+        public void GetTotalNumberOfLines_Valid(string input, int expected)
+        {
+            Assert.Equal(expected, input.GetTotalNumberOfLines());
+        }
     }
 }
