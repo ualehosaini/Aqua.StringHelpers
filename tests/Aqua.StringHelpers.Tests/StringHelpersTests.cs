@@ -226,5 +226,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToNcharAbbreviation(3));
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lor ipsum. dol lorem", "lor")]
+        [InlineData("\tlorem\nipsum    dol\n     ", "dol")]
+        public void GetFirstShortestWord_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.GetFirstShortestWord());
+        }
     }
 }

@@ -366,5 +366,22 @@ namespace Aqua.StringHelpers
             return result;
         }
 
+        /// <summary>
+        /// Get The Shortest Word in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetFirstShortestWord(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return s;
+
+            return s.ToCleanString()
+                    .Split(' ')
+                    .OrderBy(word => word.Length)
+                    .First();
+        }
+
+
     }
 }
