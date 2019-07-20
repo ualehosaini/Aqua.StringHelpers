@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xunit;
 
 namespace Aqua.StringHelpers.Tests
@@ -213,6 +214,17 @@ namespace Aqua.StringHelpers.Tests
         public void GetTotalNumberOfLines_Valid(string input, int expected)
         {
             Assert.Equal(expected, input.GetTotalNumberOfLines());
+        }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor lorem", "LID")]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
+        public void ToNcharAbbreviation_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToNcharAbbreviation(3));
         }
     }
 }

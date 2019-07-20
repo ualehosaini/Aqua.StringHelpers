@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -331,6 +332,35 @@ namespace Aqua.StringHelpers
                 {
                     result++;
                 }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// To N Number of Charachters Abbreviation
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string ToNcharAbbreviation(this string s, int n)
+        {
+            if (s.IsNullOrWhiteSpace())
+            {
+                return s;
+            }
+
+            int numberOfWords = s.GetTotalNumberOfWords();
+
+            int abbreviationLength = numberOfWords >= n ? n : numberOfWords;
+
+            string result = string.Empty;
+
+            string[] words = s.ToCleanString().Split(' ');
+
+            for (int i = 0; i < abbreviationLength; i++)
+            {
+                result += char.ToUpper(words[i][0]);
             }
 
             return result;
