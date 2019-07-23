@@ -382,6 +382,20 @@ namespace Aqua.StringHelpers
                     .First();
         }
 
+        /// <summary>
+        /// Convert string to HTML format (Replacing \n with equivelent HTML Tag)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHtml(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            s = Regex.Replace(s, @"\n\r?", "<br/>");
+
+            return s.ToHyperlink();
+        }
 
     }
 }
