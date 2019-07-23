@@ -237,5 +237,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.GetFirstShortestWord());
         }
+
+        [Theory]
+        [InlineData("", "lorem", 0)]
+        [InlineData(" ", "lorem", 0)]
+        [InlineData(null, "lorem", 0)]
+        [InlineData("lorem ipsum. dolor lorem", "lorem", 2)]
+        [InlineData("\tlorem\nipsum    dolor\n   lorem lorem  ", "lorem lorem", 1)]
+        public void CountStringOccurrences_Valid(string input, string pattern, int expected)
+        {
+            Assert.Equal(expected, input.CountStringOccurrences(pattern));
+        }
     }
 }

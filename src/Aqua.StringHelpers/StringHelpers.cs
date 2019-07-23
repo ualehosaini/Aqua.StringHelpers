@@ -397,5 +397,38 @@ namespace Aqua.StringHelpers
             return s.ToHyperlink();
         }
 
+
+        /// <summary>
+        /// Counts the Occurrences of a pattern in a text, The default is Case Sensitive search
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="pattern"></param>
+        /// <param name="isCaseSensitive"></param>
+        /// <returns></returns>
+        public static int CountStringOccurrences(this string s, string pattern, bool isCaseSensitive = true)
+        {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            if (pattern.IsNullOrEmpty())
+                return 0;
+
+            if (isCaseSensitive != true)
+            {
+                s.ToLower();
+                pattern.ToLower();
+            }
+
+            int count = 0;
+            int i = 0;
+            while ((i = s.IndexOf(pattern, i)) != -1)
+            {
+                i += pattern.Length;
+                count++;
+            }
+            return count;
+        }
+
+
     }
 }
