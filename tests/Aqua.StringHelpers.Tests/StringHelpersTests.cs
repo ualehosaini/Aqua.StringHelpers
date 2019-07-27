@@ -248,5 +248,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.CountStringOccurrences(pattern));
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("http://testte333333st.com", "httptestte333333stcom")]
+        public void ToAlphaNumericString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToAlphaNumericString());
+        }
     }
 }

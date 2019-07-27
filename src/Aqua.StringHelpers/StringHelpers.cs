@@ -429,6 +429,21 @@ namespace Aqua.StringHelpers
             return count;
         }
 
+        /// <summary>
+        /// Remove all charachters rather than letters and numbers
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToAlphaNumericString(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
 
+            // Use regular expressions to replace characters
+            // that are not letters or numbers with spaces.
+            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
+            return reg_exp.Replace(s, string.Empty).ToCleanString();
+
+        }
     }
 }
