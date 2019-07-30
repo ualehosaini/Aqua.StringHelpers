@@ -45,6 +45,22 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
+        /// Is the URL string is valid?
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsValidURL(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            if (s.IsNullOrWhiteSpace())
+                return false;
+
+            return Uri.TryCreate(s, UriKind.RelativeOrAbsolute, out Uri uriResult);
+        }
+
+        /// <summary>
         /// Reverse the input string
         /// </summary>
         /// <param name="s">text</param>
@@ -446,20 +462,6 @@ namespace Aqua.StringHelpers
 
         }
 
-        /// <summary>
-        /// Is the URL string is valid?
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool IsValidURL(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return false;
 
-            if (s.IsNullOrWhiteSpace())
-                return false;
-
-            return Uri.TryCreate(s, UriKind.RelativeOrAbsolute, out Uri uriResult);
-        }
     }
 }
