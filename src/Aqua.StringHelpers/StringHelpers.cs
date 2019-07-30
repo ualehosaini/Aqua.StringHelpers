@@ -143,33 +143,136 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
-        /// Capitalise Each Word
+        /// Remove all charachters rather than letters and numbers
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string CapitaliseEachWord(this string s)
+        public static string ToAlphaNumericString(this string s)
         {
             if (s.IsNullOrEmpty())
+                return s;
+
+            // Use regular expressions to replace characters
+            // that are not letters or numbers with spaces.
+            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
+            return reg_exp.Replace(s, string.Empty).ToCleanString();
+
+        }
+
+        /// <summary>
+        /// Convert string to HTML format (Replacing \n with equivelent HTML Tag)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHtml(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            s = Regex.Replace(s, @"\n\r?", "<br/>");
+
+            return s.ToHyperlink();
+        }
+
+        /// <summary>
+        /// To N Number of Charachters Abbreviation
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static string ToNcharAbbreviation(this string s, int n)
+        {
+            if (s.IsNullOrWhiteSpace())
             {
                 return s;
             }
 
-            var x = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
+            int numberOfWords = s.GetTotalNumberOfWords();
 
-            return x;
+            int abbreviationLength = numberOfWords >= n ? n : numberOfWords;
+
+            string result = string.Empty;
+
+            string[] words = s.ToCleanString().Split(' ');
+
+            for (int i = 0; i < abbreviationLength; i++)
+            {
+                result += char.ToUpper(words[i][0]);
+            }
+
+            return result;
         }
 
+
         /// <summary>
-        /// Finds the number of charachters in a string - include/exclude extra spaces, tabs and new line characters
+        /// Return List of distinct words of a string
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static int GetTotalNumberOfCharachters(this string s, bool clean = false)
+        public static List<string> ToDistinctListOfWords(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+                return new List<string>();
+
+            // Use regular expressions to replace characters
+            // that are not letters or numbers with spaces.
+            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
+            s = reg_exp.Replace(s, " ");
+
+            // Split the text into words.
+            string[] words = s.Split(
+                new char[] { ' ' },
+                StringSplitOptions.RemoveEmptyEntries);
+
+            var word_query =
+                (from string word in words
+                 orderby word
+                 select word).Distinct();
+
+            return word_query.ToList();
+
+        }
+
+        /// <summary>
+        /// Convert string to Hyperlink
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToHyperlink(this string s)
         {
             if (s.IsNullOrEmpty())
-                return 0;
+                return s;
 
-            return clean != true ? s.Length : s.ToCleanString().Length;
+            if (s.IsNullOrWhiteSpace())
+                return string.Empty;
+
+            Regex r = new Regex("(https?://[^ ]+)");
+
+            return r.Replace(s, "<a href=\"$1\" target=\"_blank\">$1</a>");
+        }
+
+        /// <summary>
+        /// To Abbreviation
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToAbbreviation(this string s)
+        {
+            if (s.IsNullOrWhiteSpace())
+            {
+                return s;
+            }
+
+            string result = string.Empty;
+
+            string[] words = s.ToCleanString().Split(' ');
+
+            foreach (string word in words)
+            {
+                result += char.ToUpper(word[0]);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -218,6 +321,38 @@ namespace Aqua.StringHelpers
             return s.Trim();
         }
 
+
+        /// <summary>
+        /// Capitalise Each Word
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string CapitaliseEachWord(this string s)
+        {
+            if (s.IsNullOrEmpty())
+            {
+                return s;
+            }
+
+            var x = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
+
+            return x;
+        }
+
+        /// <summary>
+        /// Finds the number of charachters in a string - include/exclude extra spaces, tabs and new line characters
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int GetTotalNumberOfCharachters(this string s, bool clean = false)
+        {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            return clean != true ? s.Length : s.ToCleanString().Length;
+        }
+
+
         /// <summary>
         /// Finds the number of words in a string
         /// </summary>
@@ -243,29 +378,7 @@ namespace Aqua.StringHelpers
             return result;
         }
 
-        /// <summary>
-        /// To Abbreviation
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToAbbreviation(this string s)
-        {
-            if (s.IsNullOrWhiteSpace())
-            {
-                return s;
-            }
 
-            string result = string.Empty;
-
-            string[] words = s.ToCleanString().Split(' ');
-
-            foreach (string word in words)
-            {
-                result += char.ToUpper(word[0]);
-            }
-
-            return result;
-        }
 
         /// <summary>
         /// Get The Longest Word in a string
@@ -283,52 +396,8 @@ namespace Aqua.StringHelpers
                     .First();
         }
 
-        /// <summary>
-        /// Convert string to Hyperlink
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToHyperlink(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
 
-            if (s.IsNullOrWhiteSpace())
-                return string.Empty;
 
-            Regex r = new Regex("(https?://[^ ]+)");
-
-            return r.Replace(s, "<a href=\"$1\" target=\"_blank\">$1</a>");
-        }
-
-        /// <summary>
-        /// Return List of distinct words of a string
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static List<string> ToDistinctListOfWords(this string s)
-        {
-            if (s.IsNullOrWhiteSpace())
-                return new List<string>();
-
-            // Use regular expressions to replace characters
-            // that are not letters or numbers with spaces.
-            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
-            s = reg_exp.Replace(s, " ");
-
-            // Split the text into words.
-            string[] words = s.Split(
-                new char[] { ' ' },
-                StringSplitOptions.RemoveEmptyEntries);
-
-            var word_query =
-                (from string word in words
-                 orderby word
-                 select word).Distinct();
-
-            return word_query.ToList();
-
-        }
 
         /// <summary>
         /// Finds the number of lines in a string
@@ -353,34 +422,7 @@ namespace Aqua.StringHelpers
             return result;
         }
 
-        /// <summary>
-        /// To N Number of Charachters Abbreviation
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="n"></param>
-        /// <returns></returns>
-        public static string ToNcharAbbreviation(this string s, int n)
-        {
-            if (s.IsNullOrWhiteSpace())
-            {
-                return s;
-            }
 
-            int numberOfWords = s.GetTotalNumberOfWords();
-
-            int abbreviationLength = numberOfWords >= n ? n : numberOfWords;
-
-            string result = string.Empty;
-
-            string[] words = s.ToCleanString().Split(' ');
-
-            for (int i = 0; i < abbreviationLength; i++)
-            {
-                result += char.ToUpper(words[i][0]);
-            }
-
-            return result;
-        }
 
         /// <summary>
         /// Get The Shortest Word in a string
@@ -398,20 +440,7 @@ namespace Aqua.StringHelpers
                     .First();
         }
 
-        /// <summary>
-        /// Convert string to HTML format (Replacing \n with equivelent HTML Tag)
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToHtml(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
 
-            s = Regex.Replace(s, @"\n\r?", "<br/>");
-
-            return s.ToHyperlink();
-        }
 
 
         /// <summary>
@@ -444,24 +473,5 @@ namespace Aqua.StringHelpers
             }
             return count;
         }
-
-        /// <summary>
-        /// Remove all charachters rather than letters and numbers
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToAlphaNumericString(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-            // Use regular expressions to replace characters
-            // that are not letters or numbers with spaces.
-            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
-            return reg_exp.Replace(s, string.Empty).ToCleanString();
-
-        }
-
-
     }
 }

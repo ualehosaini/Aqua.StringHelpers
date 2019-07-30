@@ -125,6 +125,76 @@ namespace Aqua.StringHelpers.Tests
 
         [Theory]
         [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("http://testte333333st.com", "httptestte333333stcom")]
+        public void ToAlphaNumericString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToAlphaNumericString());
+        }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor lorem", "LID")]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
+        public void ToNcharAbbreviation_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToNcharAbbreviation(3));
+        }
+
+        [Theory]
+        [MemberData(nameof(ToDistinctListOfWordsData))]
+        public void ToDistinctListOfWords_Valid(string input, List<string> expected)
+        {
+            Assert.Equal(expected, input.ToDistinctListOfWords());
+        }
+
+        public static IEnumerable<object[]> ToDistinctListOfWordsData =>
+            new List<object[]>
+                {
+                    new object[]{"", new List<string>()},
+                    new object[]{" ", new List<string>()},
+                    new object[]{null, new List<string>()},
+                    new object[]{ "lorem ipsum dolor lorem", new List<string> { "dolor", "ipsum", "lorem" } }
+                };
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("https://testest.com", "<a href=\"https://testest.com\" target=\"_blank\">https://testest.com</a>")]
+        [InlineData("http://testest.com/test/test", "<a href=\"http://testest.com/test/test\" target=\"_blank\">http://testest.com/test/test</a>")]
+        public void ToHyperlink_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToHyperlink());
+        }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor lorem", "LIDL")]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
+        public void ToAbbreviation_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToAbbreviation());
+        }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("lorem ipsum. dolor", "Lorem ipsum. Dolor.")]
+        [InlineData("\tlorem\nipsum.    dolor\n     ", "Lorem ipsum. Dolor.")]
+        public void ToSentenceCase_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToSentenceCase('.'));
+        }
+
+        [Theory]
+        [InlineData("", "")]
         [InlineData(" ", " ")]
         [InlineData(null, null)]
         [InlineData("lorem ipsum dolor", "Lorem Ipsum Dolor")]
@@ -146,17 +216,6 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", "")]
-        [InlineData(null, null)]
-        [InlineData("lorem ipsum. dolor", "Lorem ipsum. Dolor.")]
-        [InlineData("\tlorem\nipsum.    dolor\n     ", "Lorem ipsum. Dolor.")]
-        public void ToSentenceCase_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToSentenceCase('.'));
-        }
-
-        [Theory]
         [InlineData("", 0)]
         [InlineData(" ", 0)]
         [InlineData(null, 0)]
@@ -167,16 +226,6 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.GetTotalNumberOfWords());
         }
 
-        [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", " ")]
-        [InlineData(null, null)]
-        [InlineData("lorem ipsum. dolor lorem", "LIDL")]
-        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
-        public void ToAbbreviation_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToAbbreviation());
-        }
 
         [Theory]
         [InlineData("", "")]
@@ -189,32 +238,8 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.GetFirstLongestWord());
         }
 
-        [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", "")]
-        [InlineData(null, null)]
-        [InlineData("https://testest.com", "<a href=\"https://testest.com\" target=\"_blank\">https://testest.com</a>")]
-        [InlineData("http://testest.com/test/test", "<a href=\"http://testest.com/test/test\" target=\"_blank\">http://testest.com/test/test</a>")]
-        public void ToHyperlink_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToHyperlink());
-        }
 
-        [Theory]
-        [MemberData(nameof(ToDistinctListOfWordsData))]
-        public void ToDistinctListOfWords_Valid(string input, List<string> expected)
-        {
-            Assert.Equal(expected, input.ToDistinctListOfWords());
-        }
 
-        public static IEnumerable<object[]> ToDistinctListOfWordsData =>
-            new List<object[]>
-                {
-                    new object[]{"", new List<string>()},
-                    new object[]{" ", new List<string>()},
-                    new object[]{null, new List<string>()},
-                    new object[]{ "lorem ipsum dolor lorem", new List<string> { "dolor", "ipsum", "lorem" } }
-                };
 
         [Theory]
         [InlineData("", 0)]
@@ -227,16 +252,7 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.GetTotalNumberOfLines());
         }
 
-        [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", " ")]
-        [InlineData(null, null)]
-        [InlineData("lorem ipsum. dolor lorem", "LID")]
-        [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
-        public void ToNcharAbbreviation_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToNcharAbbreviation(3));
-        }
+
 
         [Theory]
         [InlineData("", "")]
@@ -260,15 +276,7 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.CountStringOccurrences(pattern));
         }
 
-        [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", "")]
-        [InlineData(null, null)]
-        [InlineData("http://testte333333st.com", "httptestte333333stcom")]
-        public void ToAlphaNumericString_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToAlphaNumericString());
-        }
+
 
 
     }
