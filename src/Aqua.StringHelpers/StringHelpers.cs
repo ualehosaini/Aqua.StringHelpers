@@ -445,5 +445,21 @@ namespace Aqua.StringHelpers
             return reg_exp.Replace(s, string.Empty).ToCleanString();
 
         }
+
+        /// <summary>
+        /// Is the URL string is valid?
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsValidURL(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            if (s.IsNullOrWhiteSpace())
+                return false;
+
+            return Uri.TryCreate(s, UriKind.RelativeOrAbsolute, out Uri uriResult);
+        }
     }
 }

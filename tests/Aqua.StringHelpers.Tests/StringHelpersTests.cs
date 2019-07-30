@@ -258,5 +258,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToAlphaNumericString());
         }
+
+        [Theory]
+        [InlineData("", false)]
+        [InlineData(" ", false)]
+        [InlineData(null, false)]
+        [InlineData("http://testtest.com", true)]
+        [InlineData("https://testtest.com/test", true)]
+        public void IsValidURL_Valid(string input, bool expected)
+        {
+            Assert.Equal(expected, input.IsValidURL());
+        }
     }
 }
