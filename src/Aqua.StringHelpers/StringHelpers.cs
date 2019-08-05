@@ -473,5 +473,22 @@ namespace Aqua.StringHelpers
             }
             return count;
         }
+
+        /// <summary>
+        /// Remove specific number of chars from at the begining of text
+        /// </summary>
+        /// <param name="s">the text</param>
+        /// <param name="n">the number of characters</param>
+        /// <returns>resulted text</returns>
+        public static string RemoveNumberOfCharsAtBegining(this string s, int n)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (n < 0)
+                throw new ArgumentOutOfRangeException(nameof(n));
+
+            return s.Length < n ? string.Empty : s.Substring(n);
+        }
     }
 }

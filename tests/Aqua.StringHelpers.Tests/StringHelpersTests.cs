@@ -276,7 +276,14 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.CountStringOccurrences(pattern));
         }
 
-
+        [Theory]
+        [InlineData(null, 3, null)]
+        [InlineData("", 3, "")]
+        [InlineData("abcdefgh", 3, "defgh")]
+        public void RemoveNumberOfCharsAtBegining_Valid(string input, int n, string expected)
+        {
+            Assert.Equal(expected, input.RemoveNumberOfCharsAtBegining(n));
+        }
 
 
     }
