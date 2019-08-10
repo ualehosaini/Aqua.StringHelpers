@@ -490,5 +490,18 @@ namespace Aqua.StringHelpers
 
             return s.Length < n ? string.Empty : s.Substring(n);
         }
+
+        /// <summary>
+        /// Remove All Line Breaks in a text
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string RemoveAllLineBreaks(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            return s.Replace("\n", string.Empty).Replace("\r", string.Empty);
+        }
     }
 }

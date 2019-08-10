@@ -285,6 +285,14 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.RemoveNumberOfCharsAtBegining(n));
         }
 
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("abcd\nefgh\n", "abcdefgh")]
+        public void RemoveAllLineBreaks_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.RemoveAllLineBreaks());
+        }
 
     }
 }
