@@ -503,5 +503,15 @@ namespace Aqua.StringHelpers
 
             return s.Replace("\n", string.Empty).Replace("\r", string.Empty);
         }
+
+        /// <summary>
+        /// If the string is null convert it to empty
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string IfNullReturnEmptyString(this string s)
+        {
+            return s ?? string.Empty;
+        }
     }
 }

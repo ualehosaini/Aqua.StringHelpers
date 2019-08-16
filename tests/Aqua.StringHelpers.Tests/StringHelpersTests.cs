@@ -294,5 +294,12 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.RemoveAllLineBreaks());
         }
 
+        [Theory]
+        [InlineData(null, "")]
+        public void IfNullReturnEmptyString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.IfNullReturnEmptyString());
+        }
+
     }
 }
