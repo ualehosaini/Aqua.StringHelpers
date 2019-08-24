@@ -513,5 +513,23 @@ namespace Aqua.StringHelpers
         {
             return s ?? string.Empty;
         }
+
+        /// <summary>
+        /// Get Domain Part of a valid URL string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetUrlDomain(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.IsNullOrWhiteSpace())
+                return string.Empty;
+
+            var match = Regex.Match(s, @"^http[s]?[:/]+[^/]+");
+
+            return match.Success ? match.Captures[0].Value : s;
+        }
     }
 }

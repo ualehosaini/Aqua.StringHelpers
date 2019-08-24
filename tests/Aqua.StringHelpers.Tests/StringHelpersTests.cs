@@ -301,5 +301,15 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.IfNullReturnEmptyString());
         }
 
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("http://testtest.com", "http://testtest.com")]
+        [InlineData("https://testtest.com/test", "https://testtest.com")]
+        public void GetUrlDomain_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.GetUrlDomain());
+        }
     }
 }
