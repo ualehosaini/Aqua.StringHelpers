@@ -311,5 +311,16 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.GetUrlDomain());
         }
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("c:\\abcq\\abcd.txt", "txt")]
+        [InlineData("http://testte333333st.com/test.pdf", "pdf")]
+        public void GetFileExtension_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.GetFileExtension());
+        }
     }
 }

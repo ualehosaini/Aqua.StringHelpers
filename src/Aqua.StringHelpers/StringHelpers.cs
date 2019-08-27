@@ -531,5 +531,23 @@ namespace Aqua.StringHelpers
 
             return match.Success ? match.Captures[0].Value : s;
         }
+
+        /// <summary>
+        /// Extract the file extension from a valid path string or returns empty string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string GetFileExtension(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            int pos = s.LastIndexOf('.');
+
+            if (pos < 0)
+                return string.Empty;
+
+            return s.Substring(pos + 1).Trim();
+        }
     }
 }
