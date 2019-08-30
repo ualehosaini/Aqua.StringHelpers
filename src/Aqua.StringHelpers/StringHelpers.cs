@@ -549,5 +549,18 @@ namespace Aqua.StringHelpers
 
             return s.Substring(pos + 1).Trim();
         }
+
+        /// <summary>
+        /// Get Domain Part of a valid URL
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
+        public static string GetUrlDomain(this Uri uri)
+        {
+            if (uri.ToString().IsNullOrEmpty())
+                return uri.ToString();
+
+            return uri.ToString().GetUrlDomain();
+        }
     }
 }
