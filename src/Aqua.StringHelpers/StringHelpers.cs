@@ -562,5 +562,22 @@ namespace Aqua.StringHelpers
 
             return uri.ToString().GetUrlDomain();
         }
+
+        /// <summary>
+        /// Extract String Array from Delimited String
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
+        public static string[] ToStringArrayFromDelimitedString(this string s, char delimiter)
+        {
+            if (s.IsNullOrEmpty())
+                return new string[0];
+
+            if (s.IsNullOrWhiteSpace())
+                return new string[0];
+
+            return s.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }

@@ -322,5 +322,21 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.GetFileExtension());
         }
+
+        [Theory]
+        [MemberData(nameof(ToStringArrayFromDelimitedStringData))]
+        public void ToStringArrayFromDelimitedString_Valid(string input, string[] expected)
+        {
+            Assert.Equal(expected, input.ToStringArrayFromDelimitedString(','));
+        }
+
+        public static IEnumerable<object[]> ToStringArrayFromDelimitedStringData =>
+            new List<object[]>
+                {
+                    new object[]{"", new string[0]},
+                    new object[]{" ", new string[0]},
+                    new object[]{null, new string[0]},
+                    new object[]{ "lorem, ipsum, dolor, lorem", new string[] { "lorem", " ipsum", " dolor", " lorem" } }
+                };
     }
 }
