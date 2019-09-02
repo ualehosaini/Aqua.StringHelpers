@@ -338,5 +338,16 @@ namespace Aqua.StringHelpers.Tests
                     new object[]{null, new string[0]},
                     new object[]{ "lorem, ipsum, dolor, lorem", new string[] { "lorem", " ipsum", " dolor", " lorem" } }
                 };
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("c:\\abcq\\abcd.txt", "cabcqabcdtxt")]
+        [InlineData("http://testte333333st.com/test.pdf", "httptestte333333stcomtestpdf")]
+        public void ToUrlFriendly_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToUrlFriendly());
+        }
     }
 }

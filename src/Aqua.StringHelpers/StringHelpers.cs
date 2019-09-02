@@ -579,5 +579,20 @@ namespace Aqua.StringHelpers
 
             return s.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        /// <summary>
+        /// Generate a Url Friendly String
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToUrlFriendly(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            string result = Regex.Replace(s, @"[^-\w]+", string.Empty);
+
+            return Regex.Replace(result.ToCleanString(), @"\s+", "-");
+        }
     }
 }
