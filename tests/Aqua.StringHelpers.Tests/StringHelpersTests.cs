@@ -349,5 +349,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToUrlFriendly());
         }
+
+        [Theory]
+        [InlineData(' ', false)]
+        [InlineData('5', true)]
+        [InlineData('B', false)]
+        public void IsDigit_Valid(char input, bool expected)
+        {
+            Assert.Equal(expected, input.IsDigit());
+        }
     }
 }

@@ -594,5 +594,15 @@ namespace Aqua.StringHelpers
 
             return Regex.Replace(result.ToCleanString(), @"\s+", "-");
         }
+
+        /// <summary>
+        /// Examines the Char if it is digit (0-9)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool IsDigit(this char c)
+        {
+            return c >= '0' && c <= '9';
+        }
     }
 }
