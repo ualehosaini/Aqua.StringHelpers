@@ -604,5 +604,16 @@ namespace Aqua.StringHelpers
         {
             return c >= '0' && c <= '9';
         }
+
+        /// <summary>
+        /// Return the number of Occurrences of a Char in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="targeted"></param>
+        /// <returns></returns>
+        public static int HowManyOccurrences(this string s, char targeted)
+        {
+            return s.Count(f => f == targeted);
+        }
     }
 }

@@ -358,5 +358,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.IsDigit());
         }
+
+        [Theory]
+        [InlineData("1.5", '.', 1)]
+        [InlineData("rr", 'r', 2)]
+        [InlineData("22se2", '2', 3)]
+        public void HowManyOccurrences_Valid(string input, char c, int expected)
+        {
+            Assert.Equal(expected, input.HowManyOccurrences(c));
+        }
     }
 }
