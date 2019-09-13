@@ -615,5 +615,18 @@ namespace Aqua.StringHelpers
         {
             return s.Count(f => f == targeted);
         }
+
+        /// <summary>
+        /// Examines the String if it is Integer
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsInteger(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            return int.TryParse(s, out _);
+        }
     }
 }
