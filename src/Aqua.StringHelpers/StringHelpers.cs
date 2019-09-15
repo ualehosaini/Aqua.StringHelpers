@@ -628,5 +628,17 @@ namespace Aqua.StringHelpers
 
             return int.TryParse(s, out _);
         }
+
+
+        /// <summary>
+        /// Return the number of Occurrences of a string in a text
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="targeted"></param>
+        /// <returns></returns>
+        public static int HowManyOccurrences(this string s, string targeted)
+        {
+            return s.Split(targeted).Length - 1;
+        }
     }
 }
