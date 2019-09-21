@@ -377,5 +377,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.IsInteger());
         }
+
+        [Theory]
+        [InlineData(null, "..", "..")]
+        [InlineData("", "--", "--")]
+        [InlineData("abcd", "..", "..abcd")]
+        public void AddToBeginingIfMissed_Valid(string input, string value, string expected)
+        {
+            Assert.Equal(expected, input.AddToBeginingIfMissed(value));
+        }
     }
 }

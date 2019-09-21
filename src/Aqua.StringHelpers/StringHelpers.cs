@@ -640,5 +640,23 @@ namespace Aqua.StringHelpers
         {
             return s.Split(targeted).Length - 1;
         }
+
+        /// <summary>
+        /// Add a specific text to the begining if missed
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string AddToBeginingIfMissed(this string s, string value)
+        {
+
+            if (value.IsNullOrEmpty())
+                throw new ArgumentException("the missed text cannot be empty!");
+
+            if (!s.IfNullReturnEmptyString().StartsWith(value, StringComparison.CurrentCulture))
+                s = value + s;
+
+            return s;
+        }
     }
 }
