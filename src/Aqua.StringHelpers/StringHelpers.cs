@@ -61,6 +61,39 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
+        /// Examines the String if it is Integer
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsInteger(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            return int.TryParse(s, out _);
+        }
+
+        /// <summary>
+        /// Examines the Char if it is digit (0-9)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool IsDigit(this char c)
+        {
+            return c >= '0' && c <= '9';
+        }
+
+        /// <summary>
+        /// Examines the String if it is Number
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsNumber(this string s)
+        {
+            return double.TryParse(s, out _);
+        }
+
+        /// <summary>
         /// Reverse the input string
         /// </summary>
         /// <param name="s">text</param>
@@ -596,16 +629,6 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
-        /// Examines the Char if it is digit (0-9)
-        /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        public static bool IsDigit(this char c)
-        {
-            return c >= '0' && c <= '9';
-        }
-
-        /// <summary>
         /// Return the number of Occurrences of a Char in a string
         /// </summary>
         /// <param name="s"></param>
@@ -614,19 +637,6 @@ namespace Aqua.StringHelpers
         public static int HowManyOccurrences(this string s, char targeted)
         {
             return s.Count(f => f == targeted);
-        }
-
-        /// <summary>
-        /// Examines the String if it is Integer
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool IsInteger(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return false;
-
-            return int.TryParse(s, out _);
         }
 
 
@@ -659,14 +669,5 @@ namespace Aqua.StringHelpers
             return s;
         }
 
-        /// <summary>
-        /// Examines the String if it is Number
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool IsNumber(this string s)
-        {
-            return double.TryParse(s, out _);
-        }
     }
 }

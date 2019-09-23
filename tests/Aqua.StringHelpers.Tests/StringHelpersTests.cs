@@ -47,6 +47,35 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData("1.5", true)]
+        [InlineData("rr", false)]
+        [InlineData(null, false)]
+        [InlineData("22se2", false)]
+        public void InNumber_Valid(string input, bool expected)
+        {
+            Assert.Equal(expected, input.IsNumber());
+        }
+
+        [Theory]
+        [InlineData("1", true)]
+        [InlineData("rr", false)]
+        [InlineData(null, false)]
+        [InlineData("22se2", false)]
+        public void InInteger_Valid(string input, bool expected)
+        {
+            Assert.Equal(expected, input.IsInteger());
+        }
+
+        [Theory]
+        [InlineData(' ', false)]
+        [InlineData('5', true)]
+        [InlineData('B', false)]
+        public void IsDigit_Valid(char input, bool expected)
+        {
+            Assert.Equal(expected, input.IsDigit());
+        }
+
+        [Theory]
         [InlineData("", "")]
         [InlineData(null, null)]
         [InlineData("ABC123", "321CBA")]
@@ -351,31 +380,12 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
-        [InlineData(' ', false)]
-        [InlineData('5', true)]
-        [InlineData('B', false)]
-        public void IsDigit_Valid(char input, bool expected)
-        {
-            Assert.Equal(expected, input.IsDigit());
-        }
-
-        [Theory]
         [InlineData("1.5", '.', 1)]
         [InlineData("rr", 'r', 2)]
         [InlineData("22se2", '2', 3)]
         public void HowManyOccurrences_Valid(string input, char c, int expected)
         {
             Assert.Equal(expected, input.HowManyOccurrences(c));
-        }
-
-        [Theory]
-        [InlineData("1", true)]
-        [InlineData("rr", false)]
-        [InlineData(null, false)]
-        [InlineData("22se2", false)]
-        public void InInteger_Valid(string input, bool expected)
-        {
-            Assert.Equal(expected, input.IsInteger());
         }
 
         [Theory]
@@ -387,14 +397,6 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.AddToBeginingIfMissed(value));
         }
 
-        [Theory]
-        [InlineData("1.5", true)]
-        [InlineData("rr", false)]
-        [InlineData(null, false)]
-        [InlineData("22se2", false)]
-        public void InNumber_Valid(string input, bool expected)
-        {
-            Assert.Equal(expected, input.IsNumber());
-        }
+
     }
 }
