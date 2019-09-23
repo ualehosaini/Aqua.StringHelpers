@@ -658,5 +658,15 @@ namespace Aqua.StringHelpers
 
             return s;
         }
+
+        /// <summary>
+        /// Examines the String if it is Number
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsNumber(this string s)
+        {
+            return double.TryParse(s, out _);
+        }
     }
 }
