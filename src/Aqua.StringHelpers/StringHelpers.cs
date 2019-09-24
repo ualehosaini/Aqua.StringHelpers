@@ -669,5 +669,31 @@ namespace Aqua.StringHelpers
             return s;
         }
 
+        /// <summary>
+        /// Return a string of all digits (0-9) available in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string FindAllDigits(this string s)
+        {
+
+            if (s.IsNullOrEmpty())
+                return s;
+
+            char[] chars = s.ToCharArray();
+
+            string digits = "";
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (chars[i].IsDigit())
+                {
+                    digits += chars[i];
+                }
+            }
+
+            return digits;
+        }
+
     }
 }
