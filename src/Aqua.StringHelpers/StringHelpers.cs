@@ -695,5 +695,19 @@ namespace Aqua.StringHelpers
             return digits;
         }
 
+        /// <summary>
+        /// Return only the numbers of a string
+        /// </summary>
+        /// <param name="s">The input string</param>
+        /// <returns>The Numeric Chars of a string</returns>
+        public static string CleanNonNumericChars(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            var reg_exp = new Regex("[^0123456789.]");
+            return reg_exp.Replace(s, "");
+        }
+
     }
 }

@@ -406,5 +406,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.FindAllDigits());
         }
+
+        [Theory]
+        [InlineData("1dfdfdfd^^^$$f5", "15")]
+        [InlineData("rr222", "222")]
+        [InlineData(null, null)]
+        [InlineData("22se2", "222")]
+        public void CleanNonNumericChars_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.CleanNonNumericChars());
+        }
     }
 }
