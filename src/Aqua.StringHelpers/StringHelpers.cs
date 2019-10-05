@@ -709,5 +709,32 @@ namespace Aqua.StringHelpers
             return reg_exp.Replace(s, "");
         }
 
+        /// <summary>
+        /// Return the number of digits (0-9) available in a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static int FindNumberOfDigits(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            if (s.IsNullOrWhiteSpace())
+                return 0;
+
+            char[] chars = s.ToCharArray();
+
+            int digits = 0;
+
+            for (int i = 0; i < chars.Length; i++)
+            {
+                if (chars[i].IsDigit())
+                {
+                    digits++;
+                }
+            }
+
+            return digits;
+        }
     }
 }
