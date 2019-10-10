@@ -747,5 +747,14 @@ namespace Aqua.StringHelpers
             return guid.ToString("N");
         }
 
+        /// <summary>
+        /// Convert the traditional Guid to UpperCase Canonical Guid (without hyphen)
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static string ToUpperCaseCanonicalGuid(this Guid guid)
+        {
+            return guid.ToString("N").ToUpper();
+        }
     }
 }
