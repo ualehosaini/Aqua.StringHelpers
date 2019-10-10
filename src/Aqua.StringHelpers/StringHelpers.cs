@@ -736,5 +736,16 @@ namespace Aqua.StringHelpers
 
             return digits;
         }
+
+        /// <summary>
+        /// Convert the traditional Guid to Canonical Guid (without hyphen)
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static string ToCanonicalGuid(this Guid guid)
+        {
+            return guid.ToString("N");
+        }
+
     }
 }
