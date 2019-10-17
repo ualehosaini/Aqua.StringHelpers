@@ -426,5 +426,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.FindNumberOfDigits());
         }
+
+        [Theory]
+        [InlineData("1dfdfdfd^^^$$f5", "\"1dfdfdfd^^^$$f5\"")]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        public void ToDoubleQuotedString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToDoubleQuotedString());
+        }
     }
 }

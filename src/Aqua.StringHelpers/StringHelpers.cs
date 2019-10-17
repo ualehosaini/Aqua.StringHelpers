@@ -756,5 +756,21 @@ namespace Aqua.StringHelpers
         {
             return guid.ToString("N").ToUpper();
         }
+
+        /// <summary>
+        /// Returns double qouted string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToDoubleQuotedString(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.IsNullOrWhiteSpace())
+                return s;
+
+            return $"\"{s}\"";
+        }
     }
 }
