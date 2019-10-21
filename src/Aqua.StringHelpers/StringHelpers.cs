@@ -772,5 +772,71 @@ namespace Aqua.StringHelpers
 
             return $"\"{s}\"";
         }
+
+        /// <summary>
+        /// UK Telephone Number Patterns
+        /// </summary>
+        private static readonly Regex[] ukNumberPatterns =
+        {
+            new Regex(@"(?<first>013873)(?<second>\d{5})"),
+            new Regex(@"(?<first>015242)(?<second>\d{5})"),
+            new Regex(@"(?<first>015394)(?<second>\d{5})"),
+            new Regex(@"(?<first>015395)(?<second>\d{5})"),
+            new Regex(@"(?<first>015396)(?<second>\d{5})"),
+            new Regex(@"(?<first>016973)(?<second>\d{5})"),
+            new Regex(@"(?<first>016974)(?<second>\d{5})"),
+            new Regex(@"(?<first>016977)(?<second>\d{4}\d?)"),
+            new Regex(@"(?<first>017683)(?<second>\d{5})"),
+            new Regex(@"(?<first>017684)(?<second>\d{5})"),
+            new Regex(@"(?<first>017687)(?<second>\d{5})"),
+            new Regex(@"(?<first>019467)(?<second>\d{5})"),
+            new Regex(@"(?<first>02\d)(?<second>\d{4})(?<third>\d{4})"),
+            new Regex(@"(?<first>03\d{2})(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>0500\d{6})"),
+            new Regex(@"(?<first>05\d{3})(?<second>\d{6})"),
+            new Regex(@"(?<first>07\d{3})(?<second>\d{6})"),
+            new Regex(@"(?<first>08\d{2})(?<second>\d{3})(?<third>\d{3}\d?)"),
+            new Regex(@"(?<first>09\d{2})(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>01\d1)(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>011\d)(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>01\d{3})(?<second>\d{5}\d?)")
+        };
+
+        /// <summary>
+        /// Format a phone number as UK Telephone Number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static string ToUkTelephoneFormat(this string number)
+        {
+            if (number.IsNullOrEmpty())
+                return number;
+
+            if (number.IsNullOrWhiteSpace())
+                return number;
+
+            Regex matchedPattern = null;
+            foreach (Regex pattern in ukNumberPatterns)
+            {
+                if (pattern.IsMatch(number))
+                {
+                    matchedPattern = pattern;
+                    break;
+                }
+            }
+            if (matchedPattern != null)
+            {
+                var matchCollection = matchedPattern.Matches(number);
+                if (matchCollection[0].Groups.Count == 3)
+                {
+                    return string.Format("{0} {1}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"]);
+                }
+                else if (matchCollection[0].Groups.Count == 4)
+                {
+                    return string.Format("{0} {1} {2}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"], matchCollection[0].Groups["third"]);
+                }
+            }
+            return number;
+        }
     }
 }

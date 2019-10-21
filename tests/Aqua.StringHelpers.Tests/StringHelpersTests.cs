@@ -436,5 +436,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToDoubleQuotedString());
         }
+
+        [Theory]
+        [InlineData("07777777777", "07777 777777")]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        public void ToUkTelephoneFormat_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToUkTelephoneFormat());
+        }
     }
 }
