@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -837,6 +838,22 @@ namespace Aqua.StringHelpers
                 }
             }
             return number;
+        }
+
+        /// <summary>
+        /// Convert the slashes in a path with the right format depending on RuntimePlatform (Windows or else)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string CorrectPathSlashes(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                return s.Replace("/", "\\");
+
+            return s.Replace("\\", "/");
         }
     }
 }

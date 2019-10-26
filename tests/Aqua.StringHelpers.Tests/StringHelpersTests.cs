@@ -446,5 +446,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ToUkTelephoneFormat());
         }
+
+        [Theory]
+        [InlineData("c://abcq//abcd.txt", "c:\\\\abcq\\\\abcd.txt")]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        public void CorrectPathSlashes_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.CorrectPathSlashes());
+        }
     }
 }
