@@ -855,5 +855,33 @@ namespace Aqua.StringHelpers
 
             return s.Replace("\\", "/");
         }
+
+        /// <summary>
+        /// Align a string in the middle of a Space Block
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="blockLength"></param>
+        /// <returns></returns>
+        public static string CenterAligned(this string s, int blockLength)
+        {
+            if (s.IsNullOrEmpty() && blockLength <= 0)
+                return s;
+
+            if (blockLength < s.Length)
+                return s;
+
+            if (blockLength < 0)
+                throw new ArgumentOutOfRangeException(nameof(blockLength));
+
+            s = s ?? string.Empty;
+
+            string result = s.Length > blockLength ? s.Substring(0, blockLength) : s;
+
+            int reminderBlockSpace = blockLength - result.Trim().Length;
+            int sideSpace = reminderBlockSpace / 2;
+            bool sideSpaceIsEven = reminderBlockSpace % 2 == 0;
+
+            return new string(' ', sideSpace) + result + new string(' ', sideSpaceIsEven || sideSpace == 0 ? sideSpace : sideSpace - 1);
+        }
     }
 }

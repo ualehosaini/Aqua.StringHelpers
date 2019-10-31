@@ -456,5 +456,15 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.CorrectPathSlashes());
         }
+
+        [Theory]
+        [InlineData("", 1, "")]
+        [InlineData(" ", 1, " ")]
+        [InlineData("abcd", 20, "        abcd        ")]
+        [InlineData("abcd", 3, "abcd")]
+        public void CenterAligned_Valid(string input, int length, string expected)
+        {
+            Assert.Equal(expected, input.CenterAligned(length));
+        }
     }
 }
