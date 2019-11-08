@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace Aqua.StringHelpers.Tests
@@ -465,6 +465,15 @@ namespace Aqua.StringHelpers.Tests
         public void CenterAligned_Valid(string input, int length, string expected)
         {
             Assert.Equal(expected, input.CenterAligned(length));
+        }
+
+        [Theory]
+        [InlineData("abcdभारतxyz", 'G', "abcdGGGGxyz")]
+        [InlineData(null, 'a', null)]
+        [InlineData("", 'a', "")]
+        public void ReplaceNonASCIICharsWith_Valid(string input, char c, string expected)
+        {
+            Assert.Equal(expected, input.ReplaceNonASCIICharsWith(c));
         }
     }
 }

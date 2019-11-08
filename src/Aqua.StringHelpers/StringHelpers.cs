@@ -883,5 +883,19 @@ namespace Aqua.StringHelpers
 
             return new string(' ', sideSpace) + result + new string(' ', sideSpaceIsEven || sideSpace == 0 ? sideSpace : sideSpace - 1);
         }
+
+        /// <summary>
+        /// Replace non ASCII characters with custom char
+        /// </summary>
+        /// <param name="s">the input string</param>
+        /// <param name="r">the replacement character</param>
+        /// <returns></returns>
+        public static string ReplaceNonASCIICharsWith(this string s, char r)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            return Regex.Replace(s, @"[^\u0000-\u007F]", r.ToString());
+        }
     }
 }
