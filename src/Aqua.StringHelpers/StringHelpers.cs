@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -896,6 +897,26 @@ namespace Aqua.StringHelpers
                 return s;
 
             return Regex.Replace(s, @"[^\u0000-\u007F]", r.ToString());
+        }
+
+        /// <summary>
+        /// Eliminate accent from a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToAccentEliminated(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+
+            StringBuilder result = new StringBuilder(s.Normalize(NormalizationForm.FormD).Length);
+
+            for (int i = 0; i < s.Length; i++)
+                if (CharUnicodeInfo.GetUnicodeCategory(s[i]) != UnicodeCategory.NonSpacingMark)
+                    result.Append(s[i]);
+
+            return result.ToString();
         }
     }
 }
