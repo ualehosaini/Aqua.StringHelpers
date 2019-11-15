@@ -475,5 +475,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ReplaceNonASCIICharsWith(c));
         }
+
+        [Theory]
+        [InlineData("abcdeefghijklmnopq", "ghijk", "AAAA", "abcdeefAAAAlmnopq")]
+        [InlineData(null, "dd", "cc", null)]
+        [InlineData("", "aa", "dd", "")]
+        public void ReplaceFirstOccurrence_Valid(string input, string search, string replace, string expected)
+        {
+            Assert.Equal(expected, input.ReplaceFirstOccurrence(search, replace));
+        }
     }
 }

@@ -918,5 +918,33 @@ namespace Aqua.StringHelpers
 
             return result.ToString();
         }
+
+        /// <summary>
+        /// Replace first occurrence of a string in a text 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="search"></param>
+        /// <param name="replace"></param>
+        /// <returns></returns>
+        public static string ReplaceFirstOccurrence(this string s, string search, string replace)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (search == null)
+                throw new ArgumentNullException(nameof(search));
+
+            if (replace == null)
+                throw new ArgumentNullException(nameof(replace));
+
+            int pos = s.IndexOf(search);
+
+            if (pos < 0)
+            {
+                return s;
+            }
+
+            return s.Substring(0, pos) + replace + s.Substring(pos + search.Length);
+        }
     }
 }
