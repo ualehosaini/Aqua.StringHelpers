@@ -484,5 +484,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ReplaceFirstOccurrence(search, replace));
         }
+
+        [Theory]
+        [InlineData("abcd", 20, "                abcd")]
+        [InlineData("abcd", 19, "               abcd")]
+        [InlineData("abcd", 3, "abcd")]
+        public void RightAligned_Valid(string input, int length, string expected)
+        {
+            Assert.Equal(expected, input.RightAligned(length));
+        }
     }
 }

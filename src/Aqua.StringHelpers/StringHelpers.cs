@@ -946,5 +946,31 @@ namespace Aqua.StringHelpers
 
             return s.Substring(0, pos) + replace + s.Substring(pos + search.Length);
         }
+
+        /// <summary>
+        /// Align a string in the right of a Space Block
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="blockLength"></param>
+        /// <returns></returns>
+        public static string RightAligned(this string s, int blockLength)
+        {
+            if (s.IsNullOrEmpty() && blockLength <= 0)
+                return s;
+
+            if (blockLength < s.Length)
+                return s;
+
+            if (blockLength < 0)
+                throw new ArgumentOutOfRangeException(nameof(blockLength));
+
+            s = s ?? string.Empty;
+
+            string result = s.Length > blockLength ? s.Substring(0, blockLength) : s;
+
+            int reminderBlockSpace = blockLength - result.Trim().Length;
+
+            return new string(' ', reminderBlockSpace) + result;
+        }
     }
 }
