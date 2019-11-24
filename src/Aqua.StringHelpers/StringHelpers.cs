@@ -972,5 +972,18 @@ namespace Aqua.StringHelpers
 
             return new string(' ', reminderBlockSpace) + result;
         }
+
+        /// <summary>
+        /// Remove Non ASCII Chars from a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string RemoveNonASCIIChars(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            return Regex.Replace(s, @"[^\u0000-\u007F]", string.Empty);
+        }
     }
 }
