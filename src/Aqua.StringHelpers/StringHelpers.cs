@@ -985,5 +985,26 @@ namespace Aqua.StringHelpers
 
             return Regex.Replace(s, @"[^\u0000-\u007F]", string.Empty);
         }
+
+        /// <summary>
+        /// Extract Summary Text of long Text
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <param name="dotsToBeUsed"></param>
+        /// <returns></returns>
+        public static string ToSummarisedText(this string s, int length, bool dotsToBeUsed = false)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (length < 0)
+                throw new ArgumentOutOfRangeException(nameof(length));
+
+            return s.Length > length ?
+                                dotsToBeUsed ? s.Substring(0, length) + "..."
+                                : s.Substring(0, length)
+                                : s;
+        }
     }
 }
