@@ -1006,5 +1006,31 @@ namespace Aqua.StringHelpers
                                 : s.Substring(0, length)
                                 : s;
         }
+
+        /// <summary>
+        /// Convert the text to be support being CSV
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToCsvCompatible(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.Contains("\""))
+                s = s.Replace("\"", "\"\"");
+
+            if (s.Contains(",")
+                || s.Contains(";")
+                || s.Contains("\"")
+                || s.Contains("\n")
+                || s[0] == ' '
+                || s[s.Length - 1] == ' ')
+            {
+                s = $"\"{s}\"";
+            }
+
+            return s;
+        }
     }
 }
