@@ -521,5 +521,14 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.ReplaceDoubleQuotesWithSingle());
         }
+
+        [Theory]
+        [InlineData(null, null, null)]
+        [InlineData("", "", null)]
+        [InlineData("abcd", "abcd", null)]
+        public void NullIfEqualTo_Valid(string input, string search, string expected)
+        {
+            Assert.Equal(expected, input.NullIfEqualTo(search));
+        }
     }
 }

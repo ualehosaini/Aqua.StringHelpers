@@ -1046,5 +1046,16 @@ namespace Aqua.StringHelpers
             return s.Replace("\"", "'");
         }
 
+        /// <summary>
+        /// Return null if the string match the check string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="checkValue"></param>
+        /// <returns></returns>
+        public static string NullIfEqualTo(this string s, string checkValue)
+        {
+            return s == checkValue ? null : s;
+        }
+
     }
 }
