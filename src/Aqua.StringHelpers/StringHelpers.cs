@@ -1057,5 +1057,22 @@ namespace Aqua.StringHelpers
             return s == checkValue ? null : s;
         }
 
+        /// <summary>
+        /// Add a specific text to the end if missed
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string AddToEndIfMissed(this string s, string value)
+        {
+
+            if (value.IsNullOrEmpty())
+                throw new ArgumentException("the missed text cannot be empty!");
+
+            if (!s.IfNullReturnEmptyString().EndsWith(value, StringComparison.CurrentCulture))
+                s = s + value;
+
+            return s;
+        }
     }
 }
