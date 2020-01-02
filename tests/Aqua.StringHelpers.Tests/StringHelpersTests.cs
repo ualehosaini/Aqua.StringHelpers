@@ -540,5 +540,14 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.AddToEndIfMissed(value));
         }
 
+        [Theory]
+        [InlineData(null, 6, null)]
+        [InlineData("", 6, "")]
+        [InlineData("qwertyuiop[asdfghjkkll", 6, "hjkkll")]
+        public void ToSummarisedTextRight_Valid(string input, int length, string expected)
+        {
+            Assert.Equal(expected, input.ToSummarisedTextRight(length));
+        }
+
     }
 }

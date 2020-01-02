@@ -1074,5 +1074,27 @@ namespace Aqua.StringHelpers
 
             return s;
         }
+
+        /// <summary>
+        /// Extract Summary Text of long Text (from the right)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <param name="dotsToBeUsed"></param>
+        /// <returns></returns>
+        public static string ToSummarisedTextRight(this string s, int length, bool dotsToBeUsed = false)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (length < 0)
+                throw new ArgumentOutOfRangeException(nameof(length));
+
+            return s.Length > length ?
+                                dotsToBeUsed ? "..." + s.Substring(s.Length - length, length)
+                                : s.Substring(s.Length - length, length)
+                                : s;
+        }
+
     }
 }
