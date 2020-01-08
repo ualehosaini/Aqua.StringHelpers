@@ -1096,5 +1096,18 @@ namespace Aqua.StringHelpers
                                 : s;
         }
 
+        /// <summary>
+        /// Replace all Single Quotes in a string with Double
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ReplaceSingleQuotesWithDouble(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            return s.Replace("'", "\"");
+        }
+
     }
 }

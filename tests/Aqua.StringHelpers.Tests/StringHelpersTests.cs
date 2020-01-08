@@ -549,5 +549,13 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.ToSummarisedTextRight(length));
         }
 
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("qwertyuiop''[asdfghjkkll", "qwertyuiop\"\"[asdfghjkkll")]
+        public void ReplaceSingleQuotesWithDouble_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ReplaceSingleQuotesWithDouble());
+        }
     }
 }
