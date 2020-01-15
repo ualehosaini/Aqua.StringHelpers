@@ -1152,5 +1152,24 @@ namespace Aqua.StringHelpers
             return result.ToString();
         }
 
+
+        /// <summary>
+        /// Return the first possible not null value of a string array
+        /// </summary>
+        /// <param name="values">string array</param>
+        /// <returns></returns>
+        public static string Coalesce(params string[] values)
+        {
+            for (var i = 0; i < values.Length; i++)
+            {
+                if (values[i] == null)
+                    continue;
+
+                return values[i];
+            }
+
+            return null;
+        }
+
     }
 }
