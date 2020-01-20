@@ -1171,5 +1171,25 @@ namespace Aqua.StringHelpers
             return null;
         }
 
+        /// <summary>
+        /// Return the first possible null or empty value of a string array
+        /// </summary>
+        /// <param name="values">string array</param>
+        /// <returns></returns>
+        public static string GetFirstNullOrEmpty(params string[] values)
+        {
+            for (var i = 0; i < values.Length; i++)
+            {
+
+                if (values[i].IsNullOrEmpty())
+                    return values[i];
+
+                continue;
+            }
+
+            return null;
+        }
+
+
     }
 }
