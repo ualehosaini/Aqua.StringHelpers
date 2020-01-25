@@ -1190,6 +1190,22 @@ namespace Aqua.StringHelpers
             return null;
         }
 
+        /// <summary>
+        /// Remove specific number of chars from at the end of text
+        /// </summary>
+        /// <param name="s">the text</param>
+        /// <param name="n">the number of characters</param>
+        /// <returns>resulted text</returns>
+        public static string RemoveNumberOfCharsAtEnd(this string s, int n)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (n < 0)
+                throw new ArgumentOutOfRangeException(nameof(n));
+
+            return s.Length < n ? string.Empty : s.Remove(s.Length - n);
+        }
 
     }
 }
