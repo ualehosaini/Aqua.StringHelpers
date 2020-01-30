@@ -1207,5 +1207,46 @@ namespace Aqua.StringHelpers
             return s.Length < n ? string.Empty : s.Remove(s.Length - n);
         }
 
+
+        /// <summary>
+        /// Generate Lorem Ipsum text
+        /// </summary>
+        /// <param name="minWords"></param>
+        /// <param name="maxWords"></param>
+        /// <param name="minSentences"></param>
+        /// <param name="maxSentences"></param>
+        /// <param name="numParagraphs"></param>
+        /// <returns></returns>
+        public static string GenerateLoremIpsumString(int minWords, int maxWords,
+            int minSentences, int maxSentences,
+            int numParagraphs)
+        {
+
+            var words = new[]{"lorem", "ipsum", "dolor", "sit", "amet", "consectetuer",
+                                "adipiscing", "elit", "sed", "diam", "nonummy", "nibh", "euismod",
+                                "tincidunt", "ut", "laoreet", "dolore", "magna", "aliquam", "erat"};
+
+            Random rand = new Random();
+            int numSentences = rand.Next(maxSentences - minSentences) + minSentences + 1;
+
+            int numWords = rand.Next(maxWords - minWords) + minWords + 1;
+
+            StringBuilder result = new StringBuilder();
+
+            for (int p = 0; p < numParagraphs; p++)
+            {
+                for (int s = 0; s < numSentences; s++)
+                {
+                    for (int w = 0; w < numWords; w++)
+                    {
+                        if (w > 0) { result.Append(" "); }
+                        result.Append(words[rand.Next(words.Length)]);
+                    }
+                    result.Append(". ");
+                }
+            }
+
+            return result.ToString();
+        }
     }
 }
