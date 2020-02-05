@@ -1262,5 +1262,21 @@ namespace Aqua.StringHelpers
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
             return Convert.ToBase64String(plainTextBytes);
         }
+
+
+        /// <summary>
+        /// Decode a Base64 data into plain string
+        /// </summary>
+        /// <param name="base64EncodedData"></param>
+        /// <returns></returns>
+        public static string DecodeBase64(this string base64EncodedData)
+        {
+            if (base64EncodedData.IsNullOrEmpty())
+                return base64EncodedData;
+
+            byte[] base64EncodedBytes = Convert.FromBase64String(base64EncodedData);
+
+            return Encoding.UTF8.GetString(base64EncodedBytes);
+        }
     }
 }

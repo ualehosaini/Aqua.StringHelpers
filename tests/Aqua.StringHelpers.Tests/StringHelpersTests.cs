@@ -576,5 +576,14 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.ToBase64());
         }
 
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("MTIzNDU=", "12345")]
+        public void DecodeBase64_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.DecodeBase64());
+        }
+
     }
 }
