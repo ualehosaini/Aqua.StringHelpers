@@ -1248,5 +1248,19 @@ namespace Aqua.StringHelpers
 
             return result.ToString();
         }
+
+        /// <summary>
+        /// Encode a string into Base64
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        public static string ToBase64(this string plainText)
+        {
+            if (plainText.IsNullOrEmpty())
+                return plainText;
+
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(plainTextBytes);
+        }
     }
 }

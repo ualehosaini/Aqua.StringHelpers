@@ -567,5 +567,14 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.RemoveNumberOfCharsAtEnd(n));
         }
 
+        [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("12345", "MTIzNDU=")]
+        public void ToBase64_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToBase64());
+        }
+
     }
 }
