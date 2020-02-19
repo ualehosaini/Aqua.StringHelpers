@@ -223,6 +223,82 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData("12345", "MTIzNDU=")]
+        public void ToBase64_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToBase64());
+        }
+
+        [Theory]
+        [InlineData("07777777777", "07777 777777")]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        public void ToUkTelephoneFormat_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToUkTelephoneFormat());
+        }
+
+        [Theory]
+        [InlineData(null, 6, true, null)]
+        [InlineData("", 6, true, "")]
+        [InlineData("qwertyuiop[asdfghjkkll", 6, true, "qwerty...")]
+
+        public void ToSummarisedText_Valid(string input, int length, bool dots, string expected)
+        {
+            Assert.Equal(expected, input.ToSummarisedText(length, dots));
+        }
+
+        [Theory]
+        [InlineData(null, 6, null)]
+        [InlineData("", 6, "")]
+        [InlineData("qwertyuiop[asdfghjkkll", 6, "hjkkll")]
+        public void ToSummarisedTextRight_Valid(string input, int length, string expected)
+        {
+            Assert.Equal(expected, input.ToSummarisedTextRight(length));
+        }
+
+
+        [Theory]
+        [InlineData("1dfdfdfd^^^$$f5", "\"1dfdfdfd^^^$$f5\"")]
+        [InlineData(null, null)]
+        [InlineData("", "")]
+        [InlineData(" ", " ")]
+        public void ToDoubleQuotedString_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToDoubleQuotedString());
+        }
+
+        [Theory]
+        [MemberData(nameof(ToStringArrayFromDelimitedStringData))]
+        public void ToStringArrayFromDelimitedString_Valid(string input, string[] expected)
+        {
+            Assert.Equal(expected, input.ToStringArrayFromDelimitedString(','));
+        }
+
+        public static IEnumerable<object[]> ToStringArrayFromDelimitedStringData =>
+            new List<object[]>
+                {
+                    new object[]{"", new string[0]},
+                    new object[]{" ", new string[0]},
+                    new object[]{null, new string[0]},
+                    new object[]{ "lorem, ipsum, dolor, lorem", new string[] { "lorem", " ipsum", " dolor", " lorem" } }
+                };
+
+        [Theory]
+        [InlineData("", "")]
+        [InlineData(" ", "")]
+        [InlineData(null, null)]
+        [InlineData("c:\\abcq\\abcd.txt", "cabcqabcdtxt")]
+        [InlineData("http://testte333333st.com/test.pdf", "httptestte333333stcomtestpdf")]
+        public void ToUrlFriendly_Valid(string input, string expected)
+        {
+            Assert.Equal(expected, input.ToUrlFriendly());
+        }
+
+        [Theory]
         [InlineData("", "")]
         [InlineData(" ", " ")]
         [InlineData(null, null)]
@@ -353,33 +429,6 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
-        [MemberData(nameof(ToStringArrayFromDelimitedStringData))]
-        public void ToStringArrayFromDelimitedString_Valid(string input, string[] expected)
-        {
-            Assert.Equal(expected, input.ToStringArrayFromDelimitedString(','));
-        }
-
-        public static IEnumerable<object[]> ToStringArrayFromDelimitedStringData =>
-            new List<object[]>
-                {
-                    new object[]{"", new string[0]},
-                    new object[]{" ", new string[0]},
-                    new object[]{null, new string[0]},
-                    new object[]{ "lorem, ipsum, dolor, lorem", new string[] { "lorem", " ipsum", " dolor", " lorem" } }
-                };
-
-        [Theory]
-        [InlineData("", "")]
-        [InlineData(" ", "")]
-        [InlineData(null, null)]
-        [InlineData("c:\\abcq\\abcd.txt", "cabcqabcdtxt")]
-        [InlineData("http://testte333333st.com/test.pdf", "httptestte333333stcomtestpdf")]
-        public void ToUrlFriendly_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToUrlFriendly());
-        }
-
-        [Theory]
         [InlineData("1.5", '.', 1)]
         [InlineData("rr", 'r', 2)]
         [InlineData("22se2", '2', 3)]
@@ -425,26 +474,6 @@ namespace Aqua.StringHelpers.Tests
         public void FindNumberOfDigits_Valid(string input, int expected)
         {
             Assert.Equal(expected, input.FindNumberOfDigits());
-        }
-
-        [Theory]
-        [InlineData("1dfdfdfd^^^$$f5", "\"1dfdfdfd^^^$$f5\"")]
-        [InlineData(null, null)]
-        [InlineData("", "")]
-        [InlineData(" ", " ")]
-        public void ToDoubleQuotedString_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToDoubleQuotedString());
-        }
-
-        [Theory]
-        [InlineData("07777777777", "07777 777777")]
-        [InlineData(null, null)]
-        [InlineData("", "")]
-        [InlineData(" ", " ")]
-        public void ToUkTelephoneFormat_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToUkTelephoneFormat());
         }
 
         [Theory]
@@ -504,16 +533,6 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
-        [InlineData(null, 6, true, null)]
-        [InlineData("", 6, true, "")]
-        [InlineData("qwertyuiop[asdfghjkkll", 6, true, "qwerty...")]
-
-        public void ToSummarisedText_Valid(string input, int length, bool dots, string expected)
-        {
-            Assert.Equal(expected, input.ToSummarisedText(length, dots));
-        }
-
-        [Theory]
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("qwertyuiop\"\"[asdfghjkkll", "qwertyuiop''[asdfghjkkll")]
@@ -540,14 +559,6 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.AddToEndIfMissed(value));
         }
 
-        [Theory]
-        [InlineData(null, 6, null)]
-        [InlineData("", 6, "")]
-        [InlineData("qwertyuiop[asdfghjkkll", 6, "hjkkll")]
-        public void ToSummarisedTextRight_Valid(string input, int length, string expected)
-        {
-            Assert.Equal(expected, input.ToSummarisedTextRight(length));
-        }
 
         [Theory]
         [InlineData(null, null)]
@@ -567,14 +578,7 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.RemoveNumberOfCharsAtEnd(n));
         }
 
-        [Theory]
-        [InlineData(null, null)]
-        [InlineData("", "")]
-        [InlineData("12345", "MTIzNDU=")]
-        public void ToBase64_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToBase64());
-        }
+
 
         [Theory]
         [InlineData(null, null)]
