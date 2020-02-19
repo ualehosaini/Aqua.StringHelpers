@@ -357,6 +357,265 @@ namespace Aqua.StringHelpers
             return s.Trim();
         }
 
+        /// <summary>
+        /// Convert a string to hash (16 bytes)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string To16ByteSaltedHash(this string s)
+        {
+            byte[] salt;
+            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(s, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
+
+            byte[] hashBytes = new byte[36];
+            Array.Copy(salt, 0, hashBytes, 0, 16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+
+            return Convert.ToBase64String(hashBytes);
+        }
+
+        /// <summary>
+        /// Encode a string into Base64
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
+        public static string ToBase64(this string plainText)
+        {
+            if (plainText.IsNullOrEmpty())
+                return plainText;
+
+            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
+            return Convert.ToBase64String(plainTextBytes);
+        }
+
+        /// <summary>
+        /// Extract Summary Text of long Text
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <param name="dotsToBeUsed"></param>
+        /// <returns></returns>
+        public static string ToSummarisedText(this string s, int length, bool dotsToBeUsed = false)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (length < 0)
+                throw new ArgumentOutOfRangeException(nameof(length));
+
+            return s.Length > length ?
+                                dotsToBeUsed ? s.Substring(0, length) + "..."
+                                : s.Substring(0, length)
+                                : s;
+        }
+
+        /// <summary>
+        /// Extract Summary Text of long Text (from the right)
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="length"></param>
+        /// <param name="dotsToBeUsed"></param>
+        /// <returns></returns>
+        public static string ToSummarisedTextRight(this string s, int length, bool dotsToBeUsed = false)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (length < 0)
+                throw new ArgumentOutOfRangeException(nameof(length));
+
+            return s.Length > length ?
+                                dotsToBeUsed ? "..." + s.Substring(s.Length - length, length)
+                                : s.Substring(s.Length - length, length)
+                                : s;
+        }
+
+
+        /// <summary>
+        /// Eliminate accent from a string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToAccentEliminated(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+
+            StringBuilder result = new StringBuilder(s.Normalize(NormalizationForm.FormD).Length);
+
+            for (int i = 0; i < s.Length; i++)
+                if (CharUnicodeInfo.GetUnicodeCategory(s[i]) != UnicodeCategory.NonSpacingMark)
+                    result.Append(s[i]);
+
+            return result.ToString();
+        }
+
+        /// <summary>
+        /// Convert the text to be support being CSV
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToCsvCompatible(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.Contains("\""))
+                s = s.Replace("\"", "\"\"");
+
+            if (s.Contains(",")
+                || s.Contains(";")
+                || s.Contains("\"")
+                || s.Contains("\n")
+                || s[0] == ' '
+                || s[s.Length - 1] == ' ')
+            {
+                s = $"\"{s}\"";
+            }
+
+            return s;
+        }
+
+        /// <summary>
+        /// UK Telephone Number Patterns
+        /// </summary>
+        private static readonly Regex[] ukNumberPatterns =
+        {
+            new Regex(@"(?<first>013873)(?<second>\d{5})"),
+            new Regex(@"(?<first>015242)(?<second>\d{5})"),
+            new Regex(@"(?<first>015394)(?<second>\d{5})"),
+            new Regex(@"(?<first>015395)(?<second>\d{5})"),
+            new Regex(@"(?<first>015396)(?<second>\d{5})"),
+            new Regex(@"(?<first>016973)(?<second>\d{5})"),
+            new Regex(@"(?<first>016974)(?<second>\d{5})"),
+            new Regex(@"(?<first>016977)(?<second>\d{4}\d?)"),
+            new Regex(@"(?<first>017683)(?<second>\d{5})"),
+            new Regex(@"(?<first>017684)(?<second>\d{5})"),
+            new Regex(@"(?<first>017687)(?<second>\d{5})"),
+            new Regex(@"(?<first>019467)(?<second>\d{5})"),
+            new Regex(@"(?<first>02\d)(?<second>\d{4})(?<third>\d{4})"),
+            new Regex(@"(?<first>03\d{2})(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>0500\d{6})"),
+            new Regex(@"(?<first>05\d{3})(?<second>\d{6})"),
+            new Regex(@"(?<first>07\d{3})(?<second>\d{6})"),
+            new Regex(@"(?<first>08\d{2})(?<second>\d{3})(?<third>\d{3}\d?)"),
+            new Regex(@"(?<first>09\d{2})(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>01\d1)(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>011\d)(?<second>\d{3})(?<third>\d{4})"),
+            new Regex(@"(?<first>01\d{3})(?<second>\d{5}\d?)")
+        };
+
+        /// <summary>
+        /// Format a phone number as UK Telephone Number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static string ToUkTelephoneFormat(this string number)
+        {
+            if (number.IsNullOrEmpty())
+                return number;
+
+            if (number.IsNullOrWhiteSpace())
+                return number;
+
+            Regex matchedPattern = null;
+            foreach (Regex pattern in ukNumberPatterns)
+            {
+                if (pattern.IsMatch(number))
+                {
+                    matchedPattern = pattern;
+                    break;
+                }
+            }
+            if (matchedPattern != null)
+            {
+                var matchCollection = matchedPattern.Matches(number);
+                if (matchCollection[0].Groups.Count == 3)
+                {
+                    return string.Format("{0} {1}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"]);
+                }
+                else if (matchCollection[0].Groups.Count == 4)
+                {
+                    return string.Format("{0} {1} {2}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"], matchCollection[0].Groups["third"]);
+                }
+            }
+            return number;
+        }
+
+
+        /// <summary>
+        /// Convert the traditional Guid to UpperCase Canonical Guid (without hyphen)
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static string ToUpperCaseCanonicalGuid(this Guid guid)
+        {
+            return guid.ToString("N").ToUpper();
+        }
+
+        /// <summary>
+        /// Returns double qouted string
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToDoubleQuotedString(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (s.IsNullOrWhiteSpace())
+                return s;
+
+            return $"\"{s}\"";
+        }
+
+
+        /// <summary>
+        /// Extract String Array from Delimited String
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="delimiter"></param>
+        /// <returns></returns>
+        public static string[] ToStringArrayFromDelimitedString(this string s, char delimiter)
+        {
+            if (s.IsNullOrEmpty())
+                return new string[0];
+
+            if (s.IsNullOrWhiteSpace())
+                return new string[0];
+
+            return s.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        /// <summary>
+        /// Generate a Url Friendly String
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToUrlFriendly(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return s;
+
+            string result = Regex.Replace(s, @"[^-\w]+", string.Empty);
+
+            return Regex.Replace(result.ToCleanString(), @"\s+", "-");
+        }
+
+        /// <summary>
+        /// Convert the traditional Guid to Canonical Guid (without hyphen)
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public static string ToCanonicalGuid(this Guid guid)
+        {
+            return guid.ToString("N");
+        }
+
 
         /// <summary>
         /// Capitalise Each Word
@@ -599,37 +858,7 @@ namespace Aqua.StringHelpers
             return uri.ToString().GetUrlDomain();
         }
 
-        /// <summary>
-        /// Extract String Array from Delimited String
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="delimiter"></param>
-        /// <returns></returns>
-        public static string[] ToStringArrayFromDelimitedString(this string s, char delimiter)
-        {
-            if (s.IsNullOrEmpty())
-                return new string[0];
 
-            if (s.IsNullOrWhiteSpace())
-                return new string[0];
-
-            return s.Split(delimiter, StringSplitOptions.RemoveEmptyEntries);
-        }
-
-        /// <summary>
-        /// Generate a Url Friendly String
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToUrlFriendly(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-            string result = Regex.Replace(s, @"[^-\w]+", string.Empty);
-
-            return Regex.Replace(result.ToCleanString(), @"\s+", "-");
-        }
 
         /// <summary>
         /// Return the number of Occurrences of a Char in a string
@@ -740,107 +969,6 @@ namespace Aqua.StringHelpers
             return digits;
         }
 
-        /// <summary>
-        /// Convert the traditional Guid to Canonical Guid (without hyphen)
-        /// </summary>
-        /// <param name="guid"></param>
-        /// <returns></returns>
-        public static string ToCanonicalGuid(this Guid guid)
-        {
-            return guid.ToString("N");
-        }
-
-        /// <summary>
-        /// Convert the traditional Guid to UpperCase Canonical Guid (without hyphen)
-        /// </summary>
-        /// <param name="guid"></param>
-        /// <returns></returns>
-        public static string ToUpperCaseCanonicalGuid(this Guid guid)
-        {
-            return guid.ToString("N").ToUpper();
-        }
-
-        /// <summary>
-        /// Returns double qouted string
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToDoubleQuotedString(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-            if (s.IsNullOrWhiteSpace())
-                return s;
-
-            return $"\"{s}\"";
-        }
-
-        /// <summary>
-        /// UK Telephone Number Patterns
-        /// </summary>
-        private static readonly Regex[] ukNumberPatterns =
-        {
-            new Regex(@"(?<first>013873)(?<second>\d{5})"),
-            new Regex(@"(?<first>015242)(?<second>\d{5})"),
-            new Regex(@"(?<first>015394)(?<second>\d{5})"),
-            new Regex(@"(?<first>015395)(?<second>\d{5})"),
-            new Regex(@"(?<first>015396)(?<second>\d{5})"),
-            new Regex(@"(?<first>016973)(?<second>\d{5})"),
-            new Regex(@"(?<first>016974)(?<second>\d{5})"),
-            new Regex(@"(?<first>016977)(?<second>\d{4}\d?)"),
-            new Regex(@"(?<first>017683)(?<second>\d{5})"),
-            new Regex(@"(?<first>017684)(?<second>\d{5})"),
-            new Regex(@"(?<first>017687)(?<second>\d{5})"),
-            new Regex(@"(?<first>019467)(?<second>\d{5})"),
-            new Regex(@"(?<first>02\d)(?<second>\d{4})(?<third>\d{4})"),
-            new Regex(@"(?<first>03\d{2})(?<second>\d{3})(?<third>\d{4})"),
-            new Regex(@"(?<first>0500\d{6})"),
-            new Regex(@"(?<first>05\d{3})(?<second>\d{6})"),
-            new Regex(@"(?<first>07\d{3})(?<second>\d{6})"),
-            new Regex(@"(?<first>08\d{2})(?<second>\d{3})(?<third>\d{3}\d?)"),
-            new Regex(@"(?<first>09\d{2})(?<second>\d{3})(?<third>\d{4})"),
-            new Regex(@"(?<first>01\d1)(?<second>\d{3})(?<third>\d{4})"),
-            new Regex(@"(?<first>011\d)(?<second>\d{3})(?<third>\d{4})"),
-            new Regex(@"(?<first>01\d{3})(?<second>\d{5}\d?)")
-        };
-
-        /// <summary>
-        /// Format a phone number as UK Telephone Number
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        public static string ToUkTelephoneFormat(this string number)
-        {
-            if (number.IsNullOrEmpty())
-                return number;
-
-            if (number.IsNullOrWhiteSpace())
-                return number;
-
-            Regex matchedPattern = null;
-            foreach (Regex pattern in ukNumberPatterns)
-            {
-                if (pattern.IsMatch(number))
-                {
-                    matchedPattern = pattern;
-                    break;
-                }
-            }
-            if (matchedPattern != null)
-            {
-                var matchCollection = matchedPattern.Matches(number);
-                if (matchCollection[0].Groups.Count == 3)
-                {
-                    return string.Format("{0} {1}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"]);
-                }
-                else if (matchCollection[0].Groups.Count == 4)
-                {
-                    return string.Format("{0} {1} {2}", matchCollection[0].Groups["first"], matchCollection[0].Groups["second"], matchCollection[0].Groups["third"]);
-                }
-            }
-            return number;
-        }
 
         /// <summary>
         /// Convert the slashes in a path with the right format depending on RuntimePlatform (Windows or else)
@@ -900,25 +1028,6 @@ namespace Aqua.StringHelpers
             return Regex.Replace(s, @"[^\u0000-\u007F]", r.ToString());
         }
 
-        /// <summary>
-        /// Eliminate accent from a string
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToAccentEliminated(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-
-            StringBuilder result = new StringBuilder(s.Normalize(NormalizationForm.FormD).Length);
-
-            for (int i = 0; i < s.Length; i++)
-                if (CharUnicodeInfo.GetUnicodeCategory(s[i]) != UnicodeCategory.NonSpacingMark)
-                    result.Append(s[i]);
-
-            return result.ToString();
-        }
 
         /// <summary>
         /// Replace first occurrence of a string in a text 
@@ -987,52 +1096,7 @@ namespace Aqua.StringHelpers
             return Regex.Replace(s, @"[^\u0000-\u007F]", string.Empty);
         }
 
-        /// <summary>
-        /// Extract Summary Text of long Text
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="length"></param>
-        /// <param name="dotsToBeUsed"></param>
-        /// <returns></returns>
-        public static string ToSummarisedText(this string s, int length, bool dotsToBeUsed = false)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
 
-            if (length < 0)
-                throw new ArgumentOutOfRangeException(nameof(length));
-
-            return s.Length > length ?
-                                dotsToBeUsed ? s.Substring(0, length) + "..."
-                                : s.Substring(0, length)
-                                : s;
-        }
-
-        /// <summary>
-        /// Convert the text to be support being CSV
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string ToCsvCompatible(this string s)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-            if (s.Contains("\""))
-                s = s.Replace("\"", "\"\"");
-
-            if (s.Contains(",")
-                || s.Contains(";")
-                || s.Contains("\"")
-                || s.Contains("\n")
-                || s[0] == ' '
-                || s[s.Length - 1] == ' ')
-            {
-                s = $"\"{s}\"";
-            }
-
-            return s;
-        }
 
         /// <summary>
         /// Replace all Double Quotes in a string with Single
@@ -1076,26 +1140,6 @@ namespace Aqua.StringHelpers
             return s;
         }
 
-        /// <summary>
-        /// Extract Summary Text of long Text (from the right)
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="length"></param>
-        /// <param name="dotsToBeUsed"></param>
-        /// <returns></returns>
-        public static string ToSummarisedTextRight(this string s, int length, bool dotsToBeUsed = false)
-        {
-            if (s.IsNullOrEmpty())
-                return s;
-
-            if (length < 0)
-                throw new ArgumentOutOfRangeException(nameof(length));
-
-            return s.Length > length ?
-                                dotsToBeUsed ? "..." + s.Substring(s.Length - length, length)
-                                : s.Substring(s.Length - length, length)
-                                : s;
-        }
 
         /// <summary>
         /// Replace all Single Quotes in a string with Double
@@ -1250,20 +1294,6 @@ namespace Aqua.StringHelpers
             return result.ToString();
         }
 
-        /// <summary>
-        /// Encode a string into Base64
-        /// </summary>
-        /// <param name="plainText"></param>
-        /// <returns></returns>
-        public static string ToBase64(this string plainText)
-        {
-            if (plainText.IsNullOrEmpty())
-                return plainText;
-
-            byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
-            return Convert.ToBase64String(plainTextBytes);
-        }
-
 
         /// <summary>
         /// Decode a Base64 data into plain string
@@ -1280,24 +1310,6 @@ namespace Aqua.StringHelpers
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
-        /// <summary>
-        /// Convert a string to hash (16 bytes)
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string To16ByteSaltedHash(this string s)
-        {
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
 
-            var pbkdf2 = new Rfc2898DeriveBytes(s, salt, 100000);
-            byte[] hash = pbkdf2.GetBytes(20);
-
-            byte[] hashBytes = new byte[36];
-            Array.Copy(salt, 0, hashBytes, 0, 16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-
-            return Convert.ToBase64String(hashBytes);
-        }
     }
 }
