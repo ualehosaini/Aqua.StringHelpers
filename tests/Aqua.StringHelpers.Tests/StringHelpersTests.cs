@@ -299,6 +299,15 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData("", "\"\"")]
+        [InlineData(" ", "\" \"")]
+        [InlineData("http://testte333333st.com/test.pdf", "\"http://testte333333st.com/test.pdf\"")]
+        public void ToJsonString_Valid(object input, string expected)
+        {
+            Assert.Equal(expected, input.ToJsonString());
+        }
+
+        [Theory]
         [InlineData("", "")]
         [InlineData(" ", " ")]
         [InlineData(null, null)]
