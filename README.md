@@ -63,8 +63,8 @@ input = "lorem ipsum dolor";
 output = input.IsNullOrWhiteSpace();  // output = false
 
 ```
-
-### IsDigit [Back to the Full List of Features](#List of Features / Methods)
+[Back to the Full List of Features](#List of Features / Methods)
+### IsDigit
 
 ```C#
 //using Aqua.StringHelpers;
