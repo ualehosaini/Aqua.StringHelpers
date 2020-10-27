@@ -50,6 +50,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 37. [ToCanonicalGuid](#ToCanonicalGuid)
 38. [ToDistinctListOfWords](#ToDistinctListOfWords)
 39. [To16ByteSaltedHash](#To16ByteSaltedHash)
+40. [CapitaliseEachWord](#CapitaliseEachWord)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1073,6 +1074,30 @@ output = input.To16ByteSaltedHash();  // output = "i6H3KFHsCR/OYni4EG57FCrUX/r3s
 
 input = "abcd12345";
 output = input.To16ByteSaltedHash();  // output = "ILUxWoR6iWnBxkqs+E38sWJZtU02J42HQ1gtAMcOIIP3p90u"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### CapitaliseEachWord
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.CapitaliseEachWord();  // output = null
+
+input = "";
+output = input.CapitaliseEachWord();  // result = ""
+
+input = " ";
+output = input.CapitaliseEachWord();  // result = " "
+
+input = "lorem ipsum dolor";
+output = input.CapitaliseEachWord();  // output = "Lorem Ipsum Dolor"
+
+input = "lorem ipsum dolor.";
+output = input.CapitaliseEachWord();  // output = "Lorem Ipsum Dolor."
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
