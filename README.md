@@ -60,13 +60,17 @@ result = s.IsNullOrWhiteSpace()  // result = false
 ### IsDigit
 
 ```C#
-            //using Aqua.StringHelpers;
-            char input = '0';
-            bool result = input.IsDigit(); // result = true
-            input = '9';
-            result = input.IsDigit(); // result = true
-            input = 'A';
-            result = input.IsDigit(); // result = false
+//using Aqua.StringHelpers;
+
+char input = '0';
+bool result = input.IsDigit(); // result = true
+
+input = '9';
+result = input.IsDigit(); // result = true
+
+input = 'A';
+result = input.IsDigit(); // result = false
+
 ```
 
 
