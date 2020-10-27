@@ -40,6 +40,7 @@ input = "lorem ipsum dolor";
 output = input.IsNullOrEmpty();  // output = false
 
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 ### IsNullOrWhiteSpace
 IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrWhiteSpace() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
@@ -63,9 +64,9 @@ input = "lorem ipsum dolor";
 output = input.IsNullOrWhiteSpace();  // output = false
 
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 ### IsDigit
-:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 ```C#
 //using Aqua.StringHelpers;
@@ -83,6 +84,7 @@ input = 'A';
 output = input.IsDigit();  // output = false
 
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 ### IsInteger
 ```C#
