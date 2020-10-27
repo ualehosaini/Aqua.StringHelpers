@@ -37,6 +37,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 24. [ToAbbreviation](#ToAbbreviation)
 25. [ToNcharAbbreviation](#ToNcharAbbreviation)
 26. [ToHyperlink](#ToHyperlink)
+27. [ToSentenceCase](#ToSentenceCase)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -721,6 +722,36 @@ output = input.ToHyperlink();  // output = "www.wideitsolutions.co.uk"
 
 input = "http://www.wideitsolutions.co.uk";
 output = input.ToHyperlink();  // output = "<a href=\"http://www.wideitsolutions.co.uk" target=\"_blank\">http://www.wideitsolutions.co.uk</a>"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToSentenceCase
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+char s;         //Sentence seperator
+string output;
+
+input = null;
+s = '.';
+output = input.ToSentenceCase(s);  // output = null
+
+input = "";
+s = '.';
+output = input.ToSentenceCase(s);  // result = ""
+
+input = " ";
+s = '.';
+output = input.ToSentenceCase(s);  // result = ""
+
+input = "lorem ipsum dolor";
+s = '.';
+output = input.ToSentenceCase(s);  // output = "Lorem ipsum dolor"
+
+input = "lorem ipsum dolor. lorem. ipsum dolor";
+s = '.';
+output = input.ToSentenceCase(s);  // output = "Lorem ipsum dolor. Lorem. Ipsum dolor."
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
