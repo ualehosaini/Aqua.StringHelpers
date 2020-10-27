@@ -31,6 +31,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 18. [ReplaceSingleQuotesWithDouble](#ReplaceSingleQuotesWithDouble)
 19. [ReplaceNonASCIICharsWith](#ReplaceNonASCIICharsWith)
 20. [ReplaceFirstOccurrence](#ReplaceFirstOccurrence)
+21. [ToCleanString](#ToCleanString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -568,6 +569,30 @@ input = "lorem ipsum dolor";
 s = "ip";
 r = "**";
 output = input.ReplaceFirstOccurrence(s, r);  // output = "lorem **sum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToCleanString
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToCleanString();  // output = null
+
+input = "";
+output = input.ToCleanString();  // result = ""
+
+input = " ";
+output = input.ToCleanString();  // result = ""
+
+input = "   lorem     ipsum      ";
+output = input.ToCleanString();  // output = "lorem ipsum"
+
+input = " lorem\n     ipsum\n";  // there is mix of \n \t and spaces
+output = input.ToCleanString();  // output = "lorem ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
