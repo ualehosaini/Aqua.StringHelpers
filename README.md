@@ -20,6 +20,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 7. [IsValidURL](#IsValidURL)
 8. [IfNullReturnEmptyString](#IfNullReturnEmptyString)
 9. [Reverse](#Reverse)
+10. [RemoveExtraSpaces](#RemoveExtraSpaces)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -263,6 +264,30 @@ output = input.Reverse();  // output = "muspi merol"
 
 input = "A12345";
 output = input.Reverse();  // output = "54321A"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### RemoveExtraSpaces
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.RemoveExtraSpaces();  // output = null
+
+input = "";
+output = input.RemoveExtraSpaces();  // result = ""
+
+input = " ";
+output = input.RemoveExtraSpaces();  // result = ""
+
+input = "lorem ipsum";
+output = input.RemoveExtraSpaces();  // output = "lorem ipsum"
+
+input = "  lorem ipsum      lorem ipsum  ";
+output = input.RemoveExtraSpaces();  // output = "lorem ipsum lorem ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
