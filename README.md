@@ -14,10 +14,13 @@ TODO: Guide users through getting your code up and running on their own system. 
 ## IsNullOrEmpty
 IsNullOrEmpty is an extension method, equivalent for the traditional `string.IsNullOrEmpty()` static methods. Returns true if the string examined is null or empty, otherwise returns false.
 
-`
+```C#
+
 string s = “”;
+
 bool result = s.IsNullOrEmpty()  // result = true
-`
+
+```
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
