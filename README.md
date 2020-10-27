@@ -26,6 +26,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 13. [RemoveNumberOfCharsAtBegining](#RemoveNumberOfCharsAtBegining)
 14. [RemoveNumberOfCharsAtEnd](#RemoveNumberOfCharsAtEnd)
 15. [ReplaceTabsWithSpaces](#ReplaceTabsWithSpaces)
+16. [ReplaceNewLinesWithSpaces](#ReplaceNewLinesWithSpaces)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -425,6 +426,30 @@ output = input.ReplaceTabsWithSpaces();  // output = "lorem ipsum"
 
 input = "   lorem               ipsum "; //6 tabs were here
 output = input.ReplaceTabsWithSpaces();  // output = "lorem ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ReplaceNewLinesWithSpaces
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ReplaceNewLinesWithSpaces();  // output = null
+
+input = "";
+output = input.ReplaceNewLinesWithSpaces();  // result = ""
+
+input = " ";
+output = input.ReplaceNewLinesWithSpaces();  // result = ""
+
+input = "lorem\nipsum";
+output = input.ReplaceNewLinesWithSpaces();  // output = "lorem ipsum"
+
+input = "\nlorem\n\n      ipsum\ndolor";
+output = input.ReplaceNewLinesWithSpaces();  // output = "lorem ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
