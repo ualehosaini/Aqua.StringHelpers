@@ -43,6 +43,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 30. [ToSummarisedTextRight](#ToSummarisedTextRight)
 31. [ToCsvCompatible](#ToCsvCompatible)
 32. [ToUkTelephoneFormat](#ToUkTelephoneFormat)
+33. [ToUpperCaseCanonicalGuid](#ToUpperCaseCanonicalGuid)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -901,6 +902,27 @@ output = input.ToUkTelephoneFormat();  // output = "07777 777777"
 
 input = "0111111111";
 output = input.ToUkTelephoneFormat();  // output = "01111 11111"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToUpperCaseCanonicalGuid
+```C#
+//using Aqua.StringHelpers;
+
+Guid input;
+string output;
+
+input = Guid.Empty;
+output = input.ToUpperCaseCanonicalGuid();  // result = "00000000000000000000000000000000"
+
+input = new Guid("{4A6B75A8-F2A3-4F8F-AAE6-224B5CBFE44E}");
+output = input.ToUpperCaseCanonicalGuid();  // result = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
+
+input = new Guid("{4a6b75a8-f2a3-4f8f-aae6-224b5cbfe44e}");
+output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
+
+input = Guid.NewGuid();
+output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
