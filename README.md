@@ -16,6 +16,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 3. [IsDigit](#IsDigit)
 4. [IsInteger](#IsInteger)
 5. [IsNumber](#IsNumber)
+6. [IsAlphaNumeric](#IsAlphaNumeric)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -146,6 +147,45 @@ input = "lorem ipsum dolor";
 output = input.IsNumber();  // output = false
 
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### IsAlphaNumeric
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+bool output;
+
+input = null;
+output = input.IsAlphaNumeric();  // output = false
+
+input = "";
+output = input.IsAlphaNumeric();  // result = false
+
+input = " ";
+output = input.IsAlphaNumeric();  // result = false
+
+input = "5";
+output = input.IsAlphaNumeric();  // output = true
+
+input = "5A";
+output = input.IsAlphaNumeric();  // output = true
+
+input = "A5";
+output = input.IsAlphaNumeric();  // output = true
+
+input = "lorem ipsum dolor";
+output = input.IsAlphaNumeric();  // output = false
+
+input = "loremipsumdolor";
+output = input.IsAlphaNumeric();  // output = true
+
+input = "$loremips((umdolor";
+output = input.IsAlphaNumeric();  // output = true
+
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
