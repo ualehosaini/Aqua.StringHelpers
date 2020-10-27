@@ -41,6 +41,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 28. [ToBase64](#ToBase64)
 29. [ToSummarisedText](#ToSummarisedText)
 30. [ToSummarisedTextRight](#ToSummarisedTextRight)
+31. [ToCsvCompatible](#ToCsvCompatible)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -851,6 +852,30 @@ input = "lorem ipsum dolor. lorem. ipsum dolor";
 n = 15;
 d = true;
 output = input.ToSummarisedTextRight(n,d);  // output = "...em. ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToCsvCompatible
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToCsvCompatible();  // output = null
+
+input = "";
+output = input.ToCsvCompatible();  // result = ""
+
+input = " ";
+output = input.ToCsvCompatible();  // result = "\" \""
+
+input = "abc\n";
+output = input.ToCsvCompatible();  // output = "\"abc\n\""
+
+input = " lorem ipsum dolor, lorem; ipsum dolor";
+output = input.ToCsvCompatible();  // output = "\" lorem ipsum dolor, lorem; ipsum dolor\""
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
