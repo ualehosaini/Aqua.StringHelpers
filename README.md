@@ -17,6 +17,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 4. [IsInteger](#IsInteger)
 5. [IsNumber](#IsNumber)
 6. [IsAlphaNumeric](#IsAlphaNumeric)
+7. [IsValidURL](#IsValidURL)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -182,6 +183,37 @@ output = input.IsAlphaNumeric();  // output = true
 
 input = "$loremips((umdolor";
 output = input.IsAlphaNumeric();  // output = false
+
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+#IsValidURL
+```C#
+using Aqua.StringHelpers;
+
+string input;
+bool output;
+
+input = null;
+output = input.IsValidURL();  // output = false
+
+input = "";
+output = input.IsValidURL();  // result = false
+
+input = " ";
+output = input.IsValidURL();  // result = false
+
+input = "http://wideitsolutions.co.uk";
+output = input.IsValidURL();  // output = true
+
+input = "https://wideitsolutions.co.uk";
+output = input.IsValidURL();  // output = true
+
+input = "http://dev.wideitsolutions.co.uk";
+output = input.IsValidURL();  // output = true
+
+input = "http://wideitsolutions.co.uk/dev";
+output = input.IsValidURL();  // output = true
 
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
