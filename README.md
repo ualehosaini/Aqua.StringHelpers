@@ -12,15 +12,51 @@ TODO: Guide users through getting your code up and running on their own system. 
 
 # Features and Methods
 ## IsNullOrEmpty
-IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrEmpty() ``` static methods. Returns true if the string examined is null or empty, otherwise returns false.
+IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrEmpty() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
 
 ```C#
 
-string s = "";
+string s = null;
 
 bool result = s.IsNullOrEmpty()  // result = true
 
+s = "";
+
+result = s.IsNullOrEmpty()  // result = true
+
+s = " ";
+
+result = s.IsNullOrEmpty()  // result = false
+
+s = "lorem ipsum dolor";
+
+result = s.IsNullOrEmpty()  // result = false
+
 ```
+
+## IsNullOrWhiteSpace
+IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrWhiteSpace() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
+
+```C#
+
+string s = null;
+
+bool result = s.IsNullOrWhiteSpace()  // result = true
+
+s = "";
+
+result = s.IsNullOrWhiteSpace()  // result = true
+
+s = " ";
+
+result = s.IsNullOrWhiteSpace()  // result = true
+
+s = "lorem ipsum dolor";
+
+result = s.IsNullOrWhiteSpace()  // result = false
+
+```
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
