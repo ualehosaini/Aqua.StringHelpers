@@ -46,6 +46,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 33. [ToUpperCaseCanonicalGuid](#ToUpperCaseCanonicalGuid)
 34. [ToDoubleQuotedString](#ToDoubleQuotedString)
 35. [ToStringArrayFromDelimitedString](#ToStringArrayFromDelimitedString)
+36. [ToUrlFriendly](#ToUrlFriendly)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -979,6 +980,30 @@ output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lore
 input = "lorem, ipsum, dolor";
 d = ',';
 output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor"}
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToUrlFriendly
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToUrlFriendly();  // output = null
+
+input = "";
+output = input.ToUrlFriendly();  // result = ""
+
+input = " ";
+output = input.ToUrlFriendly();  // result = " "
+
+input = "lorem ipsum dolor";
+output = input.ToUrlFriendly();  // output = "loremipsumdolor"
+
+input = "\"lorem ipsum dolor";
+output = input.ToUrlFriendly();  // output = "loremipsumdolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
