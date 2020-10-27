@@ -36,6 +36,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 23. [ToHtml](#ToHtml)
 24. [ToAbbreviation](#ToAbbreviation)
 25. [ToNcharAbbreviation](#ToNcharAbbreviation)
+26. [ToHyperlink](#ToHyperlink)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -698,9 +699,35 @@ input = "   lorem    ipsum   dolor lorem ipsum";
 n = 3;
 output = input.ToNcharAbbreviation(n);  // output = "LID"
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+### ToHyperlink
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToHyperlink();  // output = null
+
+input = "";
+output = input.ToHyperlink();  // result = ""
+
+input = " ";
+output = input.ToHyperlink();  // result = ""
+
+input = "www.wideitsolutions.co.uk";
+output = input.ToHyperlink();  // output = "www.wideitsolutions.co.uk"
+
+input = "http://www.wideitsolutions.co.uk";
+output = input.ToHyperlink();  // output = "<a href=\"http://www.wideitsolutions.co.uk" target=\"_blank\">http://www.wideitsolutions.co.uk</a>"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
+
+
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
