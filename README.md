@@ -306,7 +306,7 @@ input = "";
 output = input.RemoveAllLineBreaks();  // result = ""
 
 input = " ";
-output = input.RemoveAllLineBreaks();  // result = ""
+output = input.RemoveAllLineBreaks();  // result = " "
 
 input = "lorem\n ipsum";
 output = input.RemoveAllLineBreaks();  // output = "lorem ipsum"
