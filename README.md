@@ -27,6 +27,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 14. [RemoveNumberOfCharsAtEnd](#RemoveNumberOfCharsAtEnd)
 15. [ReplaceTabsWithSpaces](#ReplaceTabsWithSpaces)
 16. [ReplaceNewLinesWithSpaces](#ReplaceNewLinesWithSpaces)
+17. [ReplaceDoubleQuotesWithSingle](#ReplaceDoubleQuotesWithSingle)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -450,6 +451,30 @@ output = input.ReplaceNewLinesWithSpaces();  // output = "lorem ipsum"
 
 input = "\nlorem\n\n      ipsum\ndolor";
 output = input.ReplaceNewLinesWithSpaces();  // output = "lorem ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ReplaceDoubleQuotesWithSingle
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ReplaceDoubleQuotesWithSingle();  // output = null
+
+input = "";
+output = input.ReplaceDoubleQuotesWithSingle();  // result = ""
+
+input = " ";
+output = input.ReplaceDoubleQuotesWithSingle();  // result = " "
+
+input = "lorem \"ipsum\"";
+output = input.ReplaceDoubleQuotesWithSingle();  // output = "lorem 'ipsum'"
+
+input = "lorem\"              ipsum dolor";
+output = input.ReplaceDoubleQuotesWithSingle();  // output = "lorem'              ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
