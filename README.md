@@ -1,5 +1,8 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+#About Aqua String Helper:
+Aqua String Helpers is an Open Source and Free Software package consists of a set of utilities that facilitate the job of the developer and save his time while dealing with a string. 
+Every developer could be a beneficiary of this library; however, those who deal with database and integration applications are likely the most potential beneficiaries. 
+The programming language used to develop this library is C#.
+
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
