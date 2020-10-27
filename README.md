@@ -11,7 +11,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 4.	API references
 
 # Features and Methods
-## IsNullOrEmpty
+### IsNullOrEmpty
 IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrEmpty() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
 
 ```C#
@@ -34,7 +34,7 @@ result = s.IsNullOrEmpty()  // result = false
 
 ```
 
-## IsNullOrWhiteSpace
+### IsNullOrWhiteSpace
 IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrWhiteSpace() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
 
 ```C#
