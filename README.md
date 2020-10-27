@@ -38,6 +38,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 25. [ToNcharAbbreviation](#ToNcharAbbreviation)
 26. [ToHyperlink](#ToHyperlink)
 27. [ToSentenceCase](#ToSentenceCase)
+28. [ToBase64](#ToBase64)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -754,6 +755,33 @@ s = '.';
 output = input.ToSentenceCase(s);  // output = "Lorem ipsum dolor. Lorem. Ipsum dolor."
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToBase64
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToBase64();  // output = null
+
+input = "";
+output = input.ToBase64();  // result = ""
+
+input = " ";
+output = input.ToBase64();  // result = "IA=="
+
+input = "abc";
+output = input.ToBase64();  // output = "YWJj"
+
+input = "lorem ipsum dolor. lorem. ipsum dolor";
+output = input.ToBase64();  // output = "bG9yZW0gaXBzdW0gZG9sb3IuIGxvcmVtLiBpcHN1bSBkb2xvcg=="
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
