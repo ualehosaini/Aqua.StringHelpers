@@ -223,6 +223,8 @@ output = input.IsValidURL();  // output = true
 ### IfNullReturnEmptyString
 
 ```C#
+//using Aqua.StringHelpers;
+
 string input;
 string output;
 
