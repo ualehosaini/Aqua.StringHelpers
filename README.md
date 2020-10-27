@@ -22,6 +22,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 9. [Reverse](#Reverse)
 10. [RemoveExtraSpaces](#RemoveExtraSpaces)
 11. [RemoveAllLineBreaks](#RemoveAllLineBreaks)
+12. [RemoveNonASCIIChars](#RemoveNonASCIIChars)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -313,6 +314,30 @@ output = input.RemoveAllLineBreaks();  // output = "lorem ipsum"
 
 input = "  lorem \nipsum      lorem\n ipsum  ";
 output = input.RemoveAllLineBreaks();  // output = "  lorem ipsum      lorem ipsum  "
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### RemoveNonASCIIChars
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.RemoveNonASCIIChars();  // output = null
+
+input = "";
+output = input.RemoveNonASCIIChars();  // result = ""
+
+input = " ";
+output = input.RemoveNonASCIIChars();  // result = " "
+
+input = "lorem ipsum";
+output = input.RemoveNonASCIIChars();  // output = "lorem ipsum"
+
+input = "lorem भारत ipsum";
+output = input.RemoveNonASCIIChars();  // output = "lorem  ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
