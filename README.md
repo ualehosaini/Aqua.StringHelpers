@@ -44,6 +44,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 31. [ToCsvCompatible](#ToCsvCompatible)
 32. [ToUkTelephoneFormat](#ToUkTelephoneFormat)
 33. [ToUpperCaseCanonicalGuid](#ToUpperCaseCanonicalGuid)
+34. [ToDoubleQuotedString](#ToDoubleQuotedString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -923,6 +924,30 @@ output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224
 
 input = Guid.NewGuid();
 output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToDoubleQuotedString
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToDoubleQuotedString();  // output = null
+
+input = "";
+output = input.ToDoubleQuotedString();  // result = ""
+
+input = " ";
+output = input.ToDoubleQuotedString();  // result = " "
+
+input = "lorem ipsum dolor";
+output = input.ToDoubleQuotedString();  // output = "\"lorem ipsum dolor\""
+
+input = "\"lorem ipsum dolor\"";
+output = input.ToDoubleQuotedString();  // output = "\"\"lorem ipsum dolor\"\""
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
