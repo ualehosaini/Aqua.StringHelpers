@@ -16,21 +16,20 @@ IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.
 
 ```C#
 
-string s = null;
+string input;
+bool output;
 
-bool result = s.IsNullOrEmpty()  // result = true
+input = null;
+output = input.IsNullOrEmpty()  // output = true
 
-s = "";
+input = "";
+result = input.IsNullOrEmpty()  // result = true
 
-result = s.IsNullOrEmpty()  // result = true
+input = " ";
+output = input.IsNullOrEmpty()  // output = false
 
-s = " ";
-
-result = s.IsNullOrEmpty()  // result = false
-
-s = "lorem ipsum dolor";
-
-result = s.IsNullOrEmpty()  // result = false
+input = "lorem ipsum dolor";
+output = input.IsNullOrEmpty()  // output = false
 
 ```
 
@@ -39,21 +38,20 @@ IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.
 
 ```C#
 
-string s = null;
+string input;
+bool output;
 
-bool result = s.IsNullOrWhiteSpace()  // result = true
+input = null;
+output = input.IsNullOrWhiteSpace()  // output = true
 
-s = "";
+input = "";
+result = input.IsNullOrWhiteSpace()  // result = true
 
-result = s.IsNullOrWhiteSpace()  // result = true
+input = " ";
+output = input.IsNullOrWhiteSpace()  // output = false
 
-s = " ";
-
-result = s.IsNullOrWhiteSpace()  // result = true
-
-s = "lorem ipsum dolor";
-
-result = s.IsNullOrWhiteSpace()  // result = false
+input = "lorem ipsum dolor";
+output = input.IsNullOrWhiteSpace()  // output = false
 
 ```
 
@@ -62,14 +60,17 @@ result = s.IsNullOrWhiteSpace()  // result = false
 ```C#
 //using Aqua.StringHelpers;
 
-char input = '0';
-bool result = input.IsDigit(); // result = true
+char input;
+bool output;
+
+input = '0';
+output = input.IsDigit();  // output = true
 
 input = '9';
-result = input.IsDigit(); // result = true
+output = input.IsDigit();  // output = true
 
 input = 'A';
-result = input.IsDigit(); // result = false
+output = input.IsDigit();  // output = false
 
 ```
 
