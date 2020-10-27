@@ -15,6 +15,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrEmpty() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
 
 ```C#
+//using Aqua.StringHelpers;
 
 string input;
 bool output;
@@ -37,6 +38,7 @@ output = input.IsNullOrEmpty()  // output = false
 IsNullOrEmpty is an extension method, equivalent for the traditional ``` string.IsNullOrWhiteSpace() ``` static method. Returns true if the string examined is null or empty, otherwise returns false.
 
 ```C#
+//using Aqua.StringHelpers;
 
 string input;
 bool output;
