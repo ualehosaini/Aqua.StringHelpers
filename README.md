@@ -32,6 +32,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 19. [ReplaceNonASCIICharsWith](#ReplaceNonASCIICharsWith)
 20. [ReplaceFirstOccurrence](#ReplaceFirstOccurrence)
 21. [ToCleanString](#ToCleanString)
+22.[ToAlphaNumericString](#ToAlphaNumericString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -593,6 +594,30 @@ output = input.ToCleanString();  // output = "lorem ipsum"
 
 input = " lorem\n     ipsum\n";  // there is mix of \n \t and spaces
 output = input.ToCleanString();  // output = "lorem ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToAlphaNumericString
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToAlphaNumericString();  // output = null
+
+input = "";
+output = input.ToAlphaNumericString();  // result = ""
+
+input = " ";
+output = input.ToAlphaNumericString();  // result = ""
+
+input = "lorem12345^^^&&**ipsum22$$";
+output = input.ToAlphaNumericString();  // output = "lorem12345ipsum22"
+
+input = " lorem\n 55 **   ipsum\n";
+output = input.ToAlphaNumericString();  // output = "lorem55ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
