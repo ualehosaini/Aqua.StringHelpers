@@ -33,6 +33,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 20. [ReplaceFirstOccurrence](#ReplaceFirstOccurrence)
 21. [ToCleanString](#ToCleanString)
 22. [ToAlphaNumericString](#ToAlphaNumericString)
+23. [ToHtml](#ToHtml)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -618,6 +619,30 @@ output = input.ToAlphaNumericString();  // output = "lorem12345ipsum22"
 
 input = " lorem\n 55 **   ipsum\n";
 output = input.ToAlphaNumericString();  // output = "lorem55ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToHtml
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToHtml();  // output = null
+
+input = "";
+output = input.ToHtml();  // result = ""
+
+input = " ";
+output = input.ToHtml();  // result = ""
+
+input = "lorem ipsum lorem\n ipsum\n";
+output = input.ToHtml();  // output = "lorem ipsum lorem<br/> ipsum<br/>"
+
+input = " lorem\n ipsum\n";
+output = input.ToHtml();  // output = " lorem<br/> ipsum<br/>"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
