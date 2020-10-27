@@ -499,7 +499,7 @@ input = "lorem 'ipsum'";
 output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem \"ipsum\""
 
 input = "lorem'              ipsum dolor";
-output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem\"  
+output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem\"              ipsum dolor"  
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
