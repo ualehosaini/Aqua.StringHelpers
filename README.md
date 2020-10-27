@@ -21,6 +21,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 8. [IfNullReturnEmptyString](#IfNullReturnEmptyString)
 9. [Reverse](#Reverse)
 10. [RemoveExtraSpaces](#RemoveExtraSpaces)
+11. [RemoveAllLineBreaks](#RemoveAllLineBreaks)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -288,6 +289,30 @@ output = input.RemoveExtraSpaces();  // output = "lorem ipsum"
 
 input = "  lorem ipsum      lorem ipsum  ";
 output = input.RemoveExtraSpaces();  // output = "lorem ipsum lorem ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### RemoveAllLineBreaks
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.RemoveAllLineBreaks();  // output = null
+
+input = "";
+output = input.RemoveAllLineBreaks();  // result = ""
+
+input = " ";
+output = input.RemoveAllLineBreaks();  // result = ""
+
+input = "lorem\n ipsum";
+output = input.RemoveAllLineBreaks();  // output = "lorem ipsum"
+
+input = "  lorem \nipsum      lorem\n ipsum  ";
+output = input.RemoveAllLineBreaks();  // output = "  lorem ipsum      lorem ipsum  "
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
