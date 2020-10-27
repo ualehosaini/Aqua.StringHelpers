@@ -29,6 +29,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 16. [ReplaceNewLinesWithSpaces](#ReplaceNewLinesWithSpaces)
 17. [ReplaceDoubleQuotesWithSingle](#ReplaceDoubleQuotesWithSingle)
 18. [ReplaceSingleQuotesWithDouble](#ReplaceSingleQuotesWithDouble)
+19. [ReplaceNonASCIICharsWith](#ReplaceNonASCIICharsWith)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -500,6 +501,36 @@ output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem \"ipsum\""
 
 input = "lorem'              ipsum dolor";
 output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem\"              ipsum dolor"  
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ReplaceNonASCIICharsWith
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+char r;         // Replacement Character
+string output;
+
+input = null;
+r = '*';
+output = input.ReplaceNonASCIICharsWith(r);  // output = null
+
+input = "";
+r = '*';
+output = input.ReplaceNonASCIICharsWith(r);  // result = ""
+
+input = " ";
+r = '*';
+output = input.ReplaceNonASCIICharsWith(r);  // result = " "
+
+input = "lorem ipsum";
+r = '*';
+output = input.ReplaceNonASCIICharsWith(r);  // output = "lorem ipsum"
+
+input = "lorem भारत ipsum";
+r = '*';
+output = input.ReplaceNonASCIICharsWith(r);  // output = "lorem **** ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
