@@ -16,7 +16,7 @@ IsNullOrEmpty is an extension method, equivalent for the traditional `string.IsN
 
 ```C#
 
-string s = “”;
+string s = "";
 
 bool result = s.IsNullOrEmpty()  // result = true
 
