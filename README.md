@@ -49,6 +49,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 36. [ToUrlFriendly](#ToUrlFriendly)
 37. [ToCanonicalGuid](#ToCanonicalGuid)
 38. [ToDistinctListOfWords](#ToDistinctListOfWords)
+39. [To16ByteSaltedHash](#To16ByteSaltedHash)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -64,7 +65,7 @@ input = null;
 output = input.IsNullOrEmpty();  // output = true
 
 input = "";
-output = input.IsNullOrEmpty();  // result = true
+output = input.IsNullOrEmpty();  // output = true
 
 input = " ";
 output = input.IsNullOrEmpty();  // output = false
@@ -88,10 +89,10 @@ input = null;
 output = input.IsNullOrWhiteSpace();  // output = true
 
 input = "";
-output = input.IsNullOrWhiteSpace();  // result = true
+output = input.IsNullOrWhiteSpace();  // output = true
 
 input = " ";
-output = input.IsNullOrWhiteSpace(); // output = false
+output = input.IsNullOrWhiteSpace();  // output = false
 
 input = "lorem ipsum dolor";
 output = input.IsNullOrWhiteSpace();  // output = false
@@ -130,10 +131,10 @@ input = null;
 output = input.IsInteger();  // output = false
 
 input = "";
-output = input.IsInteger();  // result = false
+output = input.IsInteger();  // output = false
 
 input = " ";
-output = input.IsInteger();  // result = false
+output = input.IsInteger();  // output = false
 
 input = "5";
 output = input.IsInteger();  // output = true
@@ -161,10 +162,10 @@ input = null;
 output = input.IsNumber();  // output = false
 
 input = "";
-output = input.IsNumber();  // result = false
+output = input.IsNumber();  // output = false
 
 input = " ";
-output = input.IsNumber();  // result = false
+output = input.IsNumber();  // output = false
 
 input = "5";
 output = input.IsNumber();  // output = true
@@ -192,10 +193,10 @@ input = null;
 output = input.IsAlphaNumeric();  // output = false
 
 input = "";
-output = input.IsAlphaNumeric();  // result = false
+output = input.IsAlphaNumeric();  // output = false
 
 input = " ";
-output = input.IsAlphaNumeric();  // result = false
+output = input.IsAlphaNumeric();  // output = false
 
 input = "5";
 output = input.IsAlphaNumeric();  // output = true
@@ -229,10 +230,10 @@ input = null;
 output = input.IsValidURL();  // output = false
 
 input = "";
-output = input.IsValidURL();  // result = false
+output = input.IsValidURL();  // output = false
 
 input = " ";
-output = input.IsValidURL();  // result = false
+output = input.IsValidURL();  // output = false
 
 input = "http://wideitsolutions.co.uk";
 output = input.IsValidURL();  // output = true
@@ -261,10 +262,10 @@ input = null;
 output = input.IfNullReturnEmptyString();  // output = ""
 
 input = "";
-output = input.IfNullReturnEmptyString();  // result = ""
+output = input.IfNullReturnEmptyString();  // output = ""
 
 input = " ";
-output = input.IfNullReturnEmptyString();  // result = " "
+output = input.IfNullReturnEmptyString();  // output = " "
 
 input = "lorem ipsum";
 output = input.IfNullReturnEmptyString();  // output = "lorem ipsum"
@@ -282,10 +283,10 @@ input = null;
 output = input.Reverse();  // output = null
 
 input = "";
-output = input.Reverse();  // result = ""
+output = input.Reverse();  // output = ""
 
 input = " ";
-output = input.Reverse();  // result = " "
+output = input.Reverse();  // output = " "
 
 input = "lorem ipsum";
 output = input.Reverse();  // output = "muspi merol"
@@ -306,10 +307,10 @@ input = null;
 output = input.RemoveExtraSpaces();  // output = null
 
 input = "";
-output = input.RemoveExtraSpaces();  // result = ""
+output = input.RemoveExtraSpaces();  // output = ""
 
 input = " ";
-output = input.RemoveExtraSpaces();  // result = ""
+output = input.RemoveExtraSpaces();  // output = ""
 
 input = "lorem ipsum";
 output = input.RemoveExtraSpaces();  // output = "lorem ipsum"
@@ -330,10 +331,10 @@ input = null;
 output = input.RemoveAllLineBreaks();  // output = null
 
 input = "";
-output = input.RemoveAllLineBreaks();  // result = ""
+output = input.RemoveAllLineBreaks();  // output = ""
 
 input = " ";
-output = input.RemoveAllLineBreaks();  // result = " "
+output = input.RemoveAllLineBreaks();  // output = " "
 
 input = "lorem\n ipsum";
 output = input.RemoveAllLineBreaks();  // output = "lorem ipsum"
@@ -354,10 +355,10 @@ input = null;
 output = input.RemoveNonASCIIChars();  // output = null
 
 input = "";
-output = input.RemoveNonASCIIChars();  // result = ""
+output = input.RemoveNonASCIIChars();  // output = ""
 
 input = " ";
-output = input.RemoveNonASCIIChars();  // result = " "
+output = input.RemoveNonASCIIChars();  // output = " "
 
 input = "lorem ipsum";
 output = input.RemoveNonASCIIChars();  // output = "lorem ipsum"
@@ -381,11 +382,11 @@ output = input.RemoveNumberOfCharsAtBegining(n);  // output = null
 
 input = "";
 n = 3;
-output = input.RemoveNumberOfCharsAtBegining(n);  // result = ""
+output = input.RemoveNumberOfCharsAtBegining(n);  // output = ""
 
 input = " ";
 n = 3;
-output = input.RemoveNumberOfCharsAtBegining(n);  // result = ""
+output = input.RemoveNumberOfCharsAtBegining(n);  // output = ""
 
 input = "lorem ipsum";
 n = 3;
@@ -411,11 +412,11 @@ output = input.RemoveNumberOfCharsAtEnd(n);  // output = null
 
 input = "";
 n = 3;
-output = input.RemoveNumberOfCharsAtEnd(n);  // result = ""
+output = input.RemoveNumberOfCharsAtEnd(n);  // output = ""
 
 input = " ";
 n = 3;
-output = input.RemoveNumberOfCharsAtEnd(n);  // result = ""
+output = input.RemoveNumberOfCharsAtEnd(n);  // output = ""
 
 input = "lorem ipsum";
 n = 3;
@@ -438,10 +439,10 @@ input = null;
 output = input.ReplaceTabsWithSpaces();  // output = null
 
 input = "";
-output = input.ReplaceTabsWithSpaces();  // result = ""
+output = input.ReplaceTabsWithSpaces();  // output = ""
 
 input = " ";
-output = input.ReplaceTabsWithSpaces();  // result = ""
+output = input.ReplaceTabsWithSpaces();  // output = ""
 
 input = "lorem              ipsum";      //4 tabs were here
 output = input.ReplaceTabsWithSpaces();  // output = "lorem ipsum"
@@ -462,10 +463,10 @@ input = null;
 output = input.ReplaceNewLinesWithSpaces();  // output = null
 
 input = "";
-output = input.ReplaceNewLinesWithSpaces();  // result = ""
+output = input.ReplaceNewLinesWithSpaces();  // output = ""
 
 input = " ";
-output = input.ReplaceNewLinesWithSpaces();  // result = ""
+output = input.ReplaceNewLinesWithSpaces();  // output = ""
 
 input = "lorem\nipsum";
 output = input.ReplaceNewLinesWithSpaces();  // output = "lorem ipsum"
@@ -486,10 +487,10 @@ input = null;
 output = input.ReplaceDoubleQuotesWithSingle();  // output = null
 
 input = "";
-output = input.ReplaceDoubleQuotesWithSingle();  // result = ""
+output = input.ReplaceDoubleQuotesWithSingle();  // output = ""
 
 input = " ";
-output = input.ReplaceDoubleQuotesWithSingle();  // result = " "
+output = input.ReplaceDoubleQuotesWithSingle();  // output = " "
 
 input = "lorem \"ipsum\"";
 output = input.ReplaceDoubleQuotesWithSingle();  // output = "lorem 'ipsum'"
@@ -510,10 +511,10 @@ input = null;
 output = input.ReplaceSingleQuotesWithDouble();  // output = null
 
 input = "";
-output = input.ReplaceSingleQuotesWithDouble();  // result = ""
+output = input.ReplaceSingleQuotesWithDouble();  // output = ""
 
 input = " ";
-output = input.ReplaceSingleQuotesWithDouble();  // result = " "
+output = input.ReplaceSingleQuotesWithDouble();  // output = " "
 
 input = "lorem 'ipsum'";
 output = input.ReplaceSingleQuotesWithDouble();  // output = "lorem \"ipsum\""
@@ -537,11 +538,11 @@ output = input.ReplaceNonASCIICharsWith(r);  // output = null
 
 input = "";
 r = '*';
-output = input.ReplaceNonASCIICharsWith(r);  // result = ""
+output = input.ReplaceNonASCIICharsWith(r);  // output = ""
 
 input = " ";
 r = '*';
-output = input.ReplaceNonASCIICharsWith(r);  // result = " "
+output = input.ReplaceNonASCIICharsWith(r);  // output = " "
 
 input = "lorem ipsum";
 r = '*';
@@ -570,12 +571,12 @@ output = input.ReplaceFirstOccurrence(s,r);  // output = null
 input = "";
 s = "ip";
 r = "**";
-output = input.ReplaceFirstOccurrence(s, r);  // result = ""
+output = input.ReplaceFirstOccurrence(s, r);  // output = ""
 
 input = " ";
 s = "ip";
 r = "**";
-output = input.ReplaceFirstOccurrence(s, r);  // result = " "
+output = input.ReplaceFirstOccurrence(s, r);  // output = " "
 
 input = "lorem ipsum ipsum";
 s = "ip";
@@ -600,10 +601,10 @@ input = null;
 output = input.ToCleanString();  // output = null
 
 input = "";
-output = input.ToCleanString();  // result = ""
+output = input.ToCleanString();  // output = ""
 
 input = " ";
-output = input.ToCleanString();  // result = ""
+output = input.ToCleanString();  // output = ""
 
 input = "   lorem     ipsum      ";
 output = input.ToCleanString();  // output = "lorem ipsum"
@@ -624,10 +625,10 @@ input = null;
 output = input.ToAlphaNumericString();  // output = null
 
 input = "";
-output = input.ToAlphaNumericString();  // result = ""
+output = input.ToAlphaNumericString();  // output = ""
 
 input = " ";
-output = input.ToAlphaNumericString();  // result = ""
+output = input.ToAlphaNumericString();  // output = ""
 
 input = "lorem12345^^^&&**ipsum22$$";
 output = input.ToAlphaNumericString();  // output = "lorem12345ipsum22"
@@ -648,10 +649,10 @@ input = null;
 output = input.ToHtml();  // output = null
 
 input = "";
-output = input.ToHtml();  // result = ""
+output = input.ToHtml();  // output = ""
 
 input = " ";
-output = input.ToHtml();  // result = ""
+output = input.ToHtml();  // output = ""
 
 input = "lorem ipsum lorem\n ipsum\n";
 output = input.ToHtml();  // output = "lorem ipsum lorem<br/> ipsum<br/>"
@@ -672,10 +673,10 @@ input = null;
 output = input.ToAbbreviation();  // output = null
 
 input = "";
-output = input.ToAbbreviation();  // result = ""
+output = input.ToAbbreviation();  // output = ""
 
 input = " ";
-output = input.ToAbbreviation();  // result = " "
+output = input.ToAbbreviation();  // output = " "
 
 input = "lorem ipsum dolor lorem ipsum";
 output = input.ToAbbreviation();  // output = "LIDLI"
@@ -697,11 +698,11 @@ output = input.ToNcharAbbreviation(n);  // output = null
 
 input = "";
 n = 3;
-output = input.ToNcharAbbreviation(n);  // result = ""
+output = input.ToNcharAbbreviation(n);  // output = ""
 
 input = " ";
 n = 3;
-output = input.ToNcharAbbreviation(n);  // result = " "
+output = input.ToNcharAbbreviation(n);  // output = " "
 
 input = "lorem ipsum dolor lorem ipsum";
 n = 3;
@@ -723,10 +724,10 @@ input = null;
 output = input.ToHyperlink();  // output = null
 
 input = "";
-output = input.ToHyperlink();  // result = ""
+output = input.ToHyperlink();  // output = ""
 
 input = " ";
-output = input.ToHyperlink();  // result = ""
+output = input.ToHyperlink();  // output = ""
 
 input = "www.wideitsolutions.co.uk";
 output = input.ToHyperlink();  // output = "www.wideitsolutions.co.uk"
@@ -750,11 +751,11 @@ output = input.ToSentenceCase(s);  // output = null
 
 input = "";
 s = '.';
-output = input.ToSentenceCase(s);  // result = ""
+output = input.ToSentenceCase(s);  // output = ""
 
 input = " ";
 s = '.';
-output = input.ToSentenceCase(s);  // result = ""
+output = input.ToSentenceCase(s);  // output = ""
 
 input = "lorem ipsum dolor";
 s = '.';
@@ -777,10 +778,10 @@ input = null;
 output = input.ToBase64();  // output = null
 
 input = "";
-output = input.ToBase64();  // result = ""
+output = input.ToBase64();  // output = ""
 
 input = " ";
-output = input.ToBase64();  // result = "IA=="
+output = input.ToBase64();  // output = "IA=="
 
 input = "abc";
 output = input.ToBase64();  // output = "YWJj"
@@ -802,17 +803,17 @@ string output;
 
 input = null;
 n = 15;
-output = input.ToSummarisedText(n);  // output = null
+output = input.ToSummarisedText(n);    // output = null
 
 input = "";
 n = 15;
 d = true;
-output = input.ToSummarisedText(n,d);  // result = ""
+output = input.ToSummarisedText(n,d);  // output = ""
 
 input = " ";
 n = 15;
 d = true;
-output = input.ToSummarisedText(n,d);  // result = " "
+output = input.ToSummarisedText(n,d);  // output = " "
 
 input = "abc";
 n = 15;
@@ -843,12 +844,12 @@ output = input.ToSummarisedTextRight(n);  // output = null
 input = "";
 n = 15;
 d = true;
-output = input.ToSummarisedTextRight(n,d);  // result = ""
+output = input.ToSummarisedTextRight(n,d);  // output = ""
 
 input = " ";
 n = 15;
 d = true;
-output = input.ToSummarisedTextRight(n,d);  // result = " "
+output = input.ToSummarisedTextRight(n,d);  // output = " "
 
 input = "abc";
 n = 15;
@@ -873,10 +874,10 @@ input = null;
 output = input.ToCsvCompatible();  // output = null
 
 input = "";
-output = input.ToCsvCompatible();  // result = ""
+output = input.ToCsvCompatible();  // output = ""
 
 input = " ";
-output = input.ToCsvCompatible();  // result = "\" \""
+output = input.ToCsvCompatible();  // output = "\" \""
 
 input = "abc\n";
 output = input.ToCsvCompatible();  // output = "\"abc\n\""
@@ -897,10 +898,10 @@ input = null;
 output = input.ToUkTelephoneFormat();  // output = null
 
 input = "";
-output = input.ToUkTelephoneFormat();  // result = ""
+output = input.ToUkTelephoneFormat();  // output = ""
 
 input = " ";
-output = input.ToUkTelephoneFormat();  // result = " "
+output = input.ToUkTelephoneFormat();  // output = " "
 
 input = "07777777777";
 output = input.ToUkTelephoneFormat();  // output = "07777 777777"
@@ -918,10 +919,10 @@ Guid input;
 string output;
 
 input = Guid.Empty;
-output = input.ToUpperCaseCanonicalGuid();  // result = "00000000000000000000000000000000"
+output = input.ToUpperCaseCanonicalGuid();  // output = "00000000000000000000000000000000"
 
 input = new Guid("{4A6B75A8-F2A3-4F8F-AAE6-224B5CBFE44E}");
-output = input.ToUpperCaseCanonicalGuid();  // result = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
+output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
 
 input = new Guid("{4a6b75a8-f2a3-4f8f-aae6-224b5cbfe44e}");
 output = input.ToUpperCaseCanonicalGuid();  // output = "4A6B75A8F2A34F8FAAE6224B5CBFE44E"
@@ -942,10 +943,10 @@ input = null;
 output = input.ToDoubleQuotedString();  // output = null
 
 input = "";
-output = input.ToDoubleQuotedString();  // result = ""
+output = input.ToDoubleQuotedString();  // output = ""
 
 input = " ";
-output = input.ToDoubleQuotedString();  // result = " "
+output = input.ToDoubleQuotedString();  // output = " "
 
 input = "lorem ipsum dolor";
 output = input.ToDoubleQuotedString();  // output = "\"lorem ipsum dolor\""
@@ -969,11 +970,11 @@ output = input.ToStringArrayFromDelimitedString(d);  // output = {string[0]}
 
 input = "";
 d = ',';
-output = input.ToStringArrayFromDelimitedString(d);  // result = {string[0]}
+output = input.ToStringArrayFromDelimitedString(d);  // output = {string[0]}
 
 input = " ";
 d = ',';
-output = input.ToStringArrayFromDelimitedString(d);  // result = {string[0]}
+output = input.ToStringArrayFromDelimitedString(d);  // output = {string[0]}
 
 input = "lorem; ipsum; dolor";
 d = ';';
@@ -996,10 +997,10 @@ input = null;
 output = input.ToUrlFriendly();  // output = null
 
 input = "";
-output = input.ToUrlFriendly();  // result = ""
+output = input.ToUrlFriendly();  // output = ""
 
 input = " ";
-output = input.ToUrlFriendly();  // result = " "
+output = input.ToUrlFriendly();  // output = " "
 
 input = "lorem ipsum dolor";
 output = input.ToUrlFriendly();  // output = "loremipsumdolor"
@@ -1017,10 +1018,10 @@ Guid input;
 string output;
 
 input = Guid.Empty;
-output = input.ToCanonicalGuid();  // result = "00000000000000000000000000000000"
+output = input.ToCanonicalGuid();  // output = "00000000000000000000000000000000"
 
 input = new Guid("{4A6B75A8-F2A3-4F8F-AAE6-224B5CBFE44E}");
-output = input.ToCanonicalGuid();  // result = "4a6b75a8f2a34f8faae6224b5cbfe44e"
+output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e"
 
 input = new Guid("{4a6b75a8-f2a3-4f8f-aae6-224b5cbfe44e}");
 output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e"
@@ -1041,16 +1042,37 @@ input = null;
 output = input.ToDistinctListOfWords();  // output = List<string>{}
 
 input = "";
-output = input.ToDistinctListOfWords();  // result = List<string>{}
+output = input.ToDistinctListOfWords();  // output = List<string>{}
 
 input = " ";
-output = input.ToDistinctListOfWords();  // result = List<string>{}
+output = input.ToDistinctListOfWords();  // output = List<string>{}
 
 input = "lorem ipsum dolor ipsum dolor";
 output = input.ToDistinctListOfWords();  // output = List<string>{"dolor", "ipsum", "lorem"}
 
 input = "\"lorem ipsum dolor ipsum dolor";
 output = input.ToDistinctListOfWords();  // output = List<string>{"dolor", "ipsum", "lorem"}
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### To16ByteSaltedHash
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = "";
+output = input.To16ByteSaltedHash();  // output = "XptBgEyQ8rVKKYnO+0MzWTV2oQHybB3yqpvRbZzSxAkmcV5e"
+
+input = " ";
+output = input.To16ByteSaltedHash();  // output = "wbasNJXqc6dcZrEtjIw31aSKg0A1dvab25lRKOqhDHnk9wAz"
+
+input = "abcd";
+output = input.To16ByteSaltedHash();  // output = "i6H3KFHsCR/OYni4EG57FCrUX/r3swloE16Ma0lUerdOYrsW"
+
+input = "abcd12345";
+output = input.To16ByteSaltedHash();  // output = "ILUxWoR6iWnBxkqs+E38sWJZtU02J42HQ1gtAMcOIIP3p90u"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
