@@ -47,6 +47,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 34. [ToDoubleQuotedString](#ToDoubleQuotedString)
 35. [ToStringArrayFromDelimitedString](#ToStringArrayFromDelimitedString)
 36. [ToUrlFriendly](#ToUrlFriendly)
+37. [ToCanonicalGuid](#ToCanonicalGuid)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1004,6 +1005,27 @@ output = input.ToUrlFriendly();  // output = "loremipsumdolor"
 
 input = "\"lorem ipsum dolor";
 output = input.ToUrlFriendly();  // output = "loremipsumdolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToCanonicalGuid
+```C#
+//using Aqua.StringHelpers;
+
+Guid input;
+string output;
+
+input = Guid.Empty;
+output = input.ToCanonicalGuid();  // result = "00000000000000000000000000000000"
+
+input = new Guid("{4A6B75A8-F2A3-4F8F-AAE6-224B5CBFE44E}");
+output = input.ToCanonicalGuid();  // result = "4a6b75a8f2a34f8faae6224b5cbfe44e"
+
+input = new Guid("{4a6b75a8-f2a3-4f8f-aae6-224b5cbfe44e}");
+output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e"
+
+input = Guid.NewGuid();
+output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
