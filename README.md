@@ -11,11 +11,11 @@ TODO: Guide users through getting your code up and running on their own system. 
 4.	API references
 
 # List of Features / Methods:
-### IsNullOrEmpty ( Description and Usage Examples )
-### IsNullOrWhiteSpace ( Description and Usage Examples )
-### IsDigit ( Description and Usage Examples )
-### IsInteger ( Description and Usage Examples )
-### IsNumber ( Description and Usage Examples )
+1. IsNullOrEmpty ( Description and Usage Examples )
+2. IsNullOrWhiteSpace ( Description and Usage Examples )
+3. IsDigit ( Description and Usage Examples )
+4. IsInteger ( Description and Usage Examples )
+5. IsNumber ( Description and Usage Examples )
 
 # Features and Methods
 ### IsNullOrEmpty
