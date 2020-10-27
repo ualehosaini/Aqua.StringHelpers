@@ -1,4 +1,4 @@
-# About Aqua String Helper:
+# About Aqua String Helpers:
 
 Aqua String Helpers is an Open Source and Free Software package consists of a set of utilities that facilitate the job of the developer and save his time while dealing with a string. Every developer could be a beneficiary of this library; however, those who deal with database and integration applications are likely the most potential beneficiaries.
 
@@ -9,6 +9,15 @@ TODO: Guide users through getting your code up and running on their own system. 
 2.	Software dependencies
 3.	Latest releases
 4.	API references
+
+# Features and Methods
+## IsNullOrEmpty
+IsNullOrEmpty is an extension method, equivalent for the traditional `string.IsNullOrEmpty()` static methods. Returns true if the string examined is null or empty, otherwise returns false.
+
+`
+string s = “”;
+bool result = s.IsNullOrEmpty()  // result = true
+`
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
