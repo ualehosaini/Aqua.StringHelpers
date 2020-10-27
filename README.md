@@ -10,7 +10,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 3.	Latest releases
 4.	API references
 
-# List of Methods
+# List of Features and Methods
 1. [IsNullOrEmpty](#IsNullOrEmpty)
 2. [IsNullOrWhiteSpace](#IsNullOrWhiteSpace)
 3. [IsDigit](#IsDigit)
@@ -63,8 +63,9 @@ input = "lorem ipsum dolor";
 output = input.IsNullOrWhiteSpace();  // output = false
 
 ```
-[Back to the Full List of Features](#List-Of-Methods)
+
 ### IsDigit
+:back:[Back to the Full List of Features](#List-Of-Features=and-Methods)
 
 ```C#
 //using Aqua.StringHelpers;
