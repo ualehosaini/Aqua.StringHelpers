@@ -23,6 +23,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 10. [RemoveExtraSpaces](#RemoveExtraSpaces)
 11. [RemoveAllLineBreaks](#RemoveAllLineBreaks)
 12. [RemoveNonASCIIChars](#RemoveNonASCIIChars)
+13. [RemoveNumberOfCharsAtBegining](#RemoveNumberOfCharsAtBegining)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -338,6 +339,36 @@ output = input.RemoveNonASCIIChars();  // output = "lorem ipsum"
 
 input = "lorem भारत ipsum";
 output = input.RemoveNonASCIIChars();  // output = "lorem  ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### RemoveNumberOfCharsAtBegining
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int n; //number of characters
+string output;
+
+input = null;
+n = 3;
+output = input.RemoveNumberOfCharsAtBegining(n);  // output = null
+
+input = "";
+n = 3;
+output = input.RemoveNumberOfCharsAtBegining(n);  // result = ""
+
+input = " ";
+n = 3;
+output = input.RemoveNumberOfCharsAtBegining(n);  // result = ""
+
+input = "lorem ipsum";
+n = 3;
+output = input.RemoveNumberOfCharsAtBegining(n);  // output = "em ipsum"
+
+input = "  lorem ipsum";
+n = 3;
+output = input.RemoveNumberOfCharsAtBegining(n);  // output = "orem  ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
