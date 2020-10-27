@@ -76,6 +76,35 @@ output = input.IsDigit();  // output = false
 
 ```
 
+### IsInteger
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+bool output;
+
+input = null;
+output = input.IsInteger();  // output = false
+
+input = "";
+output = input.IsInteger();  // result = false
+
+input = " ";
+output = input.IsInteger();  // result = false
+
+input = "5";
+output = input.IsInteger();  // output = true
+
+input = "555";
+output = input.IsInteger();  // output = true
+
+input = "555.50";
+output = input.IsInteger();  // output = false
+
+input = "lorem ipsum dolor";
+output = input.IsInteger();  // output = false
+
+```
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
