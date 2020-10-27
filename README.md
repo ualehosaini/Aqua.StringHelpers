@@ -18,6 +18,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 5. [IsNumber](#IsNumber)
 6. [IsAlphaNumeric](#IsAlphaNumeric)
 7. [IsValidURL](#IsValidURL)
+8. [IfNullReturnEmptyString](#IfNullReturnEmptyString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -215,6 +216,26 @@ output = input.IsValidURL();  // output = true
 input = "http://wideitsolutions.co.uk/dev";
 output = input.IsValidURL();  // output = true
 
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### IfNullReturnEmptyString
+
+```C#
+string input;
+string output;
+
+input = null;
+output = input.IfNullReturnEmptyString();  // output = ""
+
+input = "";
+output = input.IfNullReturnEmptyString();  // result = ""
+
+input = " ";
+output = input.IfNullReturnEmptyString();  // result = " "
+
+input = "lorem ipsum";
+output = input.IfNullReturnEmptyString();  // output = "lorem ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
