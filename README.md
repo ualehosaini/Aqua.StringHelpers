@@ -661,7 +661,7 @@ input = "";
 output = input.ToAbbreviation();  // result = ""
 
 input = " ";
-output = input.ToAbbreviation();  // result = ""
+output = input.ToAbbreviation();  // result = " "
 
 input = "lorem ipsum dolor lorem ipsum";
 output = input.ToAbbreviation();  // output = "LIDLI"
@@ -669,9 +669,33 @@ output = input.ToAbbreviation();  // output = "LIDLI"
 input = "   lorem    ipsum   dolor lorem ipsum";
 output = input.ToAbbreviation();  // output = "LIDLI"
 ```
-
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+```C#
+string input;
+int n;          //Length of Abbreviation
+string output;
+
+input = null;
+n = 3;
+output = input.ToNcharAbbreviation(n);  // output = null
+
+input = "";
+n = 3;
+output = input.ToNcharAbbreviation(n);  // result = ""
+
+input = " ";
+n = 3;
+output = input.ToNcharAbbreviation(n);  // result = " "
+
+input = "lorem ipsum dolor lorem ipsum";
+n = 3;
+output = input.ToNcharAbbreviation(n);  // output = "LID"
+
+input = "   lorem    ipsum   dolor lorem ipsum";
+n = 3;
+output = input.ToNcharAbbreviation(n);  // output = "LID"
+```
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
