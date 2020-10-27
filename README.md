@@ -974,11 +974,11 @@ output = input.ToStringArrayFromDelimitedString(d);  // result = {string[0]}
 
 input = "lorem; ipsum; dolor";
 d = ';';
-output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor" }
+output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor"}
 
 input = "lorem, ipsum, dolor";
 d = ',';
-output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor" }
+output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor"}
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
