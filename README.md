@@ -40,6 +40,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 27. [ToSentenceCase](#ToSentenceCase)
 28. [ToBase64](#ToBase64)
 29. [ToSummarisedText](#ToSummarisedText)
+30. [ToSummarisedTextRight](#ToSummarisedTextRight)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -814,6 +815,42 @@ input = "lorem ipsum dolor. lorem. ipsum dolor";
 n = 15;
 d = true;
 output = input.ToSummarisedText(n,d);  // output = "lorem ipsum dol..."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToSummarisedTextRight
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int n;          //Length of Summary
+bool d;         //Dots to be used at the end of summary text?
+                //This is optional parameter , default is assigned false
+string output;
+
+input = null;
+n = 15;
+output = input.ToSummarisedTextRight(n);  // output = null
+
+input = "";
+n = 15;
+d = true;
+output = input.ToSummarisedTextRight(n,d);  // result = ""
+
+input = " ";
+n = 15;
+d = true;
+output = input.ToSummarisedTextRight(n,d);  // result = " "
+
+input = "abc";
+n = 15;
+d = true;
+output = input.ToSummarisedTextRight(n,d);  // output = "abc"
+
+input = "lorem ipsum dolor. lorem. ipsum dolor";
+n = 15;
+d = true;
+output = input.ToSummarisedTextRight(n,d);  // output = "...em. ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
