@@ -32,7 +32,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 19. [ReplaceNonASCIICharsWith](#ReplaceNonASCIICharsWith)
 20. [ReplaceFirstOccurrence](#ReplaceFirstOccurrence)
 21. [ToCleanString](#ToCleanString)
-22.[ToAlphaNumericString](#ToAlphaNumericString)
+22. [ToAlphaNumericString](#ToAlphaNumericString)
 
 # Features and Methods
 ### IsNullOrEmpty
