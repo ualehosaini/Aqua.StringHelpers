@@ -21,16 +21,16 @@ string input;
 bool output;
 
 input = null;
-output = input.IsNullOrEmpty()  // output = true
+output = input.IsNullOrEmpty();  // output = true
 
 input = "";
-result = input.IsNullOrEmpty()  // result = true
+result = input.IsNullOrEmpty();  // result = true
 
 input = " ";
-output = input.IsNullOrEmpty()  // output = false
+output = input.IsNullOrEmpty();  // output = false
 
 input = "lorem ipsum dolor";
-output = input.IsNullOrEmpty()  // output = false
+output = input.IsNullOrEmpty();  // output = false
 
 ```
 
@@ -44,16 +44,16 @@ string input;
 bool output;
 
 input = null;
-output = input.IsNullOrWhiteSpace()  // output = true
+output = input.IsNullOrWhiteSpace();  // output = true
 
 input = "";
-result = input.IsNullOrWhiteSpace()  // result = true
+result = input.IsNullOrWhiteSpace();  // result = true
 
 input = " ";
-output = input.IsNullOrWhiteSpace()  // output = false
+output = input.IsNullOrWhiteSpace(); // output = false
 
 input = "lorem ipsum dolor";
-output = input.IsNullOrWhiteSpace()  // output = false
+output = input.IsNullOrWhiteSpace();  // output = false
 
 ```
 
