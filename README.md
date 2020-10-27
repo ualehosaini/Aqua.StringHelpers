@@ -45,6 +45,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 32. [ToUkTelephoneFormat](#ToUkTelephoneFormat)
 33. [ToUpperCaseCanonicalGuid](#ToUpperCaseCanonicalGuid)
 34. [ToDoubleQuotedString](#ToDoubleQuotedString)
+35. [ToStringArrayFromDelimitedString](#ToStringArrayFromDelimitedString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -948,6 +949,36 @@ output = input.ToDoubleQuotedString();  // output = "\"lorem ipsum dolor\""
 
 input = "\"lorem ipsum dolor\"";
 output = input.ToDoubleQuotedString();  // output = "\"\"lorem ipsum dolor\"\""
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToStringArrayFromDelimitedString
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+char d;           // delimiter
+string[] output;
+
+input = null;
+d = ',';
+output = input.ToStringArrayFromDelimitedString(d);  // output = {string[0]}
+
+input = "";
+d = ',';
+output = input.ToStringArrayFromDelimitedString(d);  // result = {string[0]}
+
+input = " ";
+d = ',';
+output = input.ToStringArrayFromDelimitedString(d);  // result = {string[0]}
+
+input = "lorem; ipsum; dolor";
+d = ';';
+output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor" }
+
+input = "lorem, ipsum, dolor";
+d = ',';
+output = input.ToStringArrayFromDelimitedString(d);  // output = string[3]{"lorem", "ipsum", "dolor" }
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
