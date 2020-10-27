@@ -42,6 +42,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 29. [ToSummarisedText](#ToSummarisedText)
 30. [ToSummarisedTextRight](#ToSummarisedTextRight)
 31. [ToCsvCompatible](#ToCsvCompatible)
+32. [ToUkTelephoneFormat](#ToUkTelephoneFormat)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -876,6 +877,30 @@ output = input.ToCsvCompatible();  // output = "\"abc\n\""
 
 input = " lorem ipsum dolor, lorem; ipsum dolor";
 output = input.ToCsvCompatible();  // output = "\" lorem ipsum dolor, lorem; ipsum dolor\""
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToUkTelephoneFormat
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToUkTelephoneFormat();  // output = null
+
+input = "";
+output = input.ToUkTelephoneFormat();  // result = ""
+
+input = " ";
+output = input.ToUkTelephoneFormat();  // result = " "
+
+input = "07777777777";
+output = input.ToUkTelephoneFormat();  // output = "07777 777777"
+
+input = "0111111111";
+output = input.ToUkTelephoneFormat();  // output = "01111 11111"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
