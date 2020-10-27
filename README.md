@@ -11,7 +11,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 4.	API references
 
 # List of Features / Methods:
-1. IsNullOrEmpty [Description and Usage Examples] (#IsDigit)
+1. IsNullOrEmpty [Description and Usage Examples] (###IsDigit)
 2. IsNullOrWhiteSpace ( Description and Usage Examples )
 3. IsDigit ( Description and Usage Examples )
 4. IsInteger ( Description and Usage Examples )
