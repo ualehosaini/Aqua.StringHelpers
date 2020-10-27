@@ -39,6 +39,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 26. [ToHyperlink](#ToHyperlink)
 27. [ToSentenceCase](#ToSentenceCase)
 28. [ToBase64](#ToBase64)
+29. [ToSummarisedText](#ToSummarisedText)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -780,8 +781,41 @@ output = input.ToBase64();  // output = "bG9yZW0gaXBzdW0gZG9sb3IuIGxvcmVtLiBpcHN
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+### ToSummarisedText
+```C#
+//using Aqua.StringHelpers;
 
+string input;
+int n;          //Length of Summary
+bool d;         //Dots to be used at the end of summary text?
+                //This is optional parameter , default is assigned false
+string output;
 
+input = null;
+n = 15;
+output = input.ToSummarisedText(n);  // output = null
+
+input = "";
+n = 15;
+d = true;
+output = input.ToSummarisedText(n,d);  // result = ""
+
+input = " ";
+n = 15;
+d = true;
+output = input.ToSummarisedText(n,d);  // result = " "
+
+input = "abc";
+n = 15;
+d = true;
+output = input.ToSummarisedText(n,d);  // output = "abc"
+
+input = "lorem ipsum dolor. lorem. ipsum dolor";
+n = 15;
+d = true;
+output = input.ToSummarisedText(n,d);  // output = "lorem ipsum dol..."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
