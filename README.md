@@ -19,6 +19,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 6. [IsAlphaNumeric](#IsAlphaNumeric)
 7. [IsValidURL](#IsValidURL)
 8. [IfNullReturnEmptyString](#IfNullReturnEmptyString)
+9. [Reverse](#Reverse)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -236,6 +237,30 @@ output = input.IfNullReturnEmptyString();  // result = " "
 
 input = "lorem ipsum";
 output = input.IfNullReturnEmptyString();  // output = "lorem ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### Reverse
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.Reverse();  // output = null
+
+input = "";
+output = input.Reverse();  // result = ""
+
+input = " ";
+output = input.Reverse();  // result = " "
+
+input = "lorem ipsum";
+output = input.Reverse();  // output = "muspi merol"
+
+input = "A12345";
+output = input.Reverse();  // output = "54321A"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
