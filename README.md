@@ -48,6 +48,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 35. [ToStringArrayFromDelimitedString](#ToStringArrayFromDelimitedString)
 36. [ToUrlFriendly](#ToUrlFriendly)
 37. [ToCanonicalGuid](#ToCanonicalGuid)
+38. [ToDistinctListOfWords](#ToDistinctListOfWords)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1026,6 +1027,30 @@ output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e
 
 input = Guid.NewGuid();
 output = input.ToCanonicalGuid();  // output = "4a6b75a8f2a34f8faae6224b5cbfe44e"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToDistinctListOfWords
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+List<string> output;
+
+input = null;
+output = input.ToDistinctListOfWords();  // output = List<string>{}
+
+input = "";
+output = input.ToDistinctListOfWords();  // result = List<string>{}
+
+input = " ";
+output = input.ToDistinctListOfWords();  // result = List<string>{}
+
+input = "lorem ipsum dolor ipsum dolor";
+output = input.ToDistinctListOfWords();  // output = List<string>{"dolor", "ipsum", "lorem"}
+
+input = "\"lorem ipsum dolor ipsum dolor";
+output = input.ToDistinctListOfWords();  // output = List<string>{"dolor", "ipsum", "lorem"}
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
