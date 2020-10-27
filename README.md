@@ -187,7 +187,7 @@ output = input.IsAlphaNumeric();  // output = false
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
-#IsValidURL
+### IsValidURL
 ```C#
 using Aqua.StringHelpers;
 
