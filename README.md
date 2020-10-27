@@ -30,6 +30,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 17. [ReplaceDoubleQuotesWithSingle](#ReplaceDoubleQuotesWithSingle)
 18. [ReplaceSingleQuotesWithDouble](#ReplaceSingleQuotesWithDouble)
 19. [ReplaceNonASCIICharsWith](#ReplaceNonASCIICharsWith)
+20. [ReplaceFirstOccurrence](#ReplaceFirstOccurrence)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -531,6 +532,42 @@ output = input.ReplaceNonASCIICharsWith(r);  // output = "lorem ipsum"
 input = "lorem भारत ipsum";
 r = '*';
 output = input.ReplaceNonASCIICharsWith(r);  // output = "lorem **** ipsum"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ReplaceFirstOccurrence
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string s;         // Search string
+string r;         // Replacement string
+string output;
+
+input = null;
+s = "ip";
+r = "**";
+output = input.ReplaceFirstOccurrence(s,r);  // output = null
+
+input = "";
+s = "ip";
+r = "**";
+output = input.ReplaceFirstOccurrence(s, r);  // result = ""
+
+input = " ";
+s = "ip";
+r = "**";
+output = input.ReplaceFirstOccurrence(s, r);  // result = " "
+
+input = "lorem ipsum ipsum";
+s = "ip";
+r = "**";
+output = input.ReplaceFirstOccurrence(s, r);  // output = "lorem **sum ipsum"
+
+input = "lorem ipsum dolor";
+s = "ip";
+r = "**";
+output = input.ReplaceFirstOccurrence(s, r);  // output = "lorem **sum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
