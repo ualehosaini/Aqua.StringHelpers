@@ -24,7 +24,7 @@ input = null;
 output = input.IsNullOrEmpty();  // output = true
 
 input = "";
-result = input.IsNullOrEmpty();  // result = true
+output = input.IsNullOrEmpty();  // result = true
 
 input = " ";
 output = input.IsNullOrEmpty();  // output = false
@@ -47,7 +47,7 @@ input = null;
 output = input.IsNullOrWhiteSpace();  // output = true
 
 input = "";
-result = input.IsNullOrWhiteSpace();  // result = true
+output = input.IsNullOrWhiteSpace();  // result = true
 
 input = " ";
 output = input.IsNullOrWhiteSpace(); // output = false
