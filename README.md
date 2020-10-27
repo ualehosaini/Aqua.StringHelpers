@@ -115,7 +115,37 @@ input = "lorem ipsum dolor";
 output = input.IsInteger();  // output = false
 
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+### IsNumber
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+bool output;
+
+input = null;
+output = input.IsNumber();  // output = false
+
+input = "";
+output = input.IsNumber();  // result = false
+
+input = " ";
+output = input.IsNumber();  // result = false
+
+input = "5";
+output = input.IsNumber();  // output = true
+
+input = "555";
+output = input.IsNumber();  // output = true
+
+input = "555.50";
+output = input.IsNumber();  // output = true
+
+input = "lorem ipsum dolor";
+output = input.IsNumber();  // output = false
+
+```
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
