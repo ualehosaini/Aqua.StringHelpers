@@ -63,7 +63,7 @@ input = "lorem ipsum dolor";
 output = input.IsNullOrWhiteSpace();  // output = false
 
 ```
-[Back to the Full List of Features](#ListOfMethods)
+[Back to the Full List of Features](#List-Of-Methods)
 ### IsDigit
 
 ```C#
