@@ -65,7 +65,7 @@ output = input.IsNullOrWhiteSpace();  // output = false
 ```
 
 ### IsDigit
-:back:[Back to the Full List of Features](#List-Of-Features=and-Methods)
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 ```C#
 //using Aqua.StringHelpers;
