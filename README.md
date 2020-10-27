@@ -34,6 +34,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 21. [ToCleanString](#ToCleanString)
 22. [ToAlphaNumericString](#ToAlphaNumericString)
 23. [ToHtml](#ToHtml)
+24. [ToAbbreviation](#ToAbbreviation)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -645,6 +646,32 @@ input = " lorem\n ipsum\n";
 output = input.ToHtml();  // output = " lorem<br/> ipsum<br/>"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ToAbbreviation
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ToAbbreviation();  // output = null
+
+input = "";
+output = input.ToAbbreviation();  // result = ""
+
+input = " ";
+output = input.ToAbbreviation();  // result = ""
+
+input = "lorem ipsum dolor lorem ipsum";
+output = input.ToAbbreviation();  // output = "LIDLI"
+
+input = "   lorem    ipsum   dolor lorem ipsum";
+output = input.ToAbbreviation();  // output = "LIDLI"
+```
+
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
