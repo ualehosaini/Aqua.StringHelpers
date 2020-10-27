@@ -24,7 +24,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 11. [RemoveAllLineBreaks](#RemoveAllLineBreaks)
 12. [RemoveNonASCIIChars](#RemoveNonASCIIChars)
 13. [RemoveNumberOfCharsAtBegining](#RemoveNumberOfCharsAtBegining)
-14 [RemoveNumberOfCharsAtEnd](#RemoveNumberOfCharsAtEnd)
+14. [RemoveNumberOfCharsAtEnd](#RemoveNumberOfCharsAtEnd)
 
 # Features and Methods
 ### IsNullOrEmpty
