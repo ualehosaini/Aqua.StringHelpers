@@ -35,6 +35,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 22. [ToAlphaNumericString](#ToAlphaNumericString)
 23. [ToHtml](#ToHtml)
 24. [ToAbbreviation](#ToAbbreviation)
+25. [ToNcharAbbreviation](#ToNcharAbbreviation)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -671,6 +672,7 @@ output = input.ToAbbreviation();  // output = "LIDLI"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+### ToNcharAbbreviation
 ```C#
 string input;
 int n;          //Length of Abbreviation
