@@ -25,6 +25,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 12. [RemoveNonASCIIChars](#RemoveNonASCIIChars)
 13. [RemoveNumberOfCharsAtBegining](#RemoveNumberOfCharsAtBegining)
 14. [RemoveNumberOfCharsAtEnd](#RemoveNumberOfCharsAtEnd)
+15. [ReplaceTabsWithSpaces](#ReplaceTabsWithSpaces)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -400,6 +401,30 @@ output = input.RemoveNumberOfCharsAtEnd(n);  // output = "lorem ip"
 input = "lorem ipsum  ";
 n = 3;
 output = input.RemoveNumberOfCharsAtEnd(n);  // output = "lorem  ipsu"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### ReplaceTabsWithSpaces
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.ReplaceTabsWithSpaces();  // output = null
+
+input = "";
+output = input.ReplaceTabsWithSpaces();  // result = ""
+
+input = " ";
+output = input.ReplaceTabsWithSpaces();  // result = ""
+
+input = "lorem              ipsum";      //4 tabs were here
+output = input.ReplaceTabsWithSpaces();  // output = "lorem ipsum"
+
+input = "   lorem               ipsum "; //6 tabs were here
+output = input.ReplaceTabsWithSpaces();  // output = "lorem ipsum"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
