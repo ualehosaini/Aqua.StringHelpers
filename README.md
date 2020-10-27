@@ -181,7 +181,7 @@ input = "loremipsumdolor";
 output = input.IsAlphaNumeric();  // output = true
 
 input = "$loremips((umdolor";
-output = input.IsAlphaNumeric();  // output = true
+output = input.IsAlphaNumeric();  // output = false
 
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
