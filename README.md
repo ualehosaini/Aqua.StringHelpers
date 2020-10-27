@@ -10,7 +10,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 3.	Latest releases
 4.	API references
 
-# List of Methods:
+# List of Methods
 1. [IsNullOrEmpty](#IsNullOrEmpty)
 2. [IsNullOrWhiteSpace](#IsNullOrWhiteSpace)
 3. [IsDigit](#IsDigit)
