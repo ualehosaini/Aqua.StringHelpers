@@ -68,6 +68,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 55. [GetTotalNumberOfLines](#GetTotalNumberOfLines)
 56. [GetUrlDomain](#GetUrlDomain)
 57. [GetFileExtension](#GetFileExtension)
+58. [AddToEndIfMissed](#AddToEndIfMissed)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1571,6 +1572,36 @@ output = input.GetFileExtension();  // output = "pdf"
 
 input = "http://dev.wideitsolutions.co.uk/test/test/test.pdf";
 output = input.GetFileExtension();  // output = "pdf"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### AddToEndIfMissed
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string a;        //The value to be added
+string output;
+
+input = null;
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = "";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = " ";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = "The lorem ipsum dolor";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "The lorem ipsum dolor..."
+
+input = "lorem ipsum dolor";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "lorem Ipsum Dolor..."
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
