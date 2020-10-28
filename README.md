@@ -52,6 +52,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 39. [To16ByteSaltedHash](#To16ByteSaltedHash)
 40. [CapitaliseEachWord](#CapitaliseEachWord)
 41. [AddToBeginingIfMissed](#AddToBeginingIfMissed)
+42. [DecodeBase64](#DecodeBase64)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1129,6 +1130,30 @@ output = input.AddToBeginingIfMissed(a);  // output = "The lorem ipsum dolor."
 input = "lorem ipsum dolor.";
 a = "The ";
 output = input.AddToBeginingIfMissed(a);  // output = "The Lorem Ipsum Dolor."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### DecodeBase64
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.DecodeBase64();  // output = null
+
+input = "";
+output = input.DecodeBase64();  // result = ""
+
+input = "IA==";
+output = input.DecodeBase64();  // result = " "
+
+input = "YWJj";
+output = input.DecodeBase64();  // output = "abc"
+
+input = "bG9yZW0gaXBzdW0gZG9sb3IuIGxvcmVtLiBpcHN1bSBkb2xvcg==";
+output = input.DecodeBase64();  // output = "lorem ipsum dolor. lorem. ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
