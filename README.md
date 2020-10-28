@@ -62,6 +62,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 49. [CleanNonNumericChars](#CleanNonNumericChars)
 50. [NullIfEqualTo](#NullIfEqualTo)
 51. [GetTotalNumberOfWords](#GetTotalNumberOfWords)
+52. [GetTotalNumberOfCharachters](#GetTotalNumberOfCharachters)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1415,6 +1416,36 @@ output = input.GetTotalNumberOfWords();  // output = 1
 
 input = "lorem ipsum dolor";
 output = input.GetTotalNumberOfWords();  // output = 3
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfCharachters
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+bool c;         //Clean the string before counting the characters? default is false
+int output;
+
+input = null;
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 0
+
+input = "";
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 0
+
+input = " ";
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 1
+
+input = "lorem  ";
+c = true;
+output = input.GetTotalNumberOfCharachters(c);  // output = 5
+
+input = "lorem ipsum       dolor";
+c = true;
+output = input.GetTotalNumberOfCharachters(c);  // output = 17
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
