@@ -796,7 +796,7 @@ namespace Aqua.StringHelpers
 
             int count = 0;
             int i = 0;
-            while ((i = tempS.IndexOf(pattern, i)) != -1)
+            while ((i = tempS.IndexOf(tempP, i)) != -1)
             {
                 i += tempP.Length;
                 count++;

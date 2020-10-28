@@ -380,14 +380,15 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
-        [InlineData("", "lorem", 0)]
-        [InlineData(" ", "lorem", 0)]
-        [InlineData(null, "lorem", 0)]
-        [InlineData("lorem ipsum. dolor lorem", "lorem", 2)]
-        [InlineData("\tlorem\nipsum    dolor\n   lorem lorem  ", "lorem lorem", 1)]
-        public void CountStringOccurrences_Valid(string input, string pattern, int expected)
+        [InlineData("", "lorem", true, 0)]
+        [InlineData(" ", "lorem", true, 0)]
+        [InlineData(null, "lorem", true, 0)]
+        [InlineData("lorem ipsum. dolor lorem", "lorem", true, 2)]
+        [InlineData("loREM ipsum. dolor loREm", "LOrem", false, 2)]
+        [InlineData("\tlorem\nipsum    dolor\n   lorem lorem  ", "lorem lorem", true, 1)]
+        public void CountStringOccurrences_Valid(string input, string pattern, bool isCaseSensitive, int expected)
         {
-            Assert.Equal(expected, input.CountStringOccurrences(pattern));
+            Assert.Equal(expected, input.CountStringOccurrences(pattern, isCaseSensitive));
         }
 
         [Theory]
