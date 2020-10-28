@@ -58,6 +58,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 45. [FindNumberOfDigits](#FindNumberOfDigits)
 46. [CorrectPathSlashes](#CorrectPathSlashes)
 47. [CenterAligned](#CenterAligned)
+48. [HowManyOccurrences](#HowManyOccurrences)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1292,6 +1293,47 @@ output = input.CenterAligned(b);  // output = "        lorem       "
 input = "lorem ipsum dolor";
 b = 10;
 output = input.CenterAligned(b);  // output = "lorem ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### HowManyOccurrences
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+char c;          //Search character
+string s;          //Search string
+int output;
+
+input = null;
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0
+output = input.HowManyOccurrences(s);  // output = 0
+
+input = "";
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0
+output = input.HowManyOccurrences(c);  // output = 0
+
+input = " ";
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0   
+output = input.HowManyOccurrences(c);  // output = 0
+
+input = "lorem";
+c = 'l';
+s = "lo";
+output = input.HowManyOccurrences(c);  // output = 1
+output = input.HowManyOccurrences(c);  // output = 1
+
+input = "lorem ipsum dolor";
+c = 'l';
+s = "lo";
+output = input.HowManyOccurrences(c);  // output = 2
+output = input.HowManyOccurrences(c);  // output = 2
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
