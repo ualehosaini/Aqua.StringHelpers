@@ -63,7 +63,8 @@ TODO: Guide users through getting your code up and running on their own system. 
 50. [NullIfEqualTo](#NullIfEqualTo)
 51. [GetTotalNumberOfWords](#GetTotalNumberOfWords)
 52. [GetTotalNumberOfCharachters](#GetTotalNumberOfCharachters)
-53/ [GetFirstLongestWord](#GetFirstLongestWord)
+53. [GetFirstLongestWord](#GetFirstLongestWord)
+54. [GetFirstShortestWord](#GetFirstShortestWord)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1470,8 +1471,33 @@ input = "lorem";
 output = input.GetFirstLongestWord();  // output = "lorem"
 
 input = "lorem ipsum dolor";
-output = input.GetTotalNumberOfCharachters(c);  // output = "lorem"
+output = input.GetFirstLongestWord();  // output = "lorem"
 ```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetFirstShortestWord();  // output = null
+
+input = "";
+output = input.GetFirstShortestWord();  // output = ""
+
+input = " ";
+output = input.GetFirstShortestWord();  // output = " "
+
+input = "lorem";
+output = input.GetFirstShortestWord();  // output = "lorem"
+
+input = "lorem ipsum dolor";
+output = input.GetFirstShortestWord();  // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
