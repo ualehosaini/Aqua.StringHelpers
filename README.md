@@ -61,6 +61,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 48. [HowManyOccurrences](#HowManyOccurrences)
 49. [CleanNonNumericChars](#CleanNonNumericChars)
 50. [NullIfEqualTo](#NullIfEqualTo)
+51. [GetTotalNumberOfWords](#GetTotalNumberOfWords)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1390,6 +1391,30 @@ output = input.NullIfEqualTo(s);  // output = null
 input = "lorem ipsum dolor";
 s = "lorem";
 output = input.NullIfEqualTo(s);  // output = "lorem ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfWords
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int output;
+
+input = null;
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = "";
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = " ";
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = "lorem";
+output = input.GetTotalNumberOfWords();  // output = 1
+
+input = "lorem ipsum dolor";
+output = input.GetTotalNumberOfWords();  // output = 3
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
