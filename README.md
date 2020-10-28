@@ -60,6 +60,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 47. [CenterAligned](#CenterAligned)
 48. [HowManyOccurrences](#HowManyOccurrences)
 49. [CleanNonNumericChars](#CleanNonNumericChars)
+50. [NullIfEqualTo](#NullIfEqualTo)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1359,6 +1360,36 @@ output = input.CleanNonNumericChars();  // output = ""
 
 input = "lorem 4 ipsum 567 8dolor";
 output = input.CleanNonNumericChars();  // output = "45678"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### NullIfEqualTo
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string s;       //Search string
+string output;
+
+input = null;
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = null
+
+input = "";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = ""
+
+input = " ";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = " "
+
+input = "lorem";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = null
+
+input = "lorem ipsum dolor";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = "lorem ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
