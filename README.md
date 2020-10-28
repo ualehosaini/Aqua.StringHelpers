@@ -67,6 +67,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 54. [GetFirstShortestWord](#GetFirstShortestWord)
 55. [GetTotalNumberOfLines](#GetTotalNumberOfLines)
 56. [GetUrlDomain](#GetUrlDomain)
+57. [GetFileExtension](#GetFileExtension)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1549,6 +1550,29 @@ output = input.GetUrlDomain();  // output = "http://dev.wideitsolutions.co.uk"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+### GetFileExtension
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetFileExtension();  // output = null
+
+input = "";
+output = input.GetFileExtension();  // output = ""
+
+input = " ";
+output = input.GetFileExtension();  // output = ""
+
+input = "c:\\test.pdf";
+output = input.GetFileExtension();  // output = "pdf"
+
+input = "http://dev.wideitsolutions.co.uk/test/test/test.pdf";
+output = input.GetFileExtension();  // output = "pdf"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
