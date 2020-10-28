@@ -59,6 +59,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 46. [CorrectPathSlashes](#CorrectPathSlashes)
 47. [CenterAligned](#CenterAligned)
 48. [HowManyOccurrences](#HowManyOccurrences)
+49. [CleanNonNumericChars](#CleanNonNumericChars)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1334,6 +1335,30 @@ c = 'l';
 s = "lo";
 output = input.HowManyOccurrences(c);  // output = 2
 output = input.HowManyOccurrences(c);  // output = 2
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### CleanNonNumericChars
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.CleanNonNumericChars();  // output = null
+
+input = "";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = " ";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = "lorem";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = "lorem 4 ipsum 567 8dolor";
+output = input.CleanNonNumericChars();  // output = "45678"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
