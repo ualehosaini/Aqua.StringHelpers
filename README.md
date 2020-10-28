@@ -51,6 +51,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 38. [ToDistinctListOfWords](#ToDistinctListOfWords)
 39. [To16ByteSaltedHash](#To16ByteSaltedHash)
 40. [CapitaliseEachWord](#CapitaliseEachWord)
+41. [AddToBeginingIfMissed](#AddToBeginingIfMissed)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1098,6 +1099,36 @@ output = input.CapitaliseEachWord();  // output = "Lorem Ipsum Dolor"
 
 input = "lorem ipsum dolor.";
 output = input.CapitaliseEachWord();  // output = "Lorem Ipsum Dolor."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### AddToBeginingIfMissed
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string a;        //The value to be added
+string output;
+
+input = null;
+a = "The ";
+output = input.AddToBeginingIfMissed(a);  // output = "The "
+
+input = "";
+a = "The ";
+output = input.AddToBeginingIfMissed(a);  // result = "The "
+
+input = " ";
+a = "The ";
+output = input.AddToBeginingIfMissed(a);  // result = "The "
+
+input = "The lorem ipsum dolor.";
+a = "The ";
+output = input.AddToBeginingIfMissed(a);  // output = "The lorem ipsum dolor."
+
+input = "lorem ipsum dolor.";
+a = "The ";
+output = input.AddToBeginingIfMissed(a);  // output = "The Lorem Ipsum Dolor."
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
