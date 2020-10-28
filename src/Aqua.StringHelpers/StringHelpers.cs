@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -626,27 +625,6 @@ namespace Aqua.StringHelpers
         public static string ToCanonicalGuid(this Guid guid)
         {
             return guid.ToString("N");
-        }
-
-
-        /// <summary>
-        /// Serialise Object to Json
-        /// </summary>
-        /// <param name="o"></param>
-        /// <returns></returns>
-        public static string ToJsonString(this object o)
-        {
-            return JsonConvert.SerializeObject(o, Formatting.Indented);
-        }
-
-        /// <summary>
-        /// DeSerialise Object From Json
-        /// </summary>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        public static object ToObject(this string json)
-        {
-            return JsonConvert.DeserializeObject(json);
         }
 
         /// <summary>

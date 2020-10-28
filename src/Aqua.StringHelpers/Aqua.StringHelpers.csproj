@@ -1,11 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>Is n Open Source and Free Software package for .NET to facilitate the work with strings</Description>
+    <Authors>Useme Alehosaini</Authors>
+    <Company />
+    <PackageProjectUrl>https://github.com/ualehosaini/Aqua.StringHelpers</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ualehosaini/Aqua.StringHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>string helpers .net</PackageTags>
+    <InludeSymbols>true</InludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseFile>License.md</PackageLicenseFile>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <None Include="..\..\License.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
