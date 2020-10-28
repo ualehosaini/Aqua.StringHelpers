@@ -785,17 +785,20 @@ namespace Aqua.StringHelpers
             if (pattern.IsNullOrEmpty())
                 return 0;
 
+            string tempS = s;
+            string tempP = pattern;
+
             if (isCaseSensitive != true)
             {
-                s.ToLower();
-                pattern.ToLower();
+                tempS = s.ToLower();
+                tempP = pattern.ToLower();
             }
 
             int count = 0;
             int i = 0;
-            while ((i = s.IndexOf(pattern, i)) != -1)
+            while ((i = tempS.IndexOf(pattern, i)) != -1)
             {
-                i += pattern.Length;
+                i += tempP.Length;
                 count++;
             }
             return count;
