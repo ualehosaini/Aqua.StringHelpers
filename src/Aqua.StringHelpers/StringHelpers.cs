@@ -34,6 +34,39 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
+        /// Examines the Char if it is digit (0-9)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static bool IsDigit(this char c)
+        {
+            return c >= '0' && c <= '9';
+        }
+
+        /// <summary>
+        /// Examines the String if it is Integer
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsInteger(this string s)
+        {
+            if (s.IsNullOrEmpty())
+                return false;
+
+            return int.TryParse(s, out _);
+        }
+
+        /// <summary>
+        /// Examines the String if it is Number
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsNumber(this string s)
+        {
+            return double.TryParse(s, out _);
+        }
+
+        /// <summary>
         /// Is the string alphanumeric?
         /// </summary>
         /// <param name="s">text</param>
@@ -65,37 +98,15 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
-        /// Examines the String if it is Integer
+        /// If the string is null convert it to empty
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static bool IsInteger(this string s)
+        public static string IfNullReturnEmptyString(this string s)
         {
-            if (s.IsNullOrEmpty())
-                return false;
-
-            return int.TryParse(s, out _);
+            return s ?? string.Empty;
         }
 
-        /// <summary>
-        /// Examines the Char if it is digit (0-9)
-        /// </summary>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        public static bool IsDigit(this char c)
-        {
-            return c >= '0' && c <= '9';
-        }
-
-        /// <summary>
-        /// Examines the String if it is Number
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static bool IsNumber(this string s)
-        {
-            return double.TryParse(s, out _);
-        }
 
         /// <summary>
         /// Reverse the input string
@@ -820,15 +831,7 @@ namespace Aqua.StringHelpers
             return s.Replace("\n", string.Empty).Replace("\r", string.Empty);
         }
 
-        /// <summary>
-        /// If the string is null convert it to empty
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static string IfNullReturnEmptyString(this string s)
-        {
-            return s ?? string.Empty;
-        }
+
 
         /// <summary>
         /// Get Domain Part of a valid URL string
