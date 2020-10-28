@@ -439,13 +439,29 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData(null, '.', 0)]
+        [InlineData("", '.', 0)]
+        [InlineData(" ", '.', 0)]
         [InlineData("1.5", '.', 1)]
         [InlineData("rr", 'r', 2)]
         [InlineData("22se2", '2', 3)]
-        public void HowManyOccurrences_Valid(string input, char c, int expected)
+        public void HowManyOccurrences_Char_Valid(string input, char c, int expected)
         {
             Assert.Equal(expected, input.HowManyOccurrences(c));
         }
+
+        [Theory]
+        [InlineData(null, ".", 0)]
+        [InlineData("", ".", 0)]
+        [InlineData(" ", ".", 0)]
+        [InlineData("1.5", ".", 1)]
+        [InlineData("rr", "r", 2)]
+        [InlineData("22se2", "22", 1)]
+        public void HowManyOccurrences_String_Valid(string input, string c, int expected)
+        {
+            Assert.Equal(expected, input.HowManyOccurrences(c));
+        }
+
 
         [Theory]
         [InlineData(null, "..", "..")]

@@ -895,6 +895,12 @@ namespace Aqua.StringHelpers
         /// <returns></returns>
         public static int HowManyOccurrences(this string s, char targeted)
         {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            if (s.IsNullOrWhiteSpace())
+                return 0;
+
             return s.Count(f => f == targeted);
         }
 
@@ -907,6 +913,12 @@ namespace Aqua.StringHelpers
         /// <returns></returns>
         public static int HowManyOccurrences(this string s, string targeted)
         {
+            if (s.IsNullOrEmpty())
+                return 0;
+
+            if (s.IsNullOrWhiteSpace())
+                return 0;
+
             return s.Split(targeted).Length - 1;
         }
 
