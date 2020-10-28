@@ -66,6 +66,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 53. [GetFirstLongestWord](#GetFirstLongestWord)
 54. [GetFirstShortestWord](#GetFirstShortestWord)
 55. [GetTotalNumberOfLines](#GetTotalNumberOfLines)
+56. [GetUrlDomain](#GetUrlDomain)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1523,6 +1524,31 @@ input = "\nlorem \n\nipsum\n dolor";
 output = input.GetTotalNumberOfLines();  // output = 5
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetUrlDomain
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetUrlDomain();  // output = null
+
+input = "";
+output = input.GetUrlDomain();  // output = ""
+
+input = " ";
+output = input.GetUrlDomain();  // output = ""
+
+input = "http://www.wideitsolutions.co.uk/test/test";
+output = input.GetUrlDomain();  // output = "http://www.wideitsolutions.co.uk"
+
+input = "http://dev.wideitsolutions.co.uk/test/test";
+output = input.GetUrlDomain();  // output = "http://dev.wideitsolutions.co.uk"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
