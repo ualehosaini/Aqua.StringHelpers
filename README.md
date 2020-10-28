@@ -71,6 +71,8 @@ TODO: Guide users through getting your code up and running on their own system. 
 58. [AddToEndIfMissed](#AddToEndIfMissed)
 59. [GenerateLoremIpsumString](#GenerateLoremIpsumString)
 60. [GenerateLoremIpsumHtmlSafe](#GenerateLoremIpsumHtmlSafe)
+61. [Coalesce](#Coalesce)
+62. [GetFirstNullOrEmpty](#GetFirstNullOrEmpty)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1694,6 +1696,40 @@ output = StringHelpers.GenerateLoremIpsumHtmlSafe(minWords, maxWords, minSentenc
 // aliquam euismod tincidunt ut. dolor magna magna diam sed dolor dolor lorem laoreet euismod tincidunt 
 // consectetuer laoreet aliquam. 
 // </p>"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### Coalesce
+```C#
+//using Aqua.StringHelpers;
+string[] input;
+string output;
+
+input = new[] { null, "", "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = ""
+
+input = new[] { null, "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = "lorem"
+
+input = new[] { "lorem", null, "", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetFirstNullOrEmpty
+```C#
+//using Aqua.StringHelpers;
+string[] input;
+string output;
+
+input = new[] { "lorem", "", "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = ""
+
+input = new[] { null, "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = "null"
+
+input = new[] { "lorem", null, "", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = "null"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
