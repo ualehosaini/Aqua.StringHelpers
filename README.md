@@ -56,6 +56,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 43. [CountStringOccurrences](#CountStringOccurrences)
 44. [FindAllDigits](#FindAllDigits)
 45. [FindNumberOfDigits](#FindNumberOfDigits)
+46. [CorrectPathSlashes](#CorrectPathSlashes)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1237,6 +1238,29 @@ output = input.FindNumberOfDigits();  // output = 3
 
 input = "lorem5 6 7 % 9 ipsum dolor.";
 output = input.FindNumberOfDigits();  // output = 4
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+### CorrectPathSlashes
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.CorrectPathSlashes();  // output = null
+
+input = "";
+output = input.CorrectPathSlashes();  // output = ""
+
+input = " ";
+output = input.CorrectPathSlashes();  // output = " "
+
+input = "c:/test";
+output = input.CorrectPathSlashes();  // output = "c:\\test"
+
+input = "c:/test/test.pdf";
+output = input.CorrectPathSlashes();  // output = "c:\\test\\test.pdf"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
