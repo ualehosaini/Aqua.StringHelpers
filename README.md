@@ -54,6 +54,8 @@ TODO: Guide users through getting your code up and running on their own system. 
 41. [AddToBeginingIfMissed](#AddToBeginingIfMissed)
 42. [DecodeBase64](#DecodeBase64)
 43. [CountStringOccurrences](#CountStringOccurrences)
+44. [FindAllDigits](#FindAllDigits)
+45. [FindNumberOfDigits](#FindNumberOfDigits)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1091,10 +1093,10 @@ input = null;
 output = input.CapitaliseEachWord();  // output = null
 
 input = "";
-output = input.CapitaliseEachWord();  // result = ""
+output = input.CapitaliseEachWord();  // output = ""
 
 input = " ";
-output = input.CapitaliseEachWord();  // result = " "
+output = input.CapitaliseEachWord();  // output = " "
 
 input = "lorem ipsum dolor";
 output = input.CapitaliseEachWord();  // output = "Lorem Ipsum Dolor"
@@ -1118,11 +1120,11 @@ output = input.AddToBeginingIfMissed(a);  // output = "The "
 
 input = "";
 a = "The ";
-output = input.AddToBeginingIfMissed(a);  // result = "The "
+output = input.AddToBeginingIfMissed(a);  // output = "The "
 
 input = " ";
 a = "The ";
-output = input.AddToBeginingIfMissed(a);  // result = "The "
+output = input.AddToBeginingIfMissed(a);  // output = "The "
 
 input = "The lorem ipsum dolor.";
 a = "The ";
@@ -1145,10 +1147,10 @@ input = null;
 output = input.DecodeBase64();  // output = null
 
 input = "";
-output = input.DecodeBase64();  // result = ""
+output = input.DecodeBase64();  // output = ""
 
 input = "IA==";
-output = input.DecodeBase64();  // result = " "
+output = input.DecodeBase64();  // output = " "
 
 input = "YWJj";
 output = input.DecodeBase64();  // output = "abc"
@@ -1187,6 +1189,54 @@ input = "LorEM ipsum dolor. lorEm ipsum dolor. loreM ipsum dolor.";
 s = "em";
 c = false;
 output = input.CountStringOccurrences(s, c);  // output = 3
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### FindAllDigits
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.FindAllDigits();  // output = null
+
+input = "";
+output = input.FindAllDigits();  // output = ""
+
+input = " ";
+output = input.FindAllDigits();  // output = ""
+
+input = "6lorem65";
+output = input.FindAllDigits();  // output = "665"
+
+input = "lorem5 6 7 % 9 ipsum dolor.";
+output = input.FindAllDigits();  // output = "5679"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### FindNumberOfDigits
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int output;
+
+input = null;
+output = input.FindNumberOfDigits();  // output = 0
+
+input = "";
+output = input.FindNumberOfDigits();  // output = 0
+
+input = " ";
+output = input.FindNumberOfDigits();  // output = 0
+
+input = "6lorem65";
+output = input.FindNumberOfDigits();  // output = 3
+
+input = "lorem5 6 7 % 9 ipsum dolor.";
+output = input.FindNumberOfDigits();  // output = 4
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
