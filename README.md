@@ -65,6 +65,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 52. [GetTotalNumberOfCharachters](#GetTotalNumberOfCharachters)
 53. [GetFirstLongestWord](#GetFirstLongestWord)
 54. [GetFirstShortestWord](#GetFirstShortestWord)
+55. [GetTotalNumberOfLines](#GetTotalNumberOfLines)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1496,6 +1497,30 @@ output = input.GetFirstShortestWord();  // output = "lorem"
 
 input = "lorem ipsum dolor";
 output = input.GetFirstShortestWord();  // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfLines
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int output;
+
+input = null;
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = "";
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = " ";
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = "lorem\n";
+output = input.GetTotalNumberOfLines();  // output = 2
+
+input = "\nlorem \n\nipsum\n dolor";
+output = input.GetTotalNumberOfLines();  // output = 5
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
