@@ -7,9 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA7F80EE-C63
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2C1833C6-50A9-4D32-B85A-1B32D8171CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aqua.StringHelpers", "src\Aqua.StringHelpers\Aqua.StringHelpers.csproj", "{7A401BA2-DD8C-4282-AC87-692E420AFBA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aqua.StringHelpers", "src\Aqua.StringHelpers\Aqua.StringHelpers.csproj", "{7A401BA2-DD8C-4282-AC87-692E420AFBA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aqua.StringHelpers.Tests", "tests\Aqua.StringHelpers.Tests\Aqua.StringHelpers.Tests.csproj", "{91026533-7338-4664-A3F0-57A38719FCC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aqua.StringHelpers.Tests", "tests\Aqua.StringHelpers.Tests\Aqua.StringHelpers.Tests.csproj", "{91026533-7338-4664-A3F0-57A38719FCC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{3F9AF983-A6E2-4C42-B8FF-EA648FD73BED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{AA83FCEA-4B7B-4B1C-9F3D-67700007C322}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.yml = nuget.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +39,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7A401BA2-DD8C-4282-AC87-692E420AFBA7} = {CA7F80EE-C631-469E-883E-11024793265C}
 		{91026533-7338-4664-A3F0-57A38719FCC8} = {2C1833C6-50A9-4D32-B85A-1B32D8171CAB}
+		{AA83FCEA-4B7B-4B1C-9F3D-67700007C322} = {3F9AF983-A6E2-4C42-B8FF-EA648FD73BED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89F84701-EAE1-4629-ACFC-6459242935AE}
