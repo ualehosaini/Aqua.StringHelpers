@@ -53,7 +53,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 40. [CapitaliseEachWord](#CapitaliseEachWord)
 41. [AddToBeginingIfMissed](#AddToBeginingIfMissed)
 42. [DecodeBase64](#DecodeBase64)
-43. [CountStringOccurrences(#CountStringOccurrences)
+43. [CountStringOccurrences](#CountStringOccurrences)
 
 # Features and Methods
 ### IsNullOrEmpty
