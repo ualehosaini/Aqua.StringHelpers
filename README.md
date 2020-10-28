@@ -69,6 +69,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 56. [GetUrlDomain](#GetUrlDomain)
 57. [GetFileExtension](#GetFileExtension)
 58. [AddToEndIfMissed](#AddToEndIfMissed)
+59. [GenerateLoremIpsumString](#GenerateLoremIpsumString)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1602,6 +1603,49 @@ output = input.AddToEndIfMissed(a);  // output = "The lorem ipsum dolor..."
 input = "lorem ipsum dolor";
 a = "...";
 output = input.AddToEndIfMissed(a);  // output = "lorem Ipsum Dolor..."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GenerateLoremIpsumString
+```C#
+//using Aqua.StringHelpers;
+
+string output;
+int minWords;       //Minumum number of words in output
+int maxWords;       //Maximum number of words in the output
+int minSentences;   //Minumum number of sentences in the output
+int maxSentences;   //Maximum number of sentences in the output
+int numParagraphs;  //The number of paragraphs to be in the output
+
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 1;
+output = StringHelpers.GenerateLoremIpsumString(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output = "tincidunt tincidunt diam amet diam sit. aliquam euismod diam adipiscing aliquam aliquam."
+            
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 2;
+output = StringHelpers.GenerateLoremIpsumString(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output =
+//"consectetuer nibh magna euismod dolor ut amet aliquam diam consectetuer magna dolor 
+// ipsum sed. aliquam dolor dolore ipsum nibh nibh nonummy nibh aliquam nonummy ut laoreet 
+// dolore sed. adipiscing sed dolore sed elit magna euismod lorem magna magna consectetuer tincidunt 
+// dolore dolor. dolore euismod tincidunt diam diam nonummy ut laoreet nonummy diam tincidunt lorem euismod ut. 
+// tincidunt adipiscing aliquam elit magna dolore euismod ipsum diam sed ut amet laoreet aliquam. 
+// consectetuer erat dolore aliquam laoreet elit ut adipiscing magna consectetuer consectetuer adipiscing 
+// tincidunt nonummy. magna adipiscing laoreet elit amet aliquam adipiscing nonummy erat magna dolore lorem 
+// diam ut. sit amet laoreet amet laoreet dolore nonummy nibh tincidunt ut amet amet erat elit. diam tincidunt 
+// ipsum nonummy dolor ipsum sit dolor tincidunt adipiscing erat dolore euismod laoreet. lorem aliquam dolor 
+// laoreet magna erat dolor tincidunt diam lorem nibh magna lorem adipiscing. tincidunt ipsum dolor lorem 
+// aliquam erat ipsum adipiscing laoreet consectetuer magna sed nibh lorem. nibh sed consectetuer aliquam amet 
+// laoreet nibh ut nibh diam adipiscing erat amet laoreet. sit ipsum erat amet lorem magna sed nibh sit erat 
+// aliquam euismod tincidunt ut. dolor magna magna diam sed dolor dolor lorem laoreet euismod tincidunt 
+// consectetuer laoreet aliquam. "
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
