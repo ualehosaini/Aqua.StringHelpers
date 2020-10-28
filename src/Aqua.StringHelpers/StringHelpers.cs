@@ -1021,7 +1021,10 @@ namespace Aqua.StringHelpers
         /// <returns></returns>
         public static string CenterAligned(this string s, int blockLength)
         {
-            if (s.IsNullOrEmpty() && blockLength <= 0)
+            if (s.IsNullOrEmpty())
+                return s;
+
+            if (blockLength <= 0)
                 return s;
 
             if (blockLength < s.Length)

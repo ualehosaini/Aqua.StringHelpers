@@ -497,6 +497,7 @@ namespace Aqua.StringHelpers.Tests
         }
 
         [Theory]
+        [InlineData(null, 1, null)]
         [InlineData("", 1, "")]
         [InlineData(" ", 1, " ")]
         [InlineData("abcd", 20, "        abcd        ")]
