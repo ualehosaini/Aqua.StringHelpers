@@ -38,5 +38,3 @@ jobs:
 		- name: 'Push Package'
 		  run: dotnet nuget push ${{ env.PROJECT_PATH }}\*.nupkg -k ${{ secrets.NUGET_AUTH_TOKEN }} -s ${{ env.NUGET_SOURCE_URL }}
 
-		- name: 
-
