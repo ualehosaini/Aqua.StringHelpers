@@ -1475,6 +1475,7 @@ output = input.GetFirstLongestWord();  // output = "lorem"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
+### GetFirstShortestWord
 ```C#
 //using Aqua.StringHelpers;
 
