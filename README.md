@@ -57,6 +57,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 44. [FindAllDigits](#FindAllDigits)
 45. [FindNumberOfDigits](#FindNumberOfDigits)
 46. [CorrectPathSlashes](#CorrectPathSlashes)
+47. [CenterAligned](#CenterAligned)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1261,6 +1262,36 @@ output = input.CorrectPathSlashes();  // output = "c:\\test"
 
 input = "c:/test/test.pdf";
 output = input.CorrectPathSlashes();  // output = "c:\\test\\test.pdf"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### CenterAligned
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int b;          //Block size
+string output;
+
+input = null;
+b = 20;
+output = input.CenterAligned(b);  // output = null
+
+input = "";
+b = 20;
+output = input.CenterAligned(b);  // output = ""
+
+input = " ";
+b = 20;
+output = input.CenterAligned(b);  // output = "                    "
+
+input = "lorem";
+b = 20;
+output = input.CenterAligned(b);  // output = "        lorem       "
+
+input = "lorem ipsum dolor";
+b = 10;
+output = input.CenterAligned(b);  // output = "lorem ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
