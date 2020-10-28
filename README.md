@@ -53,6 +53,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 40. [CapitaliseEachWord](#CapitaliseEachWord)
 41. [AddToBeginingIfMissed](#AddToBeginingIfMissed)
 42. [DecodeBase64](#DecodeBase64)
+43. [CountStringOccurrences(#CountStringOccurrences)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1154,6 +1155,38 @@ output = input.DecodeBase64();  // output = "abc"
 
 input = "bG9yZW0gaXBzdW0gZG9sb3IuIGxvcmVtLiBpcHN1bSBkb2xvcg==";
 output = input.DecodeBase64();  // output = "lorem ipsum dolor. lorem. ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### CountStringOccurrences
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string s;       //Search string
+bool c;         //Is Case Sensitive Search? - Default is true
+int output;
+
+input = null;
+s = "em";
+output = input.CountStringOccurrences(s);  // output = 0
+
+input = "";
+s = "em";
+output = input.CountStringOccurrences(s);  // output = 0
+
+input = " ";
+s = "em";
+output = input.CountStringOccurrences(s);  // output = 0
+
+input = "lorEM ipsum dolor. lorem ipsum dolor. lorem ipsum dolor.";
+s = "em";
+output = input.CountStringOccurrences(s);  // output = 2
+
+input = "LorEM ipsum dolor. lorEm ipsum dolor. loreM ipsum dolor.";
+s = "em";
+c = false;
+output = input.CountStringOccurrences(s, c);  // output = 3
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
 
