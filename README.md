@@ -58,6 +58,21 @@ TODO: Guide users through getting your code up and running on their own system. 
 45. [FindNumberOfDigits](#FindNumberOfDigits)
 46. [CorrectPathSlashes](#CorrectPathSlashes)
 47. [CenterAligned](#CenterAligned)
+48. [HowManyOccurrences](#HowManyOccurrences)
+49. [CleanNonNumericChars](#CleanNonNumericChars)
+50. [NullIfEqualTo](#NullIfEqualTo)
+51. [GetTotalNumberOfWords](#GetTotalNumberOfWords)
+52. [GetTotalNumberOfCharachters](#GetTotalNumberOfCharachters)
+53. [GetFirstLongestWord](#GetFirstLongestWord)
+54. [GetFirstShortestWord](#GetFirstShortestWord)
+55. [GetTotalNumberOfLines](#GetTotalNumberOfLines)
+56. [GetUrlDomain](#GetUrlDomain)
+57. [GetFileExtension](#GetFileExtension)
+58. [AddToEndIfMissed](#AddToEndIfMissed)
+59. [GenerateLoremIpsumString](#GenerateLoremIpsumString)
+60. [GenerateLoremIpsumHtmlSafe](#GenerateLoremIpsumHtmlSafe)
+61. [Coalesce](#Coalesce)
+62. [GetFirstNullOrEmpty](#GetFirstNullOrEmpty)
 
 # Features and Methods
 ### IsNullOrEmpty
@@ -1294,6 +1309,430 @@ b = 10;
 output = input.CenterAligned(b);  // output = "lorem ipsum dolor"
 ```
 :back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### HowManyOccurrences
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+char c;          //Search character
+string s;          //Search string
+int output;
+
+input = null;
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0
+output = input.HowManyOccurrences(s);  // output = 0
+
+input = "";
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0
+output = input.HowManyOccurrences(c);  // output = 0
+
+input = " ";
+c = 'A';
+s = "AA";
+output = input.HowManyOccurrences(c);  // output = 0   
+output = input.HowManyOccurrences(c);  // output = 0
+
+input = "lorem";
+c = 'l';
+s = "lo";
+output = input.HowManyOccurrences(c);  // output = 1
+output = input.HowManyOccurrences(c);  // output = 1
+
+input = "lorem ipsum dolor";
+c = 'l';
+s = "lo";
+output = input.HowManyOccurrences(c);  // output = 2
+output = input.HowManyOccurrences(c);  // output = 2
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### CleanNonNumericChars
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.CleanNonNumericChars();  // output = null
+
+input = "";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = " ";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = "lorem";
+output = input.CleanNonNumericChars();  // output = ""
+
+input = "lorem 4 ipsum 567 8dolor";
+output = input.CleanNonNumericChars();  // output = "45678"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### NullIfEqualTo
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string s;       //Search string
+string output;
+
+input = null;
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = null
+
+input = "";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = ""
+
+input = " ";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = " "
+
+input = "lorem";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = null
+
+input = "lorem ipsum dolor";
+s = "lorem";
+output = input.NullIfEqualTo(s);  // output = "lorem ipsum dolor"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfWords
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int output;
+
+input = null;
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = "";
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = " ";
+output = input.GetTotalNumberOfWords();  // output = 0
+
+input = "lorem";
+output = input.GetTotalNumberOfWords();  // output = 1
+
+input = "lorem ipsum dolor";
+output = input.GetTotalNumberOfWords();  // output = 3
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfCharachters
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+bool c;         //Clean the string before counting the characters? default is false
+int output;
+
+input = null;
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 0
+
+input = "";
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 0
+
+input = " ";
+c = false;
+output = input.GetTotalNumberOfCharachters();  // output = 1
+
+input = "lorem  ";
+c = true;
+output = input.GetTotalNumberOfCharachters(c);  // output = 5
+
+input = "lorem ipsum       dolor";
+c = true;
+output = input.GetTotalNumberOfCharachters(c);  // output = 17
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetFirstLongestWord
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetFirstLongestWord();  // output = null
+
+input = "";
+output = input.GetFirstLongestWord();  // output = ""
+
+input = " ";
+output = input.GetFirstLongestWord();  // output = " "
+
+input = "lorem";
+output = input.GetFirstLongestWord();  // output = "lorem"
+
+input = "lorem ipsum dolor";
+output = input.GetFirstLongestWord();  // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetFirstShortestWord
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetFirstShortestWord();  // output = null
+
+input = "";
+output = input.GetFirstShortestWord();  // output = ""
+
+input = " ";
+output = input.GetFirstShortestWord();  // output = " "
+
+input = "lorem";
+output = input.GetFirstShortestWord();  // output = "lorem"
+
+input = "lorem ipsum dolor";
+output = input.GetFirstShortestWord();  // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetTotalNumberOfLines
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+int output;
+
+input = null;
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = "";
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = " ";
+output = input.GetTotalNumberOfLines();  // output = 0
+
+input = "lorem\n";
+output = input.GetTotalNumberOfLines();  // output = 2
+
+input = "\nlorem \n\nipsum\n dolor";
+output = input.GetTotalNumberOfLines();  // output = 5
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetUrlDomain
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetUrlDomain();  // output = null
+
+input = "";
+output = input.GetUrlDomain();  // output = ""
+
+input = " ";
+output = input.GetUrlDomain();  // output = ""
+
+input = "http://www.wideitsolutions.co.uk/test/test";
+output = input.GetUrlDomain();  // output = "http://www.wideitsolutions.co.uk"
+
+input = "http://dev.wideitsolutions.co.uk/test/test";
+output = input.GetUrlDomain();  // output = "http://dev.wideitsolutions.co.uk"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetFileExtension
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string output;
+
+input = null;
+output = input.GetFileExtension();  // output = null
+
+input = "";
+output = input.GetFileExtension();  // output = ""
+
+input = " ";
+output = input.GetFileExtension();  // output = ""
+
+input = "c:\\test.pdf";
+output = input.GetFileExtension();  // output = "pdf"
+
+input = "http://dev.wideitsolutions.co.uk/test/test/test.pdf";
+output = input.GetFileExtension();  // output = "pdf"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### AddToEndIfMissed
+```C#
+//using Aqua.StringHelpers;
+
+string input;
+string a;        //The value to be added
+string output;
+
+input = null;
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = "";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = " ";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "..."
+
+input = "The lorem ipsum dolor";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "The lorem ipsum dolor..."
+
+input = "lorem ipsum dolor";
+a = "...";
+output = input.AddToEndIfMissed(a);  // output = "lorem Ipsum Dolor..."
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GenerateLoremIpsumString
+```C#
+//using Aqua.StringHelpers;
+
+string output;
+int minWords;       //Minumum number of words in output
+int maxWords;       //Maximum number of words in the output
+int minSentences;   //Minumum number of sentences in the output
+int maxSentences;   //Maximum number of sentences in the output
+int numParagraphs;  //The number of paragraphs to be in the output
+
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 1;
+output = StringHelpers.GenerateLoremIpsumString(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output = "tincidunt tincidunt diam amet diam sit. aliquam euismod diam adipiscing aliquam aliquam."
+            
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 2;
+output = StringHelpers.GenerateLoremIpsumString(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output =
+//"consectetuer nibh magna euismod dolor ut amet aliquam diam consectetuer magna dolor 
+// ipsum sed. aliquam dolor dolore ipsum nibh nibh nonummy nibh aliquam nonummy ut laoreet 
+// dolore sed. adipiscing sed dolore sed elit magna euismod lorem magna magna consectetuer tincidunt 
+// dolore dolor. dolore euismod tincidunt diam diam nonummy ut laoreet nonummy diam tincidunt lorem euismod ut. 
+// tincidunt adipiscing aliquam elit magna dolore euismod ipsum diam sed ut amet laoreet aliquam. 
+// consectetuer erat dolore aliquam laoreet elit ut adipiscing magna consectetuer consectetuer adipiscing 
+// tincidunt nonummy. magna adipiscing laoreet elit amet aliquam adipiscing nonummy erat magna dolore lorem 
+// diam ut. sit amet laoreet amet laoreet dolore nonummy nibh tincidunt ut amet amet erat elit. diam tincidunt 
+// ipsum nonummy dolor ipsum sit dolor tincidunt adipiscing erat dolore euismod laoreet. lorem aliquam dolor 
+// laoreet magna erat dolor tincidunt diam lorem nibh magna lorem adipiscing. tincidunt ipsum dolor lorem 
+// aliquam erat ipsum adipiscing laoreet consectetuer magna sed nibh lorem. nibh sed consectetuer aliquam amet 
+// laoreet nibh ut nibh diam adipiscing erat amet laoreet. sit ipsum erat amet lorem magna sed nibh sit erat 
+// aliquam euismod tincidunt ut. dolor magna magna diam sed dolor dolor lorem laoreet euismod tincidunt 
+// consectetuer laoreet aliquam. "
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GenerateLoremIpsumHtmlSafe
+```C#
+//using Aqua.StringHelpers;
+
+string output;
+int minWords;       //Minumum number of words in output
+int maxWords;       //Maximum number of words in the output
+int minSentences;   //Minumum number of sentences in the output
+int maxSentences;   //Maximum number of sentences in the output
+int numParagraphs;  //The number of paragraphs to be in the output
+
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 1;
+output = StringHelpers.GenerateLoremIpsumHtmlSafe(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output = "<p>tincidunt tincidunt diam amet diam sit. aliquam euismod diam adipiscing aliquam aliquam.</p>"
+            
+minWords = 1;
+maxWords = 100;
+minSentences = 1;
+maxSentences = 10;
+numParagraphs = 2;
+output = StringHelpers.GenerateLoremIpsumHtmlSafe(minWords, maxWords, minSentences, maxSentences, numParagraphs);
+// output =
+// "<p>
+// consectetuer nibh magna euismod dolor ut amet aliquam diam consectetuer magna dolor 
+// ipsum sed. aliquam dolor dolore ipsum nibh nibh nonummy nibh aliquam nonummy ut laoreet 
+// dolore sed. adipiscing sed dolore sed elit magna euismod lorem magna magna consectetuer tincidunt 
+// dolore dolor. dolore euismod tincidunt diam diam nonummy ut laoreet nonummy diam tincidunt lorem euismod ut. 
+// tincidunt adipiscing aliquam elit magna dolore euismod ipsum diam sed ut amet laoreet aliquam.
+// <p>
+// </p>
+// consectetuer erat dolore aliquam laoreet elit ut adipiscing magna consectetuer consectetuer adipiscing 
+// tincidunt nonummy. magna adipiscing laoreet elit amet aliquam adipiscing nonummy erat magna dolore lorem 
+// diam ut. sit amet laoreet amet laoreet dolore nonummy nibh tincidunt ut amet amet erat elit. diam tincidunt 
+// ipsum nonummy dolor ipsum sit dolor tincidunt adipiscing erat dolore euismod laoreet. lorem aliquam dolor 
+// laoreet magna erat dolor tincidunt diam lorem nibh magna lorem adipiscing. tincidunt ipsum dolor lorem 
+// aliquam erat ipsum adipiscing laoreet consectetuer magna sed nibh lorem. nibh sed consectetuer aliquam amet 
+// laoreet nibh ut nibh diam adipiscing erat amet laoreet. sit ipsum erat amet lorem magna sed nibh sit erat 
+// aliquam euismod tincidunt ut. dolor magna magna diam sed dolor dolor lorem laoreet euismod tincidunt 
+// consectetuer laoreet aliquam. 
+// </p>"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### Coalesce
+```C#
+//using Aqua.StringHelpers;
+string[] input;
+string output;
+
+input = new[] { null, "", "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = ""
+
+input = new[] { null, "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = "lorem"
+
+input = new[] { "lorem", null, "", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.Coalesce(input); // output = "lorem"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
+### GetFirstNullOrEmpty
+```C#
+//using Aqua.StringHelpers;
+string[] input;
+string output;
+
+input = new[] { "lorem", "", "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = ""
+
+input = new[] { null, "lorem", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = "null"
+
+input = new[] { "lorem", null, "", "lorem ipsum dolor", "dolor" };
+output = StringHelpers.GetFirstNullOrEmpty(input); // output = "null"
+```
+:back:[Back to the Full List of Features](#List-Of-Features-and-Methods)
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
