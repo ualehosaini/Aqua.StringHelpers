@@ -28,11 +28,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: 'Get Version'
-      id: version
-      uses: ualehosaini/Aqua.StringHelpers/get-version-action@v2
     - name: 'Pack project'
-      run: dotnet restore ${{ env.PROJECT_PATH }} --no-restore no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.version.outputs.version-without-v }}  --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run: dotnet restore ${{ env.PROJECT_PATH }} --no-restore no-build --configuration Release --include-symbols --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
     - name: 'Push Package'
       run: dotnet nuget push ${{ env.PROJECT_PATH }}\*.nupkg -k ${{ secrets.NUGET_AUTH_TOKEN }} -s ${{ env.NUGET_SOURCE_URL }}
 
