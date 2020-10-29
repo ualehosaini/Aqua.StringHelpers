@@ -30,7 +30,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal
     - name: 'Get Version'
       id: version
-      uses: ualehosaini/get-version-action@v2
+      uses: ualehosaini/Aqua.StringHelpers/get-version-action@v2
     - name: 'Pack project'
       run: dotnet restore ${{ env.PROJECT_PATH }} --no-restore no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.version.outputs.version-without-v }}  --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
     - name: 'Push Package'
