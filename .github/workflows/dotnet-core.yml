@@ -28,7 +28,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: 'Pack project'
-      run: dotnet restore ${{ env.PROJECT_PATH }} ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run: dotnet restore ${{ env.PROJECT_PATH }}
     - name: 'Push Package'
       run: dotnet nuget push ${{ env.PROJECT_PATH }}\*.nupkg -k ${{ secrets.NUGET_AUTH_TOKEN }} -s ${{ env.NUGET_SOURCE_URL }}
 
