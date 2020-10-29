@@ -5,6 +5,11 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  
+env:
+    PROJECT_PATH: 'src/Aqua.StringHelpers.csproj'
+    PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
+    NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
 
 jobs:
   build:
@@ -23,3 +28,12 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+    - name: 'Get Version'
+      id: version
+      uses: ualehosaini/get-version-action@v2
+    - name: 'Pack project'
+      run: dotnet restore ${{ env.PROJECT_PATH }} --no-restore no-build --configuration Release --include-symbols -p:PackageVersion=${{ steps.version.outputs.version-without-v }}  --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+    - name: 'Push Package'
+      run: dotnet nuget push ${{ env.PROJECT_PATH }}\*.nupkg -k ${{ secrets.NUGET_AUTH_TOKEN }} -s ${{ env.NUGET_SOURCE_URL }}
+
+    
