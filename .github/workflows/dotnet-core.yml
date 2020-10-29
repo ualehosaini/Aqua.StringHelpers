@@ -29,7 +29,7 @@ jobs:
     - name: Test
       run: dotnet test --no-restore --verbosity normal
     - name: 'Pack project'
-      run: dotnet restore ${{ env.PROJECT_PATH }} --include-symbols --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
+      run: dotnet restore ${{ env.PROJECT_PATH }} --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }}
     - name: 'Push Package'
       run: dotnet nuget push ${{ env.PROJECT_PATH }}\*.nupkg -k ${{ secrets.NUGET_AUTH_TOKEN }} -s ${{ env.NUGET_SOURCE_URL }}
 
