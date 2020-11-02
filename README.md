@@ -1,3 +1,5 @@
+
+[![Build status](https://ci.appveyor.com/api/projects/status/maa7gdjdvy27vkng?svg=true)](https://ci.appveyor.com/project/ualehosaini/aqua-stringhelpers)
 [![NuGet Version](https://img.shields.io/nuget/v/Aqua.StringHelpers.svg)](https://www.nuget.org/packages/Aqua.StringHelpers/)
 
 # About Aqua String Helpers:
