@@ -1,3 +1,5 @@
+[![NuGet Version](https://img.shields.io/nuget/v/Aqua.StringHelpers.svg)](https://www.nuget.org/packages/Aqua.StringHelpers/)
+
 # About Aqua String Helpers:
 
 Aqua String Helpers is an Open Source and Free Software package consists of a set of utilities that facilitate the job of the developer and save his time while dealing with a string. Every developer could be a beneficiary of this library; however, those who deal with database and integration applications are likely the most potential beneficiaries.
