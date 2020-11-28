@@ -127,10 +127,7 @@ namespace Aqua.StringHelpers.Tests
 
         [Theory]
         [MemberData(nameof(ToDistinctListOfWordsData))]
-        public void ToDistinctListOfWords_Valid(string input, List<string> expected)
-        {
-            Assert.Equal(expected, input.ToDistinctListOfWords());
-        }
+        public void ToDistinctListOfWords_Valid(string input, List<string> expected) => Assert.Equal(expected, input.ToDistinctListOfWords());
 
         public static IEnumerable<object[]> ToDistinctListOfWordsData =>
             new List<object[]>
