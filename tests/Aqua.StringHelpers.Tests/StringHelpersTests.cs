@@ -243,7 +243,6 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("\tlorem\nipsum.    dolor\n     ", 3)]
         public void GetTotalNumberOfWords_Valid(string input, int expected) => Assert.Equal(expected, input.GetTotalNumberOfWords());
 
-
         [Theory]
         [InlineData("", "")]
         [InlineData(" ", " ")]
@@ -251,9 +250,6 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("lorem ipsum. dolor lorem", "ipsum.")]
         [InlineData("\tlorem\nipsum    dolor\n     ", "lorem")]
         public void GetFirstLongestWord_Valid(string input, string expected) => Assert.Equal(expected, input.GetFirstLongestWord());
-
-
-
 
         [Theory]
         [InlineData("", 0)]
@@ -265,8 +261,6 @@ namespace Aqua.StringHelpers.Tests
         {
             Assert.Equal(expected, input.GetTotalNumberOfLines());
         }
-
-
 
         [Theory]
         [InlineData("", "")]
