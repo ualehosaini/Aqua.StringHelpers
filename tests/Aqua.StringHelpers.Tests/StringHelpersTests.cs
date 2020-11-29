@@ -250,10 +250,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem ipsum. dolor lorem", "ipsum.")]
         [InlineData("\tlorem\nipsum    dolor\n     ", "lorem")]
-        public void GetFirstLongestWord_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.GetFirstLongestWord());
-        }
+        public void GetFirstLongestWord_Valid(string input, string expected) => Assert.Equal(expected, input.GetFirstLongestWord());
 
 
 
