@@ -329,7 +329,6 @@ namespace Aqua.StringHelpers.Tests
             Assert.Equal(expected, input.HowManyOccurrences(c));
         }
 
-
         [Theory]
         [InlineData(null, "..", "..")]
         [InlineData("", "--", "--")]
@@ -419,7 +418,6 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("", "--", "--")]
         [InlineData("abcd", "..", "abcd..")]
         public void AddToEndIfMissed_Valid(string input, string value, string expected) => Assert.Equal(expected, input.AddToEndIfMissed(value));
-
 
         [Theory]
         [InlineData(null, null)]
