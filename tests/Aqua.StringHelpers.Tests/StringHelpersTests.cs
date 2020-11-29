@@ -433,13 +433,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("abcdefgh", 3, "abcde")]
         public void RemoveNumberOfCharsAtEnd_Valid(string input, int n, string expected) => Assert.Equal(expected, input.RemoveNumberOfCharsAtEnd(n));
 
-
-
         [Theory]
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("MTIzNDU=", "12345")]
         public void DecodeBase64_Valid(string input, string expected) => Assert.Equal(expected, input.DecodeBase64());
-
     }
 }
