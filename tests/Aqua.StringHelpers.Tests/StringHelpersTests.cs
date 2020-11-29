@@ -290,10 +290,7 @@ namespace Aqua.StringHelpers.Tests
 
         [Theory]
         [InlineData(null, "")]
-        public void IfNullReturnEmptyString_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.IfNullReturnEmptyString());
-        }
+        public void IfNullReturnEmptyString_Valid(string input, string expected) => Assert.Equal(expected, input.IfNullReturnEmptyString());
 
         [Theory]
         [InlineData("", "")]
