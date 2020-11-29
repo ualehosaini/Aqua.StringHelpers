@@ -179,7 +179,6 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 6, true, null)]
         [InlineData("", 6, true, "")]
         [InlineData("qwertyuiop[asdfghjkkll", 6, true, "qwerty...")]
-
         public void ToSummarisedText_Valid(string input, int length, bool dots, string expected) => Assert.Equal(expected, input.ToSummarisedText(length, dots));
 
         [Theory]
