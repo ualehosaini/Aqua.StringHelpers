@@ -160,10 +160,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem ipsum. dolor", "Lorem ipsum. Dolor.")]
         [InlineData("\tlorem\nipsum.    dolor\n     ", "Lorem ipsum. Dolor.")]
-        public void ToSentenceCase_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToSentenceCase('.'));
-        }
+        public void ToSentenceCase_Valid(string input, string expected) => Assert.Equal(expected, input.ToSentenceCase('.'));
 
         [Theory]
         [InlineData(null, null)]
