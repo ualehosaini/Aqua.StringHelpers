@@ -193,10 +193,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData(" ", " ")]
-        public void ToDoubleQuotedString_Valid(string input, string expected)
-        {
-            Assert.Equal(expected, input.ToDoubleQuotedString());
-        }
+        public void ToDoubleQuotedString_Valid(string input, string expected) => Assert.Equal(expected, input.ToDoubleQuotedString());
 
         [Theory]
         [MemberData(nameof(ToStringArrayFromDelimitedStringData))]
