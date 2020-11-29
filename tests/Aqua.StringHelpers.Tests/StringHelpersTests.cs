@@ -241,10 +241,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 0)]
         [InlineData("lorem ipsum. dolor", 3)]
         [InlineData("\tlorem\nipsum.    dolor\n     ", 3)]
-        public void GetTotalNumberOfWords_Valid(string input, int expected)
-        {
-            Assert.Equal(expected, input.GetTotalNumberOfWords());
-        }
+        public void GetTotalNumberOfWords_Valid(string input, int expected) => Assert.Equal(expected, input.GetTotalNumberOfWords());
 
 
         [Theory]
