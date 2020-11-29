@@ -230,10 +230,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 0)]
         [InlineData("lorem ipsum. dolor", 18)]
         [InlineData("\tlorem\nipsum.    dolor\n     ", 28)]
-        public void GetTotalNumberOfCharachters_Valid(string input, int expected)
-        {
-            Assert.Equal(expected, input.GetTotalNumberOfCharachters());
-        }
+        public void GetTotalNumberOfCharachters_Valid(string input, int expected) => Assert.Equal(expected, input.GetTotalNumberOfCharachters());
 
         [Theory]
         [InlineData("", 0)]
