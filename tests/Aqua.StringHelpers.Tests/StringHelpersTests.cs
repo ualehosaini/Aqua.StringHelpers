@@ -257,10 +257,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 0)]
         [InlineData("lorem ipsum. dolor", 1)]
         [InlineData("\tlorem\nipsum.    dolor\n     ", 3)]
-        public void GetTotalNumberOfLines_Valid(string input, int expected)
-        {
-            Assert.Equal(expected, input.GetTotalNumberOfLines());
-        }
+        public void GetTotalNumberOfLines_Valid(string input, int expected) => Assert.Equal(expected, input.GetTotalNumberOfLines());
 
         [Theory]
         [InlineData("", "")]
