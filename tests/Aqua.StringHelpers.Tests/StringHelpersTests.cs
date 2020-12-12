@@ -201,6 +201,9 @@ namespace Aqua.StringHelpers.Tests
         [MemberData(nameof(ToStringArrayFromDelimitedStringData))]
         public void ToStringArrayFromDelimitedString_Valid(string input, string[] expected) => Assert.Equal(expected, input.ToStringArrayFromDelimitedString(','));
 
+        /// <summary>
+        /// Data for ToStringArrayFromDelimitedString_Valid
+        /// </summary>
         public static IEnumerable<object[]> ToStringArrayFromDelimitedStringData =>
             new List<object[]>
                 {
