@@ -130,7 +130,7 @@ namespace Aqua.StringHelpers.Tests
         public void ToDistinctListOfWords_Valid(string input, List<string> expected) => Assert.Equal(expected, input.ToDistinctListOfWords());
 
         /// <summary>
-        /// Data
+        /// Data for ToNcharAbbreviation_Valid  
         /// </summary>
         public static IEnumerable<object[]> ToDistinctListOfWordsData =>
             new List<object[]>
