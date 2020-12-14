@@ -115,7 +115,9 @@ namespace Aqua.StringHelpers.Tests
 
         [Theory]
         [InlineData("lorem\nipsum dolor\n", "lorem\ripsum dolor\r")]
-        public void ReplaceNewLinesWithSpaces_InValid(string input, string expected) => Assert.NotEqual(expected, input.RemoveExtraSpaces());
+        public void ReplaceNewLinesWithSpaces_InValid(
+            string input,
+            string expected) => Assert.NotEqual(expected, input.RemoveExtraSpaces());
 
         [Theory]
         [InlineData("", "")]
