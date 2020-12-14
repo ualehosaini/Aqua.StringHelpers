@@ -179,7 +179,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem ipsum. dolor lorem", "LIDL")]
         [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
-        public void ToAbbreviation_Valid(string input, string expected) => Assert.Equal(expected, input.ToAbbreviation());
+        public void ToAbbreviation_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToAbbreviation());
 
         [Theory]
         [InlineData("", "")]
