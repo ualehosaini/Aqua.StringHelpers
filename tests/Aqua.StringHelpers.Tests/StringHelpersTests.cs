@@ -133,7 +133,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(" ", "")]
         [InlineData(null, null)]
         [InlineData("http://testte333333st.com", "httptestte333333stcom")]
-        public void ToAlphaNumericString_Valid(string input, string expected) => Assert.Equal(expected, input.ToAlphaNumericString());
+        public void ToAlphaNumericString_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToAlphaNumericString());
 
         [Theory]
         [InlineData("", "")]
