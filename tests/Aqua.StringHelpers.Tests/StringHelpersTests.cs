@@ -102,10 +102,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("   lorem      ipsum   dolor", "abcd lorem      ipsum   dolor")]
         public void ReplaceTabsWithSpaces_InValid(
             string input,
-            string expected)
-        {
-            Assert.NotEqual(expected, input.RemoveExtraSpaces());
-        }
+            string expected) => Assert.NotEqual(expected, input.RemoveExtraSpaces());
 
         [Theory]
         [InlineData("", "")]
