@@ -196,7 +196,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("12345", "MTIzNDU=")]
-        public void ToBase64_Valid(string input, string expected) => Assert.Equal(expected, input.ToBase64());
+        public void ToBase64_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToBase64());
 
         [Theory]
         [InlineData("07777777777", "07777 777777")]
