@@ -75,7 +75,8 @@ namespace Aqua.StringHelpers.Tests
         [Theory]
         [InlineData("ABC123", "ABC123")]
         [InlineData("12345+", "11+54321")]
-        public void Reverse_InValid(string input, string expected) => Assert.NotEqual(expected, input.Reverse());
+        public void Reverse_InValid(string input,
+                                    string expected) => Assert.NotEqual(expected, input.Reverse());
 
         [Theory]
         [InlineData("", "")]
