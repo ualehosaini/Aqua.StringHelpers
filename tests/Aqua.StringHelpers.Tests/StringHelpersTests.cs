@@ -26,7 +26,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("abcDEF1234", true)]
         [InlineData("jdshj+03-98>22", false)]
         [InlineData("43434bdcd333 ", false)]
-        public void IsAlphaNumeric_Valid(string input, bool expected) => Assert.Equal(expected, input.IsAlphaNumeric());
+        public void IsAlphaNumeric_Valid(string input,
+                                         bool expected) => Assert.Equal(expected, input.IsAlphaNumeric());
 
         [Theory]
         [InlineData("", false)]
