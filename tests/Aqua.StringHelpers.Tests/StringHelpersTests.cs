@@ -18,7 +18,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(" ", true)]
         [InlineData(null, true)]
         [InlineData("lorem ipsum dolor", false)]
-        public void InNullOrWhiteSpace_Valid(string input, bool expected) => Assert.Equal(expected, input.IsNullOrWhiteSpace());
+        public void InNullOrWhiteSpace_Valid(string input,
+                                             bool expected) => Assert.Equal(expected, input.IsNullOrWhiteSpace());
 
         [Theory]
         [InlineData("ABC123", true)]
