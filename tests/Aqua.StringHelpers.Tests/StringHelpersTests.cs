@@ -60,7 +60,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(' ', false)]
         [InlineData('5', true)]
         [InlineData('B', false)]
-        public void IsDigit_Valid(char input, bool expected) => Assert.Equal(expected, input.IsDigit());
+        public void IsDigit_Valid(char input,
+                                  bool expected) => Assert.Equal(expected, input.IsDigit());
 
         [Theory]
         [InlineData("", "")]
