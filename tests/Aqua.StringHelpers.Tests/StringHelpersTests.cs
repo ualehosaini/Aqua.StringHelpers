@@ -35,7 +35,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, false)]
         [InlineData("http://testtest.com", true)]
         [InlineData("https://testtest.com/test", true)]
-        public void IsValidURL_Valid(string input, bool expected) => Assert.Equal(expected, input.IsValidURL());
+        public void IsValidURL_Valid(
+            string input,
+            bool expected) => Assert.Equal(expected, input.IsValidURL());
 
         [Theory]
         [InlineData("1.5", true)]
