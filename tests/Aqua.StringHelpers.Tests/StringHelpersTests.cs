@@ -84,7 +84,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem     ipsum dolor    ", "lorem ipsum dolor")]
         [InlineData("  lorem     ipsum   dolor", "lorem ipsum dolor")]
-        public void RemoveExtraSpaces_Valid(string input, string expected) => Assert.Equal(expected, input.RemoveExtraSpaces());
+        public void RemoveExtraSpaces_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.RemoveExtraSpaces());
 
         [Theory]
         [InlineData("", "")]
