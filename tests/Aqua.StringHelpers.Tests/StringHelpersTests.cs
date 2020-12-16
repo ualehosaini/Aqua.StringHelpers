@@ -343,7 +343,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("abcd\nefgh\n", "abcdefgh")]
-        public void RemoveAllLineBreaks_Valid(string input, string expected) => Assert.Equal(expected, input.RemoveAllLineBreaks());
+        public void RemoveAllLineBreaks_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.RemoveAllLineBreaks());
 
         [Theory]
         [InlineData(null, "")]
