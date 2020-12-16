@@ -266,7 +266,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem ipsum dolor", "Lorem Ipsum Dolor")]
         [InlineData("\tlorem\nipsum    dolor\n     ", "\tLorem\nIpsum    Dolor\n     ")]
-        public void CapitaliseEachWord_Valid(string input, string expected) => Assert.Equal(expected, input.CapitaliseEachWord());
+        public void CapitaliseEachWord_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.CapitaliseEachWord());
 
         [Theory]
         [InlineData("", 0)]
