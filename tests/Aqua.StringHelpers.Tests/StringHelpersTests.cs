@@ -315,7 +315,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lor ipsum. dol lorem", "lor")]
         [InlineData("\tlorem\nipsum    dol\n     ", "dol")]
-        public void GetFirstShortestWord_Valid(string input, string expected) => Assert.Equal(expected, input.GetFirstShortestWord());
+        public void GetFirstShortestWord_Valid(string input,
+            string expected) => Assert.Equal(expected, input.GetFirstShortestWord());
 
         [Theory]
         [InlineData("", "lorem", true, 0)]
