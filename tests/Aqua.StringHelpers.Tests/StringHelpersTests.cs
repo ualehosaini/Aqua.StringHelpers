@@ -484,7 +484,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null, null)]
         [InlineData("", "", null)]
         [InlineData("abcd", "abcd", null)]
-        public void NullIfEqualTo_Valid(string input, string search, string expected) => Assert.Equal(expected, input.NullIfEqualTo(search));
+        public void NullIfEqualTo_Valid(
+            string input,
+            string search,
+            string expected) => Assert.Equal(expected, input.NullIfEqualTo(search));
 
         [Theory]
         [InlineData(null, "..", "..")]
