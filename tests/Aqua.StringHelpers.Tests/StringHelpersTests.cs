@@ -509,7 +509,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 3, null)]
         [InlineData("", 3, "")]
         [InlineData("abcdefgh", 3, "abcde")]
-        public void RemoveNumberOfCharsAtEnd_Valid(string input, int n, string expected) => Assert.Equal(expected, input.RemoveNumberOfCharsAtEnd(n));
+        public void RemoveNumberOfCharsAtEnd_Valid(string input,
+            int n,
+            string expected) => Assert.Equal(expected, input.RemoveNumberOfCharsAtEnd(n));
 
         [Theory]
         [InlineData(null, null)]
