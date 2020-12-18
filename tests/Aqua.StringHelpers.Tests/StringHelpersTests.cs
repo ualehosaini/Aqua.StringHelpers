@@ -469,7 +469,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("abcdभारतxyz", "abcdxyz")]
         [InlineData(null, null)]
         [InlineData("", "")]
-        public void RemoveNonASCIIChars_Valid(string input, string expected) => Assert.Equal(expected, input.RemoveNonASCIIChars());
+        public void RemoveNonASCIIChars_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.RemoveNonASCIIChars());
 
         [Theory]
         [InlineData(null, null)]
