@@ -398,7 +398,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, "..", "..")]
         [InlineData("", "--", "--")]
         [InlineData("abcd", "..", "..abcd")]
-        public void AddToBeginingIfMissed_Valid(string input, string value, string expected) => Assert.Equal(expected, input.AddToBeginingIfMissed(value));
+        public void AddToBeginingIfMissed_Valid(
+            string input,
+            string value,
+            string expected) => Assert.Equal(expected, input.AddToBeginingIfMissed(value));
 
         [Theory]
         [InlineData("1.5", "15")]
