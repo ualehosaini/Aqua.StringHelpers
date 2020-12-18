@@ -451,7 +451,11 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("abcdeefghijklmnopq", "ghijk", "AAAA", "abcdeefAAAAlmnopq")]
         [InlineData(null, "dd", "cc", null)]
         [InlineData("", "aa", "dd", "")]
-        public void ReplaceFirstOccurrence_Valid(string input, string search, string replace, string expected) => Assert.Equal(expected, input.ReplaceFirstOccurrence(search, replace));
+        public void ReplaceFirstOccurrence_Valid(
+            string input,
+            string search,
+            string replace,
+            string expected) => Assert.Equal(expected, input.ReplaceFirstOccurrence(search, replace));
 
         [Theory]
         [InlineData("abcd", 20, "                abcd")]
