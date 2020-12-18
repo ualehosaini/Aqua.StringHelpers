@@ -416,7 +416,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("rr222", "222")]
         [InlineData(null, null)]
         [InlineData("22se2", "222")]
-        public void CleanNonNumericChars_Valid(string input, string expected) => Assert.Equal(expected, input.CleanNonNumericChars());
+        public void CleanNonNumericChars_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.CleanNonNumericChars());
 
         [Theory]
         [InlineData("1.5", 2)]
