@@ -434,7 +434,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(" ", 1, " ")]
         [InlineData("abcd", 20, "        abcd        ")]
         [InlineData("abcd", 3, "abcd")]
-        public void CenterAligned_Valid(string input, int length, string expected) => Assert.Equal(expected, input.CenterAligned(length));
+        public void CenterAligned_Valid(
+            string input,
+            int length,
+            string expected) => Assert.Equal(expected, input.CenterAligned(length));
 
         [Theory]
         [InlineData("abcdभारतxyz", 'G', "abcdGGGGxyz")]
