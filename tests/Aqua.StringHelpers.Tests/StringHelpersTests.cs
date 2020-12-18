@@ -461,7 +461,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("abcd", 20, "                abcd")]
         [InlineData("abcd", 19, "               abcd")]
         [InlineData("abcd", 3, "abcd")]
-        public void RightAligned_Valid(string input, int length, string expected) => Assert.Equal(expected, input.RightAligned(length));
+        public void RightAligned_Valid(string input,
+            int length,
+            string expected) => Assert.Equal(expected, input.RightAligned(length));
 
         [Theory]
         [InlineData("abcdभारतxyz", "abcdxyz")]
