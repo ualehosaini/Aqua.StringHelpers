@@ -378,7 +378,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("1.5", '.', 1)]
         [InlineData("rr", 'r', 2)]
         [InlineData("22se2", '2', 3)]
-        public void HowManyOccurrences_Char_Valid(string input, char c, int expected) => Assert.Equal(expected, input.HowManyOccurrences(c));
+        public void HowManyOccurrences_Char_Valid(
+            string input,
+            char c,
+            int expected) => Assert.Equal(expected, input.HowManyOccurrences(c));
 
         [Theory]
         [InlineData(null, ".", 0)]
