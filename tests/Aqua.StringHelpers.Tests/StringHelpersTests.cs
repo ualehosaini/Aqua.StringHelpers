@@ -271,8 +271,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("c:\\abcq\\abcd.txt", "cabcqabcdtxt")]
         [InlineData("http://testte333333st.com/test.pdf", "httptestte333333stcomtestpdf")]
-        public void ToUrlFriendly_Valid(string input,
-                                        string expected) => Assert.Equal(expected, input.ToUrlFriendly());
+        public void ToUrlFriendly_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToUrlFriendly());
 
         [Theory]
         [InlineData("", "")]
