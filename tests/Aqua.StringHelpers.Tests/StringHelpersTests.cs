@@ -352,7 +352,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 3, null)]
         [InlineData("", 3, "")]
         [InlineData("abcdefgh", 3, "defgh")]
-        public void RemoveNumberOfCharsAtBegining_Valid(string input,
+        public void RemoveNumberOfCharsAtBegining_Valid(
+            string input,
             int n,
             string expected) => Assert.Equal(expected, input.RemoveNumberOfCharsAtBegining(n));
 
