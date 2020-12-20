@@ -20,7 +20,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, true)]
         [InlineData("lorem ipsum dolor", false)]
         public void InNullOrWhiteSpace_Valid(string input,
-                                             bool expected) => Assert.Equal(expected, input.IsNullOrWhiteSpace());
+            bool expected) => Assert.Equal(expected, input.IsNullOrWhiteSpace());
 
         [Theory]
         [InlineData("ABC123", true)]
