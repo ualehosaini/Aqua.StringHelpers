@@ -502,7 +502,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("qwertyuiop\"\"[asdfghjkkll", "qwertyuiop''[asdfghjkkll")]
-        public void ReplaceDoubleQuotesWithSingle_Valid(string input,
+        public void ReplaceDoubleQuotesWithSingle_Valid(
+            string input,
             string expected) => Assert.Equal(expected, input.ReplaceDoubleQuotesWithSingle());
 
         [Theory]
