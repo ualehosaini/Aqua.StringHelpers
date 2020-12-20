@@ -150,8 +150,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("lorem ipsum. dolor lorem", "LID")]
         [InlineData("\tlorem\nipsum.    dolor\n     ", "LID")]
-        public void ToNcharAbbreviation_Valid(string input,
-                                              string expected) => Assert.Equal(expected, input.ToNcharAbbreviation(3));
+        public void ToNcharAbbreviation_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToNcharAbbreviation(3));
 
         [Theory]
         [MemberData(nameof(ToDistinctListOfWordsData))]
