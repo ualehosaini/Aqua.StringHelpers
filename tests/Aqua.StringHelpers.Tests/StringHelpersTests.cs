@@ -447,7 +447,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData("rr", 0)]
         [InlineData(null, 0)]
         [InlineData("22se2", 3)]
-        public void FindNumberOfDigits_Valid(string input,
+        public void FindNumberOfDigits_Valid(
+            string input,
             int expected) => Assert.Equal(expected, input.FindNumberOfDigits());
 
         [Theory]
