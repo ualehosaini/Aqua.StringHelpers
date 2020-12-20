@@ -178,8 +178,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("https://testest.com", "<a href=\"https://testest.com\" target=\"_blank\">https://testest.com</a>")]
         [InlineData("http://testest.com/test/test", "<a href=\"http://testest.com/test/test\" target=\"_blank\">http://testest.com/test/test</a>")]
-        public void ToHyperlink_Valid(string input,
-                                      string expected) => Assert.Equal(expected, input.ToHyperlink());
+        public void ToHyperlink_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToHyperlink());
 
         [Theory]
         [InlineData("", "")]
