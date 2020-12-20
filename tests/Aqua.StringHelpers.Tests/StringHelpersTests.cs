@@ -215,8 +215,9 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData(" ", " ")]
-        public void ToUkTelephoneFormat_Valid(string input,
-                                              string expected) => Assert.Equal(expected, input.ToUkTelephoneFormat());
+        public void ToUkTelephoneFormat_Valid(
+            string input,
+            string expected) => Assert.Equal(expected, input.ToUkTelephoneFormat());
 
         [Theory]
         [InlineData(null, 6, true, null)]
