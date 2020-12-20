@@ -233,9 +233,10 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, 6, null)]
         [InlineData("", 6, "")]
         [InlineData("qwertyuiop[asdfghjkkll", 6, "hjkkll")]
-        public void ToSummarisedTextRight_Valid(string input,
-                                                int length,
-                                                string expected) => Assert.Equal(expected, input.ToSummarisedTextRight(length));
+        public void ToSummarisedTextRight_Valid(
+            string input,
+            int length,
+            string expected) => Assert.Equal(expected, input.ToSummarisedTextRight(length));
 
         [Theory]
         [InlineData("1dfdfdfd^^^$$f5", "\"1dfdfdfd^^^$$f5\"")]
