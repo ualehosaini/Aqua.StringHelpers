@@ -519,7 +519,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, "..", "..")]
         [InlineData("", "--", "--")]
         [InlineData("abcd", "..", "abcd..")]
-        public void AddToEndIfMissed_Valid(string input,
+        public void AddToEndIfMissed_Valid(
+            string input,
             string value,
             string expected) => Assert.Equal(expected, input.AddToEndIfMissed(value));
 
