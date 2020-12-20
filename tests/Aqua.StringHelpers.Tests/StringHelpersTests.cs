@@ -47,7 +47,7 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, false)]
         [InlineData("22se2", false)]
         public void InNumber_Valid(string input,
-                                   bool expected) => Assert.Equal(expected, input.IsNumber());
+            bool expected) => Assert.Equal(expected, input.IsNumber());
 
         [Theory]
         [InlineData("1", true)]
