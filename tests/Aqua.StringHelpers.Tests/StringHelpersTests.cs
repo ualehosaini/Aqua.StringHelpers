@@ -387,7 +387,8 @@ namespace Aqua.StringHelpers.Tests
         [InlineData(null, null)]
         [InlineData("c:\\abcq\\abcd.txt", "txt")]
         [InlineData("http://testte333333st.com/test.pdf", "pdf")]
-        public void GetFileExtension_Valid(string input,
+        public void GetFileExtension_Valid(
+            string input,
             string expected) => Assert.Equal(expected, input.GetFileExtension());
 
         [Theory]
