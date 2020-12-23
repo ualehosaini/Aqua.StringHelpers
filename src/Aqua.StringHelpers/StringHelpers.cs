@@ -89,10 +89,7 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static string IfNullReturnEmptyString(this string s)
-        {
-            return s ?? string.Empty;
-        }
+        public static string IfNullReturnEmptyString(this string s) => s ?? string.Empty;
 
 
         /// <summary>
