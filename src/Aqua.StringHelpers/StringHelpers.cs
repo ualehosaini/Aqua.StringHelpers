@@ -31,10 +31,7 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool IsDigit(this char c)
-        {
-            return c >= '0' && c <= '9';
-        }
+        public static bool IsDigit(this char c) => c >= '0' && c <= '9';
 
         /// <summary>
         /// Examines the String if it is Integer
