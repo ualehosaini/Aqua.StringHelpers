@@ -54,7 +54,8 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static bool IsNumber(this string s) => double.TryParse(s, out _);
+        public static bool IsNumber(this string s) 
+            => double.TryParse(s, out _);
 
         /// <summary>
         /// Is the string alphanumeric?
