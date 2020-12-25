@@ -740,7 +740,10 @@ namespace Aqua.StringHelpers
         /// <param name="pattern"></param>
         /// <param name="isCaseSensitive"></param>
         /// <returns></returns>
-        public static int CountStringOccurrences(this string s, string pattern, bool isCaseSensitive = true)
+        public static int CountStringOccurrences(
+            this string s,
+            string pattern,
+            bool isCaseSensitive = true)
         {
             if (s.IsNullOrEmpty())
                 return 0;
