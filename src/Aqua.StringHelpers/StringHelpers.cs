@@ -631,7 +631,8 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
-        /// Finds the number of charachters in a string - include/exclude extra spaces, tabs and new line characters
+        /// Finds the number of charachters in a string 
+        /// - include/exclude extra spaces, tabs and new line characters
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
