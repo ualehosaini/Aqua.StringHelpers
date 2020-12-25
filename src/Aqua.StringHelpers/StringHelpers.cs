@@ -1208,7 +1208,6 @@ namespace Aqua.StringHelpers
             return result.ToString();
         }
 
-
         /// <summary>
         /// Return the first possible not null value of a string array
         /// </summary>
@@ -1263,7 +1262,6 @@ namespace Aqua.StringHelpers
             return s.Length < n ? string.Empty : s.Remove(s.Length - n);
         }
 
-
         /// <summary>
         /// Generate Lorem Ipsum text
         /// </summary>
@@ -1305,7 +1303,6 @@ namespace Aqua.StringHelpers
             return result.ToString();
         }
 
-
         /// <summary>
         /// Decode a Base64 data into plain string
         /// </summary>
@@ -1320,7 +1317,5 @@ namespace Aqua.StringHelpers
 
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
-
-
     }
 }
