@@ -1020,7 +1020,9 @@ namespace Aqua.StringHelpers
             int sideSpace = reminderBlockSpace / 2;
             bool sideSpaceIsEven = reminderBlockSpace % 2 == 0;
 
-            return new string(' ', sideSpace) + result + new string(' ', sideSpaceIsEven || sideSpace == 0 ? sideSpace : sideSpace - 1);
+            return new string(' ', sideSpace) 
+                + result 
+                + new string(' ', sideSpaceIsEven || sideSpace == 0 ? sideSpace : sideSpace - 1);
         }
 
         /// <summary>
