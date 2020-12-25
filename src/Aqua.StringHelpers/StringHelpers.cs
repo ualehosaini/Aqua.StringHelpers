@@ -736,7 +736,8 @@ namespace Aqua.StringHelpers
 
 
         /// <summary>
-        /// Counts the Occurrences of a pattern in a text, The default is Case Sensitive search
+        /// Counts the Occurrences of a pattern in a text, 
+        /// The default is Case Sensitive search
         /// </summary>
         /// <param name="s"></param>
         /// <param name="pattern"></param>
