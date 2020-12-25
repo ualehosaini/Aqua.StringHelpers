@@ -1144,7 +1144,8 @@ namespace Aqua.StringHelpers
             if (value.IsNullOrEmpty())
                 throw new ArgumentException("the missed text cannot be empty!");
 
-            if (!s.IfNullReturnEmptyString().EndsWith(value, StringComparison.CurrentCulture))
+            if (!s.IfNullReturnEmptyString()
+                .EndsWith(value, StringComparison.CurrentCulture))
                 s = s + value;
 
             return s;
