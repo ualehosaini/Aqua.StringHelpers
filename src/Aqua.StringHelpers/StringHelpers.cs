@@ -345,7 +345,7 @@ namespace Aqua.StringHelpers
                 string currentSentence = sentence.ToLower().Trim();
                 if (!string.IsNullOrWhiteSpace(currentSentence))
                 {
-                    currentSentence = currentSentence[0].ToString().ToUpper() + currentSentence.Substring(1);
+                    currentSentence = $"{currentSentence[0].ToString().ToUpper()}{currentSentence.Substring(1)}";
                     buffer.Append(currentSentence + seperator + ' ');
                 }
             }
