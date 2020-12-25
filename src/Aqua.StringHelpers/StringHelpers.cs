@@ -17,7 +17,8 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="s">string</param>
         /// <returns>true/false</returns>
-        public static bool IsNullOrEmpty(this string s) => string.IsNullOrEmpty(s);
+        public static bool IsNullOrEmpty(this string s) 
+            => string.IsNullOrEmpty(s);
 
         /// <summary>
         /// Is Null Or White Space String?
