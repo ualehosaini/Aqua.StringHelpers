@@ -212,7 +212,8 @@ namespace Aqua.StringHelpers
         /// <param name="s"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static string ToNcharAbbreviation(this string s, int n)
+        public static string ToNcharAbbreviation(this string s,
+            int n)
         {
             if (s.IsNullOrWhiteSpace())
             {
