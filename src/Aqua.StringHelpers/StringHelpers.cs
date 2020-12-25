@@ -976,7 +976,8 @@ namespace Aqua.StringHelpers
 
 
         /// <summary>
-        /// Convert the slashes in a path with the right format depending on RuntimePlatform (Windows or else)
+        /// Convert the slashes in a path with the right 
+        /// format depending on RuntimePlatform (Windows or else)
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
