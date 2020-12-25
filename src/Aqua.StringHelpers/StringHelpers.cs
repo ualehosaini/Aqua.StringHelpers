@@ -851,8 +851,6 @@ namespace Aqua.StringHelpers
             return uri.ToString().GetUrlDomain();
         }
 
-
-
         /// <summary>
         /// Return the number of Occurrences of a Char in a string
         /// </summary>
@@ -869,7 +867,6 @@ namespace Aqua.StringHelpers
 
             return s.Count(f => f == targeted);
         }
-
 
         /// <summary>
         /// Return the number of Occurrences of a string in a text
@@ -974,7 +971,6 @@ namespace Aqua.StringHelpers
             return digits;
         }
 
-
         /// <summary>
         /// Convert the slashes in a path with the right 
         /// format depending on RuntimePlatform (Windows or else)
@@ -1038,7 +1034,6 @@ namespace Aqua.StringHelpers
 
             return Regex.Replace(s, @"[^\u0000-\u007F]", r.ToString());
         }
-
 
         /// <summary>
         /// Replace first occurrence of a string in a text 
@@ -1107,8 +1102,6 @@ namespace Aqua.StringHelpers
             return Regex.Replace(s, @"[^\u0000-\u007F]", string.Empty);
         }
 
-
-
         /// <summary>
         /// Replace all Double Quotes in a string with Single
         /// </summary>
@@ -1150,7 +1143,6 @@ namespace Aqua.StringHelpers
 
             return s;
         }
-
 
         /// <summary>
         /// Replace all Single Quotes in a string with Double
