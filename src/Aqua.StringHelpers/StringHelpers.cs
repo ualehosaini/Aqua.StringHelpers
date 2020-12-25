@@ -236,7 +236,6 @@ namespace Aqua.StringHelpers
             return result;
         }
 
-
         /// <summary>
         /// Return List of distinct words of a string
         /// </summary>
@@ -430,7 +429,6 @@ namespace Aqua.StringHelpers
                                 : s;
         }
 
-
         /// <summary>
         /// Eliminate accent from a string
         /// </summary>
@@ -543,7 +541,6 @@ namespace Aqua.StringHelpers
             return number;
         }
 
-
         /// <summary>
         /// Convert the traditional Guid to UpperCase Canonical Guid (without hyphen)
         /// </summary>
@@ -569,7 +566,6 @@ namespace Aqua.StringHelpers
 
             return $"\"{s}\"";
         }
-
 
         /// <summary>
         /// Extract String Array from Delimited String
@@ -644,7 +640,6 @@ namespace Aqua.StringHelpers
             return clean != true ? s.Length : s.ToCleanString().Length;
         }
 
-
         /// <summary>
         /// Finds the number of words in a string
         /// </summary>
@@ -670,8 +665,6 @@ namespace Aqua.StringHelpers
             return result;
         }
 
-
-
         /// <summary>
         /// Get The Longest Word in a string
         /// </summary>
@@ -687,9 +680,6 @@ namespace Aqua.StringHelpers
                     .OrderByDescending(word => word.Length)
                     .First();
         }
-
-
-
 
         /// <summary>
         /// Finds the number of lines in a string
@@ -713,8 +703,6 @@ namespace Aqua.StringHelpers
 
             return result;
         }
-
-
 
         /// <summary>
         /// Get The Shortest Word in a string
@@ -799,8 +787,6 @@ namespace Aqua.StringHelpers
 
             return s.Replace("\n", string.Empty).Replace("\r", string.Empty);
         }
-
-
 
         /// <summary>
         /// Get Domain Part of a valid URL string
