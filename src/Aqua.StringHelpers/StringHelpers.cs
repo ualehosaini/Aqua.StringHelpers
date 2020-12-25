@@ -25,7 +25,8 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="s">string</param>
         /// <returns>true/false</returns>
-        public static bool IsNullOrWhiteSpace(this string s) => string.IsNullOrWhiteSpace(s);
+        public static bool IsNullOrWhiteSpace(this string s) 
+            => string.IsNullOrWhiteSpace(s);
 
         /// <summary>
         /// Examines the Char if it is digit (0-9)
