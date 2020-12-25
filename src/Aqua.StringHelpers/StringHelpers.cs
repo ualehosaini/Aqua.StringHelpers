@@ -1128,7 +1128,9 @@ namespace Aqua.StringHelpers
         /// <param name="s"></param>
         /// <param name="checkValue"></param>
         /// <returns></returns>
-        public static string NullIfEqualTo(this string s, string checkValue) => s == checkValue ? null : s;
+        public static string NullIfEqualTo(
+            this string s,
+            string checkValue) => s == checkValue ? null : s;
 
         /// <summary>
         /// Add a specific text to the end if missed
