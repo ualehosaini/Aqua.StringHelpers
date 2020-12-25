@@ -732,9 +732,6 @@ namespace Aqua.StringHelpers
                     .First();
         }
 
-
-
-
         /// <summary>
         /// Counts the Occurrences of a pattern in a text, 
         /// The default is Case Sensitive search
