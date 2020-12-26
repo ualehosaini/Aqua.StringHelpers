@@ -1173,8 +1173,11 @@ namespace Aqua.StringHelpers
         /// <param name="maxSentences"></param>
         /// <param name="numParagraphs"></param>
         /// <returns></returns>
-        public static string GenerateLoremIpsumHtmlSafe(int minWords, int maxWords,
-            int minSentences, int maxSentences,
+        public static string GenerateLoremIpsumHtmlSafe(
+            int minWords,
+            int maxWords,
+            int minSentences,
+            int maxSentences,
             int numParagraphs)
         {
 
