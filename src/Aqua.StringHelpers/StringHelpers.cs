@@ -880,7 +880,9 @@ namespace Aqua.StringHelpers
         /// <param name="s"></param>
         /// <param name="targeted"></param>
         /// <returns></returns>
-        public static int HowManyOccurrences(this string s, string targeted)
+        public static int HowManyOccurrences(
+            this string s,
+            string targeted)
         {
             if (s.IsNullOrEmpty())
                 return 0;
