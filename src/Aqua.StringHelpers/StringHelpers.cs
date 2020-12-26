@@ -425,7 +425,10 @@ namespace Aqua.StringHelpers
         /// <param name="length"></param>
         /// <param name="dotsToBeUsed"></param>
         /// <returns></returns>
-        public static string ToSummarisedTextRight(this string s, int length, bool dotsToBeUsed = false)
+        public static string ToSummarisedTextRight(
+            this string s,
+            int length,
+            bool dotsToBeUsed = false)
         {
             if (s.IsNullOrEmpty())
                 return s;
