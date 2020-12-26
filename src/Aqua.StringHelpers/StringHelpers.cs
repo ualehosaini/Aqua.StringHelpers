@@ -1046,7 +1046,10 @@ namespace Aqua.StringHelpers
         /// <param name="search"></param>
         /// <param name="replace"></param>
         /// <returns></returns>
-        public static string ReplaceFirstOccurrence(this string s, string search, string replace)
+        public static string ReplaceFirstOccurrence(
+            this string s,
+            string search,
+            string replace)
         {
             if (s.IsNullOrEmpty())
                 return s;
