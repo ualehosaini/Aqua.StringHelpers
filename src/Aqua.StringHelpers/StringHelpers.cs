@@ -634,7 +634,9 @@ namespace Aqua.StringHelpers
                 return s;
             }
 
-            var x = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
+            var x = Thread.CurrentThread.CurrentCulture
+                .TextInfo
+                .ToTitleCase(s.ToLower());
 
             return x;
         }
