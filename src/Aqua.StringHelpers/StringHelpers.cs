@@ -176,7 +176,9 @@ namespace Aqua.StringHelpers
                 return s;
             }
 
-            return s.Replace("\n", " ").Replace("\t", " ").RemoveExtraSpaces();
+            return s.Replace("\n", " ")
+                .Replace("\t", " ")
+                .RemoveExtraSpaces();
         }
 
         /// <summary>
