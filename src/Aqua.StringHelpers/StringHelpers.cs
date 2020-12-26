@@ -586,7 +586,9 @@ namespace Aqua.StringHelpers
         /// <param name="s"></param>
         /// <param name="delimiter"></param>
         /// <returns></returns>
-        public static string[] ToStringArrayFromDelimitedString(this string s, char delimiter)
+        public static string[] ToStringArrayFromDelimitedString(
+            this string s,
+            char delimiter)
         {
             if (s.IsNullOrEmpty())
                 return new string[0];
