@@ -824,7 +824,8 @@ namespace Aqua.StringHelpers
         }
 
         /// <summary>
-        /// Extract the file extension from a valid path string or returns empty string
+        /// Extract the file extension from a valid 
+        /// path string or returns empty string
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
