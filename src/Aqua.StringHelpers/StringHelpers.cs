@@ -647,7 +647,9 @@ namespace Aqua.StringHelpers
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static int GetTotalNumberOfCharachters(this string s, bool clean = false)
+        public static int GetTotalNumberOfCharachters(
+            this string s,
+            bool clean = false)
         {
             if (s.IsNullOrEmpty())
                 return 0;
