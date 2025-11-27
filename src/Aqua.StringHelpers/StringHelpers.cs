@@ -12,6 +12,14 @@ namespace Aqua.StringHelpers
 {
     public static class StringHelpers
     {
+        private static readonly Regex AlphaNumericRegex = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
+        private static readonly Regex RemoveExtraSpacesRegex = new Regex("\\s+", RegexOptions.Compiled);
+        private static readonly Regex NonAlphaNumericRegex = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
+        private static readonly Regex NonNumericRegex = new Regex("[^0123456789.]", RegexOptions.Compiled);
+        private static readonly Regex NonAsciiRegex = new Regex(@"[^\u0000-\u007F]", RegexOptions.Compiled);
+        private static readonly Regex DoubleQuoteRegex = new Regex("\"", RegexOptions.Compiled);
+        private static readonly Regex SingleQuoteRegex = new Regex("'", RegexOptions.Compiled);
+        private static readonly Random SharedRandom = new Random();
         /// <summary>
         /// Is Null Or Empty String?
         /// </summary>
@@ -66,10 +74,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return false;
-
-            Regex reg_exp = new Regex("[^a-zA-Z0-9]", RegexOptions.Compiled);
-
-            return !reg_exp.IsMatch(s); ;
+            return !AlphaNumericRegex.IsMatch(s);
         }
 
         /// <summary>
@@ -125,13 +130,7 @@ namespace Aqua.StringHelpers
             {
                 return s;
             }
-
-            string pattern = "\\s+";
-            string replacement = " ";
-
-            Regex rx = new Regex(pattern);
-
-            return rx.Replace(s, replacement).Trim();
+            return RemoveExtraSpacesRegex.Replace(s, " ").Trim();
         }
 
         /// <summary>
@@ -190,11 +189,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            // Use regular expressions to replace characters
-            // that are not letters or numbers with spaces.
-            Regex reg_exp = new Regex("[^a-zA-Z0-9]");
-            return reg_exp.Replace(s, string.Empty).ToCleanString();
+            return NonAlphaNumericRegex.Replace(s, string.Empty).ToCleanString();
 
         }
 
@@ -226,21 +221,15 @@ namespace Aqua.StringHelpers
             {
                 return s;
             }
-
             int numberOfWords = s.GetTotalNumberOfWords();
-
             int abbreviationLength = numberOfWords >= n ? n : numberOfWords;
-
-            string result = string.Empty;
-
+            var sb = new StringBuilder();
             string[] words = s.ToCleanString().Split(' ');
-
             for (int i = 0; i < abbreviationLength; i++)
             {
-                result += char.ToUpper(words[i][0]);
+                sb.Append(char.ToUpper(words[i][0]));
             }
-
-            return result;
+            return sb.ToString();
         }
 
         /// <summary>
@@ -301,17 +290,13 @@ namespace Aqua.StringHelpers
             {
                 return s;
             }
-
-            string result = string.Empty;
-
+            var sb = new StringBuilder();
             string[] words = s.ToCleanString().Split(' ');
-
             foreach (string word in words)
             {
-                result += char.ToUpper(word[0]);
+                sb.Append(char.ToUpper(word[0]));
             }
-
-            return result;
+            return sb.ToString();
         }
 
         /// <summary>
@@ -668,20 +653,10 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrWhiteSpace())
                 return 0;
-
-            int result = 1;
-
             s = s.ToCleanString();
-
-            for (int i = 0; i <= s.Length - 1; i++)
-            {
-                if (s[i] == ' ')
-                {
-                    result++;
-                }
-            }
-
-            return result;
+            if (s.Length == 0)
+                return 0;
+            return s.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
         }
 
         /// <summary>
@@ -918,23 +893,17 @@ namespace Aqua.StringHelpers
         /// <returns></returns>
         public static string FindAllDigits(this string s)
         {
-
             if (s.IsNullOrEmpty())
                 return s;
-
-            char[] chars = s.ToCharArray();
-
-            string digits = "";
-
-            for (int i = 0; i < chars.Length; i++)
+            var sb = new StringBuilder();
+            foreach (var c in s)
             {
-                if (chars[i].IsDigit())
+                if (c.IsDigit())
                 {
-                    digits += chars[i];
+                    sb.Append(c);
                 }
             }
-
-            return digits;
+            return sb.ToString();
         }
 
         /// <summary>
@@ -946,9 +915,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            var reg_exp = new Regex("[^0123456789.]");
-            return reg_exp.Replace(s, "");
+            return NonNumericRegex.Replace(s, "");
         }
 
         /// <summary>
@@ -960,22 +927,16 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return 0;
-
             if (s.IsNullOrWhiteSpace())
                 return 0;
-
-            char[] chars = s.ToCharArray();
-
             int digits = 0;
-
-            for (int i = 0; i < chars.Length; i++)
+            foreach (var c in s)
             {
-                if (chars[i].IsDigit())
+                if (c.IsDigit())
                 {
                     digits++;
                 }
             }
-
             return digits;
         }
 
@@ -1039,8 +1000,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            return Regex.Replace(s, @"[^\u0000-\u007F]", r.ToString());
+            return NonAsciiRegex.Replace(s, r.ToString());
         }
 
         /// <summary>
@@ -1109,8 +1069,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            return Regex.Replace(s, @"[^\u0000-\u007F]", string.Empty);
+            return NonAsciiRegex.Replace(s, string.Empty);
         }
 
         /// <summary>
@@ -1122,8 +1081,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            return s.Replace("\"", "'");
+            return DoubleQuoteRegex.Replace(s, "'");
         }
 
         /// <summary>
@@ -1164,8 +1122,7 @@ namespace Aqua.StringHelpers
         {
             if (s.IsNullOrEmpty())
                 return s;
-
-            return s.Replace("'", "\"");
+            return SingleQuoteRegex.Replace(s, "\"");
         }
 
         /// <summary>
@@ -1189,13 +1146,9 @@ namespace Aqua.StringHelpers
                                 "adipiscing", "elit", "sed", "diam", "nonummy", "nibh", "euismod",
                                 "tincidunt", "ut", "laoreet", "dolore", "magna", "aliquam", "erat"};
 
-            Random rand = new Random();
-            int numSentences = rand.Next(maxSentences - minSentences) + minSentences + 1;
-
-            int numWords = rand.Next(maxWords - minWords) + minWords + 1;
-
+            int numSentences = SharedRandom.Next(maxSentences - minSentences) + minSentences + 1;
+            int numWords = SharedRandom.Next(maxWords - minWords) + minWords + 1;
             StringBuilder result = new StringBuilder();
-
             for (int p = 0; p < numParagraphs; p++)
             {
                 result.Append("<p>");
@@ -1204,13 +1157,12 @@ namespace Aqua.StringHelpers
                     for (int w = 0; w < numWords; w++)
                     {
                         if (w > 0) { result.Append(" "); }
-                        result.Append(words[rand.Next(words.Length)]);
+                        result.Append(words[SharedRandom.Next(words.Length)]);
                     }
                     result.Append(". ");
                 }
                 result.Append("</p>");
             }
-
             return result.ToString();
         }
 
@@ -1289,13 +1241,9 @@ namespace Aqua.StringHelpers
                                 "adipiscing", "elit", "sed", "diam", "nonummy", "nibh", "euismod",
                                 "tincidunt", "ut", "laoreet", "dolore", "magna", "aliquam", "erat"};
 
-            Random rand = new Random();
-            int numSentences = rand.Next(maxSentences - minSentences) + minSentences + 1;
-
-            int numWords = rand.Next(maxWords - minWords) + minWords + 1;
-
+            int numSentences = SharedRandom.Next(maxSentences - minSentences) + minSentences + 1;
+            int numWords = SharedRandom.Next(maxWords - minWords) + minWords + 1;
             StringBuilder result = new StringBuilder();
-
             for (int p = 0; p < numParagraphs; p++)
             {
                 for (int s = 0; s < numSentences; s++)
@@ -1303,12 +1251,11 @@ namespace Aqua.StringHelpers
                     for (int w = 0; w < numWords; w++)
                     {
                         if (w > 0) { result.Append(" "); }
-                        result.Append(words[rand.Next(words.Length)]);
+                        result.Append(words[SharedRandom.Next(words.Length)]);
                     }
                     result.Append(". ");
                 }
             }
-
             return result.ToString();
         }
 

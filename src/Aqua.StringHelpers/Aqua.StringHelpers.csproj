@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Description>Is n Open Source and Free Software package for .NET to facilitate the work with strings</Description>
     <Authors>Useme Alehosaini</Authors>
     <Company />
